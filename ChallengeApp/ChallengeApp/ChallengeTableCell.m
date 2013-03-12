@@ -29,7 +29,7 @@
 - (void)updateCellData:(Challenge *)challenge {
 	if (challenge == nil) return;
 
-	[self fetchImageAsync:challenge.imageURL];
+	//[self fetchImageAsync:challenge.imageURL];
 	self.titleLabel.text = challenge.title;
 
 }

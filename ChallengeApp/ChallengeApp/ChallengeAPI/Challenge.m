@@ -11,7 +11,7 @@
 @implementation Challenge
 
 + (id)challengeWithData:(NSDictionary *)data {
-	return [[self alloc] initWithData:data];
+	return [[self alloc] initWithData:(NSData *)data];
 }
 
 - (id)initWithData:(NSDictionary *)data {
