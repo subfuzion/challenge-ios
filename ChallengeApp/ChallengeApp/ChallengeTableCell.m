@@ -29,7 +29,7 @@
 - (void)updateCellData:(Challenge *)challenge {
 	if (challenge == nil) return;
 
-//	[self fetchImageAsync:challenge.imageURL];
+	[self fetchImageAsync:challenge.imageURL];
 	self.titleLabel.text = challenge.title;
 
 }
@@ -40,6 +40,8 @@
 	// TODO: use operation queue
 	NSURL *imageURL = [[NSURL alloc] initWithString:imageURLPath];
 	UIImage *image=[UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
+	//self.contentMode = UIViewContentModeCenter;
+	//self.imageView.clipsToBounds = YES;
 	self.imageView.image = image;
 }
 
