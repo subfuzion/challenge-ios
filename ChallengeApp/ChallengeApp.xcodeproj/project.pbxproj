@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3669873CBD8907426561AE6C /* ChallengeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698CCBC5997693B1333012 /* ChallengeTableCell.m */; };
+		36698811D3067DFD65B64B15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698E71E4B55CD5A340048F /* AppDelegate.m */; };
+		366988EB8EEC300EDD1A4586 /* ChallengeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 366982559C131F514BFA0431 /* ChallengeAPI.m */; };
+		36698CDDB4875924E4E73F0F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698560C47BB86BE5F56F93 /* Challenge.m */; };
 		EA41B34816ED386F00CD6520 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34716ED386F00CD6520 /* UIKit.framework */; };
 		EA41B34A16ED386F00CD6520 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34916ED386F00CD6520 /* Foundation.framework */; };
 		EA41B34C16ED386F00CD6520 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34B16ED386F00CD6520 /* CoreGraphics.framework */; };
 		EA41B35216ED386F00CD6520 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35016ED386F00CD6520 /* InfoPlist.strings */; };
 		EA41B35416ED386F00CD6520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41B35316ED386F00CD6520 /* main.m */; };
-		EA41B35816ED386F00CD6520 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41B35716ED386F00CD6520 /* AppDelegate.m */; };
 		EA41B35A16ED386F00CD6520 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35916ED386F00CD6520 /* Default.png */; };
 		EA41B35C16ED386F00CD6520 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35B16ED386F00CD6520 /* Default@2x.png */; };
 		EA41B35E16ED386F00CD6520 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35D16ED386F00CD6520 /* Default-568h@2x.png */; };
@@ -22,6 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		366982559C131F514BFA0431 /* ChallengeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeAPI.m; sourceTree = "<group>"; };
+		366983FF6FA09D394510E721 /* ChallengeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeTableCell.h; sourceTree = "<group>"; };
+		36698560C47BB86BE5F56F93 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Challenge.m; sourceTree = "<group>"; };
+		366985F11D694D5D2ACCB9B4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		366986FC15EA519598C9E138 /* ChallengeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeAPI.h; sourceTree = "<group>"; };
+		36698CCBC5997693B1333012 /* ChallengeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTableCell.m; sourceTree = "<group>"; };
+		36698E71E4B55CD5A340048F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		36698EC05425AE23D9A79233 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
 		EA41B34416ED386F00CD6520 /* ChallengeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA41B34716ED386F00CD6520 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA41B34916ED386F00CD6520 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -30,8 +41,6 @@
 		EA41B35116ED386F00CD6520 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA41B35316ED386F00CD6520 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EA41B35516ED386F00CD6520 /* ChallengeApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChallengeApp-Prefix.pch"; sourceTree = "<group>"; };
-		EA41B35616ED386F00CD6520 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EA41B35716ED386F00CD6520 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EA41B35916ED386F00CD6520 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EA41B35B16ED386F00CD6520 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EA41B35D16ED386F00CD6520 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -56,6 +65,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3669821CDF46CC97CE705F40 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				366985F11D694D5D2ACCB9B4 /* AppDelegate.h */,
+				36698E71E4B55CD5A340048F /* AppDelegate.m */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3669898AE373D148CBF22E15 /* ChallengeAPI */ = {
+			isa = PBXGroup;
+			children = (
+				36698EC05425AE23D9A79233 /* Challenge.h */,
+				36698560C47BB86BE5F56F93 /* Challenge.m */,
+				366986FC15EA519598C9E138 /* ChallengeAPI.h */,
+				366982559C131F514BFA0431 /* ChallengeAPI.m */,
+			);
+			path = ChallengeAPI;
+			sourceTree = "<group>";
+		};
+		366989BDF97959067583B749 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EA41B35F16ED386F00CD6520 /* MainStoryboard.storyboard */,
+				366983FF6FA09D394510E721 /* ChallengeTableCell.h */,
+				36698CCBC5997693B1333012 /* ChallengeTableCell.m */,
+				EA41B36516ED386F00CD6520 /* DetailViewController.h */,
+				EA41B36616ED386F00CD6520 /* DetailViewController.m */,
+				EA41B36216ED386F00CD6520 /* MasterViewController.h */,
+				EA41B36316ED386F00CD6520 /* MasterViewController.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		EA41B33B16ED386F00CD6520 = {
 			isa = PBXGroup;
 			children = (
@@ -86,14 +129,10 @@
 		EA41B34D16ED386F00CD6520 /* ChallengeApp */ = {
 			isa = PBXGroup;
 			children = (
-				EA41B35616ED386F00CD6520 /* AppDelegate.h */,
-				EA41B35716ED386F00CD6520 /* AppDelegate.m */,
-				EA41B35F16ED386F00CD6520 /* MainStoryboard.storyboard */,
-				EA41B36216ED386F00CD6520 /* MasterViewController.h */,
-				EA41B36316ED386F00CD6520 /* MasterViewController.m */,
-				EA41B36516ED386F00CD6520 /* DetailViewController.h */,
-				EA41B36616ED386F00CD6520 /* DetailViewController.m */,
 				EA41B34E16ED386F00CD6520 /* Supporting Files */,
+				3669898AE373D148CBF22E15 /* ChallengeAPI */,
+				366989BDF97959067583B749 /* UI */,
+				3669821CDF46CC97CE705F40 /* App */,
 			);
 			path = ChallengeApp;
 			sourceTree = "<group>";
@@ -179,9 +218,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA41B35416ED386F00CD6520 /* main.m in Sources */,
-				EA41B35816ED386F00CD6520 /* AppDelegate.m in Sources */,
 				EA41B36416ED386F00CD6520 /* MasterViewController.m in Sources */,
 				EA41B36716ED386F00CD6520 /* DetailViewController.m in Sources */,
+				3669873CBD8907426561AE6C /* ChallengeTableCell.m in Sources */,
+				366988EB8EEC300EDD1A4586 /* ChallengeAPI.m in Sources */,
+				36698CDDB4875924E4E73F0F /* Challenge.m in Sources */,
+				36698811D3067DFD65B64B15 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,11 +7,14 @@
 //
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
+#import "ChallengeTableCell.h"
+#import "Challenge.h"
+#import "ChallengeAPI.h"
+
 
 @interface MasterViewController () {
-    NSMutableArray *_objects;
+    NSMutableArray *_challenges;
 }
 @end
 
@@ -25,11 +28,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+	// Do any additional setup after loading the view, typically from a nib.
+	
+	[self getChallengesAsync];
+
+    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    //self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,10 +46,10 @@
 
 - (void)insertNewObject:(id)sender
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
+    if (!_challenges) {
+        _challenges = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
+    [_challenges insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -57,15 +63,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return _challenges.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ChallengeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    Challenge *challenge = _challenges[indexPath.row];
+	[cell updateCellData:challenge];
     return cell;
 }
 
@@ -74,23 +80,40 @@
     return NO;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
+        NSDate *object = _challenges[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
+}
+
+- (void)getChallengesAsync {
+
+	if (!_challenges) {
+		_challenges = [[NSMutableArray alloc] init];
+	}
+
+	// TODO: fetch data using operation queue
+	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://challengeapi-7312.onmodulus.net/feed"]];
+	[self parseData:data];
+}
+
+- (void)parseData:(NSData *)responseData {
+	NSError *error;
+	NSDictionary* json = [NSJSONSerialization
+			JSONObjectWithData:responseData
+					   options:(NSJSONReadingOptions)kNilOptions
+						 error:&error];
+
+	NSArray *challenges = [json objectForKey:@"challenges"];
+	NSLog(@"challenges: %@", challenges);
+
+	for (NSDictionary *item in challenges) {
+		Challenge *challenge = [Challenge challengeWithData:item];
+		[_challenges addObject:challenge];
+	}
 }
 
 @end
