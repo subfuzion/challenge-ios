@@ -63,6 +63,8 @@
 	if (_fetchImageOperation) {
 		[_fetchImageOperation cancel];
 		_fetchImageOperation = nil;
+		self.logoImageView.image = nil;
+		[self setNeedsLayout];
 	}
 }
 
