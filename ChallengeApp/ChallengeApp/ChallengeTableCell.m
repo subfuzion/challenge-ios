@@ -10,20 +10,28 @@
 
 @implementation ChallengeTableCell {
 
-
 }
 
 + (id)cellWithChallenge:(Challenge *)challenge {
 	return [[self alloc] initWithChallenge:challenge];
 }
 
+/**
+* Designated initializer
+*/
 - (id)initWithChallenge:(Challenge *)challenge {
 	self = [super init];
 	if (self) {
+		//_imageIdToFetchImageOperation = [[NSDictionary alloc] init];
+
 		[self updateCellData:challenge];
 	}
 
 	return self;
+}
+
+- (id)init {
+	return [self initWithChallenge:nil];
 }
 
 - (void)updateCellData:(Challenge *)challenge {

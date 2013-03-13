@@ -18,7 +18,10 @@
 }
 @end
 
-@implementation MasterViewController
+@implementation MasterViewController {
+	NSOperationQueue *_fetchImageOperationQueue;
+	NSMutableDictionary *_imageUrlToFetchImageOperation;
+}
 
 - (void)awakeFromNib
 {
@@ -30,7 +33,7 @@
     [super viewDidLoad];
 
 	// Do any additional setup after loading the view, typically from a nib.
-	
+
 	[self getChallengesAsync];
 
     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -70,8 +73,14 @@
 {
     ChallengeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    Challenge *challenge = _challenges[indexPath.row];
+	if (_challenges == nil || [_challenges count] == 0) return cell;
+
+	Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
+
 	[cell updateCellData:challenge];
+
+	[self fetchImageAsync:challenge.imageURL tableView:tableView cellForRowAtIndexPath:indexPath];
+
     return cell;
 }
 
@@ -114,6 +123,45 @@
 		Challenge *challenge = [Challenge challengeWithData:item];
 		[_challenges addObject:challenge];
 	}
+}
+
+- (void)fetchImageAsync:(NSString *)imageURL tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+	if (!imageURL) return;
+
+	if (!_fetchImageOperationQueue) {
+		_fetchImageOperationQueue = [[NSOperationQueue alloc] init];
+		_fetchImageOperationQueue.name = @"Fetch Image Operation Queue";
+	}
+
+	if (!_imageUrlToFetchImageOperation) {
+		_imageUrlToFetchImageOperation = [[NSMutableDictionary alloc] init];
+	}
+
+	// Async solution inspired by Stav Ashuri's blog article:
+	// http://stavash.wordpress.com/2012/12/14/advanced-issues-asynchronous-uitableviewcell-content-loading-done-right/
+	NSBlockOperation *fetchImageOperation = [[NSBlockOperation alloc] init];
+	__weak NSBlockOperation *weakOpRef = fetchImageOperation;
+	[fetchImageOperation addExecutionBlock:^(void) {
+		NSURL *url = [[NSURL alloc] initWithString:imageURL];
+		UIImage *image=[UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+			if (!weakOpRef.isCancelled) {
+				ChallengeTableCell *cell = (ChallengeTableCell *) [tableView cellForRowAtIndexPath:indexPath];
+				cell.imageView.image = image;
+				[_imageUrlToFetchImageOperation removeObjectForKey:imageURL];
+			}
+		}];
+	}];
+
+	// save reference in case we want to cancel later
+	[_imageUrlToFetchImageOperation setObject:fetchImageOperation forKey:imageURL];
+
+	// queue the operation
+	[_fetchImageOperationQueue addOperation:fetchImageOperation];
+
+	// remove any previous images (from cell reuse) while image is downloading
+	ChallengeTableCell *cell = (ChallengeTableCell *) [tableView cellForRowAtIndexPath:indexPath];
+	cell.imageView.image = nil;
 }
 
 @end
