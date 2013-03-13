@@ -11,6 +11,7 @@
 		36698811D3067DFD65B64B15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698E71E4B55CD5A340048F /* AppDelegate.m */; };
 		366988EB8EEC300EDD1A4586 /* ChallengeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 366982559C131F514BFA0431 /* ChallengeAPI.m */; };
 		36698CDDB4875924E4E73F0F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698560C47BB86BE5F56F93 /* Challenge.m */; };
+		A063064A16F025940035F037 /* BookmarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A063064916F025940035F037 /* BookmarksViewController.m */; };
 		EA41B34816ED386F00CD6520 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34716ED386F00CD6520 /* UIKit.framework */; };
 		EA41B34A16ED386F00CD6520 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34916ED386F00CD6520 /* Foundation.framework */; };
 		EA41B34C16ED386F00CD6520 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34B16ED386F00CD6520 /* CoreGraphics.framework */; };
@@ -33,6 +34,8 @@
 		36698CCBC5997693B1333012 /* ChallengeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTableCell.m; sourceTree = "<group>"; };
 		36698E71E4B55CD5A340048F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		36698EC05425AE23D9A79233 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
+		A063064816F025940035F037 /* BookmarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarksViewController.h; sourceTree = "<group>"; };
+		A063064916F025940035F037 /* BookmarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarksViewController.m; sourceTree = "<group>"; };
 		EA41B34416ED386F00CD6520 /* ChallengeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA41B34716ED386F00CD6520 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA41B34916ED386F00CD6520 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				EA41B35F16ED386F00CD6520 /* MainStoryboard.storyboard */,
+				A063064816F025940035F037 /* BookmarksViewController.h */,
+				A063064916F025940035F037 /* BookmarksViewController.m */,
 				366983FF6FA09D394510E721 /* ChallengeTableCell.h */,
 				36698CCBC5997693B1333012 /* ChallengeTableCell.m */,
 				EA41B36516ED386F00CD6520 /* DetailViewController.h */,
@@ -224,6 +229,7 @@
 				366988EB8EEC300EDD1A4586 /* ChallengeAPI.m in Sources */,
 				36698CDDB4875924E4E73F0F /* Challenge.m in Sources */,
 				36698811D3067DFD65B64B15 /* AppDelegate.m in Sources */,
+				A063064A16F025940035F037 /* BookmarksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +352,7 @@
 				EA41B36C16ED386F00CD6520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
