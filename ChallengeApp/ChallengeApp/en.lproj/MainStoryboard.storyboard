@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -23,42 +23,67 @@
         <scene sceneID="18">
             <objects>
                 <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="146" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="151" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="146" id="lJ0-d7-vTF" customClass="ChallengeTableCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="146"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="151" id="lJ0-d7-vTF" customClass="ChallengeTableCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="151"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="145"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETr-8Q-5oZ">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="290" id="dK9-jC-sIf"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="fHL-BA-SDj">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="Qhg-pC-HmE"/>
+                                                <constraint firstAttribute="width" constant="60" id="cxZ-6M-CkO"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poster" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oB-NV-RFi">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="272" id="tKK-GT-VIM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="p9g-uw-9uU">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="by" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWG-i4-qKz">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="47" id="Inx-zu-w9u"/>
-                                                <constraint firstAttribute="width" constant="57" id="Viz-Dd-cQ9"/>
+                                                <constraint firstAttribute="width" constant="17" id="C9Q-ZO-6WQ"/>
+                                                <constraint firstAttribute="height" constant="21" id="P16-9d-Xqn"/>
                                             </constraints>
-                                        </imageView>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.49505349859999997" green="0.49505349859999997" blue="0.49505349859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="p9g-uw-9uU" firstAttribute="top" secondItem="ETr-8Q-5oZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="BjH-cz-nfj"/>
+                                    <constraint firstItem="5oB-NV-RFi" firstAttribute="trailing" secondItem="ETr-8Q-5oZ" secondAttribute="trailing" type="default" id="4QF-a6-oLQ"/>
                                     <constraint firstItem="ETr-8Q-5oZ" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="20" type="default" id="KS9-uK-42i"/>
                                     <constraint firstItem="ETr-8Q-5oZ" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="9" id="KaI-is-vmG"/>
-                                    <constraint firstItem="p9g-uw-9uU" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="20" type="default" id="Xqm-OJ-Xx4"/>
-                                    <constraint firstAttribute="trailing" secondItem="ETr-8Q-5oZ" secondAttribute="trailing" constant="20" type="default" id="viC-TM-ZNG"/>
+                                    <constraint firstItem="5oB-NV-RFi" firstAttribute="baseline" secondItem="tWG-i4-qKz" secondAttribute="baseline" type="default" id="KsW-9X-xVA"/>
+                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="70" id="YI9-wv-EaM"/>
+                                    <constraint firstItem="tWG-i4-qKz" firstAttribute="top" secondItem="ETr-8Q-5oZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aEQ-PX-aAe"/>
+                                    <constraint firstItem="5oB-NV-RFi" firstAttribute="top" secondItem="ETr-8Q-5oZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="n2G-fa-KG8"/>
+                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="20" type="default" id="oBD-FN-P24"/>
+                                    <constraint firstItem="tWG-i4-qKz" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="20" type="default" id="qHr-yb-GZv"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="p9g-uw-9uU" id="wmw-En-o5S"/>
+                                    <outlet property="logoImageView" destination="fHL-BA-SDj" id="M4Y-Le-QDn"/>
+                                    <outlet property="posterLabel" destination="5oB-NV-RFi" id="UQv-1K-NQU"/>
                                     <outlet property="titleLabel" destination="ETr-8Q-5oZ" id="zss-I7-2Kr"/>
                                     <segue destination="21" kind="push" identifier="showDetail" id="jZb-fq-zAk"/>
                                 </connections>
@@ -216,6 +241,31 @@
     <resources>
         <image name="info.png" width="24" height="24"/>
     </resources>
+    <classes>
+        <class className="BookmarksViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookmarksViewController.h"/>
+        </class>
+        <class className="ChallengeTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChallengeTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="posterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

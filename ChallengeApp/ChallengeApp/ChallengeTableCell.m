@@ -9,48 +9,58 @@
 
 
 @implementation ChallengeTableCell {
-
+	NSBlockOperation *_fetchImageOperation;
 }
 
-+ (id)cellWithChallenge:(Challenge *)challenge {
-	return [[self alloc] initWithChallenge:challenge];
-}
-
-/**
-* Designated initializer
-*/
-- (id)initWithChallenge:(Challenge *)challenge {
-	self = [super init];
-	if (self) {
-		//_imageIdToFetchImageOperation = [[NSDictionary alloc] init];
-
-		[self updateCellData:challenge];
-	}
-
-	return self;
-}
-
-- (id)init {
-	return [self initWithChallenge:nil];
-}
-
-- (void)updateCellData:(Challenge *)challenge {
+- (void)updateCellData:(Challenge *)challenge useOperationQueue:(NSOperationQueue *)operationQueue {
 	if (challenge == nil) return;
 
-	//[self fetchImageAsync:challenge.imageURL];
 	self.titleLabel.text = challenge.title;
+	self.posterLabel.text = challenge.poster;
 
+	[self fetchImage:challenge.imageURL useOperationQueue:operationQueue];
 }
 
-- (void)fetchImageAsync:(NSString *)imageURLPath {
+- (void)fetchImage:(NSString *)imageURLPath useOperationQueue:(NSOperationQueue *)operationQueue {
 	if (imageURLPath == nil) return;
 
-	// TODO: use operation queue
-	NSURL *imageURL = [[NSURL alloc] initWithString:imageURLPath];
-	UIImage *image=[UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-	//self.contentMode = UIViewContentModeCenter;
-	//self.imageView.clipsToBounds = YES;
-	self.imageView.image = image;
+	if (!operationQueue) {
+		NSURL *imageURL = [[NSURL alloc] initWithString:imageURLPath];
+		UIImage *image=[UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
+		self.logoImageView.image = image;
+		[self setNeedsLayout];
+
+	} else {
+		// Async solution inspired by Stav Ashuri's blog article:
+		// http://stavash.wordpress.com/2012/12/14/advanced-issues-asynchronous-uitableviewcell-content-loading-done-right/
+		_fetchImageOperation = [[NSBlockOperation alloc] init];
+		__weak NSBlockOperation *weakOpRef = _fetchImageOperation;
+		[_fetchImageOperation addExecutionBlock:^(void) {
+			NSURL *url = [[NSURL alloc] initWithString:imageURLPath];
+			UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+				if (!weakOpRef.isCancelled) {
+					self.logoImageView.image = image;
+					[self setNeedsLayout];
+					_fetchImageOperation = nil;
+				}
+			}];
+		}];
+
+		// queue the operation
+		[operationQueue addOperation:_fetchImageOperation];
+
+		// remove any previous images (from cell reuse) while image is downloading
+		self.logoImageView.image = nil;
+		[self setNeedsLayout];
+	}
+}
+
+- (void)cancelUpdate {
+	if (_fetchImageOperation) {
+		[_fetchImageOperation cancel];
+		_fetchImageOperation = nil;
+	}
 }
 
 @end

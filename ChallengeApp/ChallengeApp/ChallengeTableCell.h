@@ -12,16 +12,13 @@
 
 @interface ChallengeTableCell : UITableViewCell
 
+- (void)updateCellData:(Challenge *)challenge useOperationQueue:(NSOperationQueue *)operationQueue;
+- (void)cancelUpdate;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 
-
-
-+ (id)cellWithChallenge:(Challenge *)challenge;
-
-- (id)initWithChallenge:(Challenge *)challenge;
-
-- (void)updateCellData:(Challenge *)challenge;
+@property (weak, nonatomic) IBOutlet UILabel *posterLabel;
 
 @end
