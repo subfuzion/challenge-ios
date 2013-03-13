@@ -1,19 +1,19 @@
 //
-//  BookmarksViewController.m
+//  InfoViewController.m
 //  ChallengeApp
 //
 //  Created by Tenny Susanto on 3/12/13.
 //  Copyright (c) 2013 Subfuzion. All rights reserved.
 //
 
-#import "BookmarksViewController.h"
+#import "InfoViewController.h"
 
-@interface BookmarksViewController ()
-
+@interface InfoViewController ()
 - (IBAction)doneClick:(id)sender;
+
 @end
 
-@implementation BookmarksViewController
+@implementation InfoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

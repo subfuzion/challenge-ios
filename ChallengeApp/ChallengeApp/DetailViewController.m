@@ -10,6 +10,8 @@
 
 @interface DetailViewController ()
 
+- (IBAction)actionClick:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 - (void)configureView;
@@ -52,4 +54,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)actionClick:(id)sender {
+    
+    NSString *message = @"I want to share this challenge.gov posting with you";
+
+    
+    NSArray *postItems = @[message];
+    
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+                                            initWithActivityItems:postItems
+                                            applicationActivities:nil];
+    
+    activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact];
+    
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+    
+}
 @end

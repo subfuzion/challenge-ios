@@ -16,6 +16,10 @@
 @interface MasterViewController () {
     NSMutableArray *_challenges;
 }
+
+- (IBAction)bookMarkClick:(id)sender;
+- (IBAction)infoClick:(id)sender;
+
 @end
 
 @implementation MasterViewController {
@@ -92,10 +96,16 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = _challenges[indexPath.row];
+        
+        //NSLog(@"%@", url);
+        
         [[segue destinationViewController] setDetailItem:object];
+
     }
+
 }
 
 - (void)getChallengesAsync {
@@ -117,7 +127,7 @@
 						 error:&error];
 
 	NSArray *challenges = [json objectForKey:@"challenges"];
-	NSLog(@"challenges: %@", challenges);
+	//NSLog(@"challenges: %@", challenges);
 
 	for (NSDictionary *item in challenges) {
 		Challenge *challenge = [Challenge challengeWithData:item];
@@ -164,4 +174,32 @@
 	cell.imageView.image = nil;
 }
 
+- (IBAction)bookMarkClick:(id)sender {
+    
+    
+    //call Bookmarks view controller
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                         bundle:nil];
+    
+    
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"BookmarksViewController"];
+    
+    [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    [self presentViewController:viewController animated:YES completion:NULL];
+}
+
+- (IBAction)infoClick:(id)sender {
+    
+    //call Bookmarks view controller
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                         bundle:nil];
+    
+    
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
+    
+    [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    [self presentViewController:viewController animated:YES completion:NULL];
+}
 @end

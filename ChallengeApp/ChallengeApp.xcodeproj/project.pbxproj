@@ -12,6 +12,9 @@
 		366988EB8EEC300EDD1A4586 /* ChallengeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 366982559C131F514BFA0431 /* ChallengeAPI.m */; };
 		36698CDDB4875924E4E73F0F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698560C47BB86BE5F56F93 /* Challenge.m */; };
 		A063064A16F025940035F037 /* BookmarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A063064916F025940035F037 /* BookmarksViewController.m */; };
+		A063064C16F029ED0035F037 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A063064B16F029ED0035F037 /* info@2x.png */; };
+		A063064E16F02A020035F037 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = A063064D16F02A020035F037 /* info.png */; };
+		A063065416F02B070035F037 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A063065316F02B070035F037 /* InfoViewController.m */; };
 		EA41B34816ED386F00CD6520 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34716ED386F00CD6520 /* UIKit.framework */; };
 		EA41B34A16ED386F00CD6520 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34916ED386F00CD6520 /* Foundation.framework */; };
 		EA41B34C16ED386F00CD6520 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34B16ED386F00CD6520 /* CoreGraphics.framework */; };
@@ -36,6 +39,10 @@
 		36698EC05425AE23D9A79233 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
 		A063064816F025940035F037 /* BookmarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarksViewController.h; sourceTree = "<group>"; };
 		A063064916F025940035F037 /* BookmarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarksViewController.m; sourceTree = "<group>"; };
+		A063064B16F029ED0035F037 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
+		A063064D16F02A020035F037 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		A063065216F02B070035F037 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		A063065316F02B070035F037 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		EA41B34416ED386F00CD6520 /* ChallengeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA41B34716ED386F00CD6520 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA41B34916ED386F00CD6520 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +98,8 @@
 		366989BDF97959067583B749 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A063065216F02B070035F037 /* InfoViewController.h */,
+				A063065316F02B070035F037 /* InfoViewController.m */,
 				EA41B35F16ED386F00CD6520 /* MainStoryboard.storyboard */,
 				A063064816F025940035F037 /* BookmarksViewController.h */,
 				A063064916F025940035F037 /* BookmarksViewController.m */,
@@ -152,6 +161,8 @@
 				EA41B35916ED386F00CD6520 /* Default.png */,
 				EA41B35B16ED386F00CD6520 /* Default@2x.png */,
 				EA41B35D16ED386F00CD6520 /* Default-568h@2x.png */,
+				A063064B16F029ED0035F037 /* info@2x.png */,
+				A063064D16F02A020035F037 /* info.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -212,6 +223,8 @@
 				EA41B35C16ED386F00CD6520 /* Default@2x.png in Resources */,
 				EA41B35E16ED386F00CD6520 /* Default-568h@2x.png in Resources */,
 				EA41B36116ED386F00CD6520 /* MainStoryboard.storyboard in Resources */,
+				A063064C16F029ED0035F037 /* info@2x.png in Resources */,
+				A063064E16F02A020035F037 /* info.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +243,7 @@
 				36698CDDB4875924E4E73F0F /* Challenge.m in Sources */,
 				36698811D3067DFD65B64B15 /* AppDelegate.m in Sources */,
 				A063064A16F025940035F037 /* BookmarksViewController.m in Sources */,
+				A063065416F02B070035F037 /* InfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
