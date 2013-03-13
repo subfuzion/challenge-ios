@@ -20,7 +20,7 @@
 @end
 
 @implementation MasterViewController {
-	NSOperationQueue *_fetchImageOperationQueue;
+	NSOperationQueue *_backgroundOperationQueue;
 }
 
 - (void)awakeFromNib
@@ -32,9 +32,9 @@
 {
     [super viewDidLoad];
 
-	if (!_fetchImageOperationQueue) {
-		_fetchImageOperationQueue = [[NSOperationQueue alloc] init];
-		_fetchImageOperationQueue.name = @"Fetch Image Operation Queue";
+	if (!_backgroundOperationQueue) {
+		_backgroundOperationQueue = [[NSOperationQueue alloc] init];
+		_backgroundOperationQueue.name = @"Fetch Image Operation Queue";
 	}
 
 	[self getChallengesAsync];
@@ -43,7 +43,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-	[_fetchImageOperationQueue cancelAllOperations];
+	[_backgroundOperationQueue cancelAllOperations];
 }
 
 - (void)insertNewObject:(id)sender
@@ -77,7 +77,7 @@
 
 	Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
 
-	[cell updateCellData:challenge useOperationQueue:_fetchImageOperationQueue];
+	[cell updateCellData:challenge useOperationQueue:_backgroundOperationQueue];
 
     return cell;
 }
@@ -107,9 +107,13 @@
 		_challenges = [[NSMutableArray alloc] init];
 	}
 
-	// TODO: fetch data using operation queue
-	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://challengeapi-7312.onmodulus.net/feed"]];
-	[self parseData:data];
+	[_backgroundOperationQueue addOperationWithBlock:^(void) {
+		NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://challengeapi-7312.onmodulus.net/feed"]];
+		[self parseData:data];
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+			[self.tableView reloadData];
+		}];
+	}];
 }
 
 - (void)parseData:(NSData *)responseData {
