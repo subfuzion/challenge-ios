@@ -25,47 +25,37 @@
 }
 
 - (void)fetchImage:(NSString *)imageURLPath useOperationQueue:(NSOperationQueue *)operationQueue {
-	if (imageURLPath == nil) return;
-
-	if (!operationQueue) {
-		NSURL *imageURL = [[NSURL alloc] initWithString:imageURLPath];
-		UIImage *image=[UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-		self.logoImageView.image = image;
-		[self setNeedsLayout];
-
-	} else {
-		// Async solution inspired by Stav Ashuri's blog article:
-		// http://stavash.wordpress.com/2012/12/14/advanced-issues-asynchronous-uitableviewcell-content-loading-done-right/
-		_fetchImageOperation = [[NSBlockOperation alloc] init];
-		__weak NSBlockOperation *weakOpRef = _fetchImageOperation;
-		[_fetchImageOperation addExecutionBlock:^(void) {
-			NSURL *url = [[NSURL alloc] initWithString:imageURLPath];
-			UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-			[[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
-				if (!weakOpRef.isCancelled) {
-					self.logoImageView.image = image;
-					[self setNeedsLayout];
-					_fetchImageOperation = nil;
-				}
-			}];
-		}];
-
-		// queue the operation
-		[operationQueue addOperation:_fetchImageOperation];
-
-		// remove any previous images (from cell reuse) while image is downloading
-		self.logoImageView.image = nil;
-		[self setNeedsLayout];
-	}
+	if (!imageURLPath) return;
+	if (!operationQueue) return;
+    
+    // remove any previous images (from cell reuse) while image is downloading
+    self.logoImageView.image = nil;
+    [self setNeedsLayout];
+    
+    _fetchImageOperation = [[NSBlockOperation alloc] init];
+    __weak NSBlockOperation *weakOp = _fetchImageOperation;
+    __weak ChallengeTableCell *weakSelf = self;
+    [_fetchImageOperation addExecutionBlock:^(void) {
+        NSURL *url = [[NSURL alloc] initWithString:imageURLPath];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+            if (!weakOp.isCancelled) {
+                weakSelf.logoImageView.image = image;
+                [weakSelf setNeedsLayout];
+            }
+        }];
+    }];
+    
+    // queue the operation
+    [operationQueue addOperation:_fetchImageOperation];
 }
 
 - (void)cancelUpdate {
 	if (_fetchImageOperation) {
 		[_fetchImageOperation cancel];
-		_fetchImageOperation = nil;
-		self.logoImageView.image = nil;
-		[self setNeedsLayout];
 	}
+    self.logoImageView.image = nil;
+    [self setNeedsLayout];
 }
 
 @end
