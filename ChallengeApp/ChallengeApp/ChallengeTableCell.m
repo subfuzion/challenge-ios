@@ -9,6 +9,8 @@
 
 
 @implementation ChallengeTableCell {
+	// a reference to the operation is stored in case we want to cancel
+	// (when cell scrolls out of view)
 	NSBlockOperation *_fetchImageOperation;
 }
 
@@ -18,6 +20,7 @@
 	self.titleLabel.text = challenge.title;
 	self.posterLabel.text = challenge.poster;
 
+	// load image asynchronously
 	[self fetchImage:challenge.imageURL useOperationQueue:operationQueue];
 }
 

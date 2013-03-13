@@ -73,10 +73,11 @@
 {
     ChallengeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
+	// if no data, just return empty cell
 	if (_challenges == nil || [_challenges count] == 0) return cell;
 
+	// get the challenge for the row and update the cell asynchronously
 	Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
-
 	[cell updateCellData:challenge useOperationQueue:_backgroundOperationQueue];
 
     return cell;
@@ -102,21 +103,20 @@
 }
 
 - (void)getChallengesAsync {
-
 	if (!_challenges) {
 		_challenges = [[NSMutableArray alloc] init];
 	}
 
 	[_backgroundOperationQueue addOperationWithBlock:^(void) {
 		NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://challengeapi-7312.onmodulus.net/feed"]];
-		[self parseData:data];
+		[self parseResponseData:data];
 		[[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
 			[self.tableView reloadData];
 		}];
 	}];
 }
 
-- (void)parseData:(NSData *)responseData {
+- (void)parseResponseData:(NSData *)responseData {
 	NSError *error;
 	NSDictionary* json = [NSJSONSerialization
 			JSONObjectWithData:responseData
