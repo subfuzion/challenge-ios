@@ -15,6 +15,7 @@
 - (IBAction)bookmarkAdd:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bookmarkLabel;
 
 - (void)configureView;
 
@@ -47,6 +48,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    _bookmarkLabel.hidden = YES;
+    
     [self configureView];
 }
 
@@ -92,6 +96,20 @@
     
     [defaults synchronize];
 
+    
+    //fade in and out label that says "bookmarked"
+    _bookmarkLabel.alpha = 0;
+    _bookmarkLabel.hidden = NO;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        _bookmarkLabel.alpha = 1;
+    } completion: ^(BOOL finished) {
+        [UIView animateWithDuration:0.3 animations:^{
+            _bookmarkLabel.alpha = 0;
+        }];
+    }];
+    
+    
     
 }
 

@@ -20,7 +20,7 @@
 @end
 
 @implementation BookmarksViewController
- NSArray *_challenges;
+NSArray *_challenges;
 ChallengeAPI *_challengeAPI;
 
 
@@ -60,8 +60,8 @@ ChallengeAPI *_challengeAPI;
 
     //this isn't returning data??
      [_challengeAPI fetchBookmarks:favids withBlock:^(NSArray *challenges) {
-     _challenges = challenges;
-     //[self.tableView reloadData];
+         _challenges = challenges;
+         //[self.tableView reloadData];
          NSLog(@"%@", challenges);
      }];
 }

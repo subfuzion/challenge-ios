@@ -169,11 +169,23 @@
                                     <action selector="bookmarkAdd:" destination="21" eventType="touchUpInside" id="lsP-sw-piV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bookmarked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRN-Ko-7D5">
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Fkw-wp-hzP"/>
+                                    <constraint firstAttribute="height" constant="27" id="RTS-04-UNv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eRN-Ko-7D5" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="30" id="GAT-p8-zjC"/>
+                            <constraint firstItem="eRN-Ko-7D5" firstAttribute="top" secondItem="22" secondAttribute="top" constant="321" type="user" id="HPf-I9-XL0"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="139" id="Ibh-dU-h2g"/>
                             <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R0m-z7-TWk"/>
-                            <constraint firstItem="ltr-N5-va5" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="139" id="aZn-HR-Yvw"/>
                             <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="22" secondAttribute="top" constant="341" type="user" id="kyA-PL-FQm"/>
                             <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pRe-qY-58T"/>
                             <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="118" id="u8k-CE-wiH"/>
@@ -187,6 +199,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bookmarkLabel" destination="eRN-Ko-7D5" id="NTA-ji-4BJ"/>
                         <outlet property="detailDescriptionLabel" destination="27" id="28"/>
                     </connections>
                 </viewController>
@@ -337,6 +350,7 @@
             <relationships>
                 <relationship kind="action" name="actionClick:"/>
                 <relationship kind="action" name="bookmarkAdd:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bookmarkLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
