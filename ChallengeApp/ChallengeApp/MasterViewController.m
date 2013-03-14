@@ -19,6 +19,9 @@
 	ChallengeAPI *_challengeAPI;
     NSArray *_challenges;
 }
+- (IBAction)infoClick:(id)sender;
+
+- (IBAction)bookmarkClick:(id)sender;
 @end
 
 @implementation MasterViewController
@@ -101,12 +104,17 @@
 //	}];
 
 
+<<<<<<< HEAD
 	// test bookmark support
 	NSMutableArray *ids = [[NSMutableArray alloc] initWithObjects:
 			@"513b2256a9d2fb325b000002",
 			@"513b2256a9d2fb325b000003",
 			@"513b2256a9d2fb325b000004",
 			nil];
+=======
+	NSArray *challenges = [json objectForKey:@"challenges"];
+	//NSLog(@"challenges: %@", challenges);
+>>>>>>> Format main table view
 
 	[_challengeAPI fetchBookmarks:ids withBlock:^(NSArray *challenges) {
 		_challenges = challenges;
@@ -114,4 +122,38 @@
 	}];
 }
 
+- (IBAction)infoClick:(id)sender {
+    
+    //call InfoViewController
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                         bundle:nil];
+    
+    
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
+    
+    
+    [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    [self presentViewController:viewController animated:YES completion:NULL];
+    
+}
+
+- (IBAction)bookmarkClick:(id)sender {
+    
+    
+    
+    //call BookmarksViewController
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                         bundle:nil];
+    
+    
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"BookmarksViewController"];
+    
+    
+    [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    [self presentViewController:viewController animated:YES completion:NULL];
+    
+}
 @end

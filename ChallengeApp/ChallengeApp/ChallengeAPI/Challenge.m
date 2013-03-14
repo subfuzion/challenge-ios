@@ -25,7 +25,7 @@
 		self.summary = [data objectForKey:@"summary"];
 		self.status = [data objectForKey:@"status"];
 		self.supporters = [data objectForKey:@"supporters"];
-		self.prizeMoney = [data objectForKey:@"price_money"];
+		self.prizeMoney = [data objectForKey:@"prize_money"];
 		self.submissionPeriodStartDate = [data objectForKey:@"submission_period_start_date"];
 		self.submissionPeriodEndDate = [data objectForKey:@"submission_period_end_date"];
 		self.winnersAnnouncedDate = [data objectForKey:@"winners_announced_date"];

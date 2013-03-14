@@ -21,4 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *posterLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *prizeLabel;
+
+
 @end

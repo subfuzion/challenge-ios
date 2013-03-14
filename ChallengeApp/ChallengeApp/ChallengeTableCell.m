@@ -18,8 +18,22 @@
 	if (challenge == nil) return;
 
 	self.titleLabel.text = challenge.title;
-	self.posterLabel.text = challenge.poster;
-
+    
+    //[self.titleLabel sizeToFit];
+    
+	self.posterLabel.text = [NSString stringWithFormat:@"Submit by: %@", [challenge.submissionPeriodEndDate substringToIndex:12]];
+    
+    
+    int prizemoneyInt = [challenge.prizeMoney intValue];
+    
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [currencyFormatter setMaximumFractionDigits:0];
+    
+    NSString *prizemoneyString = [currencyFormatter stringFromNumber:[NSNumber numberWithInt:prizemoneyInt]];
+    
+    self.prizeLabel.text = prizemoneyString;
+    
 	// load image asynchronously
 	[self fetchImage:challenge.imageURL useOperationQueue:operationQueue];
 }

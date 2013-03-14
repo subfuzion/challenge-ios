@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -23,67 +23,80 @@
         <scene sceneID="18">
             <objects>
                 <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="151" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="110" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="151" id="lJ0-d7-vTF" customClass="ChallengeTableCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="151"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="110" id="lJ0-d7-vTF" customClass="ChallengeTableCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETr-8Q-5oZ">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="225" translatesAutoresizingMaskIntoConstraints="NO" id="ETr-8Q-5oZ">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="290" id="dK9-jC-sIf"/>
+                                                <constraint firstAttribute="width" constant="225" id="4cy-hN-yrO"/>
+                                                <constraint firstAttribute="height" constant="66" id="x8h-kX-VIi"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="fHL-BA-SDj">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Border.png" translatesAutoresizingMaskIntoConstraints="NO" id="vcG-Sk-7sW"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHL-BA-SDj">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="Qhg-pC-HmE"/>
-                                                <constraint firstAttribute="width" constant="60" id="cxZ-6M-CkO"/>
+                                                <constraint firstAttribute="width" constant="70" id="idE-uH-ypH"/>
+                                                <constraint firstAttribute="height" constant="70" id="m0w-Qa-Rr5"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poster" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oB-NV-RFi">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SubmitDate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oB-NV-RFi">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="272" id="tKK-GT-VIM"/>
+                                                <constraint firstAttribute="width" constant="155" id="JTv-i0-kkn"/>
+                                                <constraint firstAttribute="height" constant="21" id="oE5-Ig-QJE"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="by" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWG-i4-qKz">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Prize Money" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiJ-e3-Uot">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="17" id="C9Q-ZO-6WQ"/>
-                                                <constraint firstAttribute="height" constant="21" id="P16-9d-Xqn"/>
+                                                <constraint firstAttribute="width" constant="100" id="GRE-lu-8hS"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.49505349859999997" green="0.49505349859999997" blue="0.49505349859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ribbon.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pil-WJ-91d">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="21G-PG-N1k"/>
+                                                <constraint firstAttribute="height" constant="35" id="T42-Fy-JfD"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="5oB-NV-RFi" firstAttribute="trailing" secondItem="ETr-8Q-5oZ" secondAttribute="trailing" type="default" id="4QF-a6-oLQ"/>
-                                    <constraint firstItem="ETr-8Q-5oZ" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="20" type="default" id="KS9-uK-42i"/>
-                                    <constraint firstItem="ETr-8Q-5oZ" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="9" id="KaI-is-vmG"/>
-                                    <constraint firstItem="5oB-NV-RFi" firstAttribute="baseline" secondItem="tWG-i4-qKz" secondAttribute="baseline" type="default" id="KsW-9X-xVA"/>
-                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="70" id="YI9-wv-EaM"/>
-                                    <constraint firstItem="tWG-i4-qKz" firstAttribute="top" secondItem="ETr-8Q-5oZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aEQ-PX-aAe"/>
-                                    <constraint firstItem="5oB-NV-RFi" firstAttribute="top" secondItem="ETr-8Q-5oZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="n2G-fa-KG8"/>
-                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="20" type="default" id="oBD-FN-P24"/>
-                                    <constraint firstItem="tWG-i4-qKz" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="20" type="default" id="qHr-yb-GZv"/>
+                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="centerY" secondItem="vcG-Sk-7sW" secondAttribute="centerY" type="default" id="1bo-Z4-3fg"/>
+                                    <constraint firstItem="vcG-Sk-7sW" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="2" id="5t9-nk-n8n"/>
+                                    <constraint firstItem="ETr-8Q-5oZ" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="87" id="CBK-ul-jXr"/>
+                                    <constraint firstAttribute="trailing" secondItem="pil-WJ-91d" secondAttribute="trailing" constant="9" id="CL4-gf-DrU"/>
+                                    <constraint firstItem="vcG-Sk-7sW" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="3" id="DMw-ME-6M8"/>
+                                    <constraint firstAttribute="trailing" secondItem="YiJ-e3-Uot" secondAttribute="trailing" constant="44" id="R53-KW-JwZ"/>
+                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="leading" secondItem="5oB-NV-RFi" secondAttribute="leading" type="default" id="TbJ-qe-lu1"/>
+                                    <constraint firstItem="YiJ-e3-Uot" firstAttribute="top" secondItem="5oB-NV-RFi" secondAttribute="top" type="default" id="Xad-dY-5ll"/>
+                                    <constraint firstAttribute="bottom" secondItem="5oB-NV-RFi" secondAttribute="bottom" constant="7" id="rjW-JA-aJv"/>
+                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="centerX" secondItem="vcG-Sk-7sW" secondAttribute="centerX" type="default" id="uPT-T6-MRO"/>
+                                    <constraint firstItem="YiJ-e3-Uot" firstAttribute="baseline" secondItem="5oB-NV-RFi" secondAttribute="baseline" type="default" id="xdS-wN-BfN"/>
+                                    <constraint firstAttribute="bottom" secondItem="pil-WJ-91d" secondAttribute="bottom" constant="3" id="xjI-Rd-0CX"/>
+                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="top" secondItem="ETr-8Q-5oZ" secondAttribute="top" type="default" id="zr1-jX-Esg"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="logoImageView" destination="fHL-BA-SDj" id="M4Y-Le-QDn"/>
                                     <outlet property="posterLabel" destination="5oB-NV-RFi" id="UQv-1K-NQU"/>
+                                    <outlet property="prizeLabel" destination="YiJ-e3-Uot" id="oZe-0N-kqz"/>
                                     <outlet property="titleLabel" destination="ETr-8Q-5oZ" id="zss-I7-2Kr"/>
                                     <segue destination="21" kind="push" identifier="showDetail" id="jZb-fq-zAk"/>
                                 </connections>
@@ -99,7 +112,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="info.png" id="YHC-y8-A5U">
                             <connections>
-                                <action selector="infoClick:" destination="12" id="XDQ-fk-UiL"/>
+                                <action selector="infoClick:" destination="12" id="JzF-pu-ga5"/>
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="xUE-4U-FpT">
@@ -113,14 +126,14 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="mbe-kP-m9t">
                             <connections>
-                                <action selector="bookMarkClick:" destination="12" id="YaX-KO-IUR"/>
+                                <action selector="bookmarkClick:" destination="12" id="rkF-IG-Nr0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="64"/>
+            <point key="canvasLocation" x="314" y="10"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
@@ -239,28 +252,45 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Border.png" width="76" height="76"/>
         <image name="info.png" width="24" height="24"/>
+        <image name="ribbon.jpg" width="60" height="60"/>
     </resources>
     <classes>
         <class className="BookmarksViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BookmarksViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneClick:"/>
+            </relationships>
         </class>
         <class className="ChallengeTableCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChallengeTableCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="posterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prizeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="actionClick:"/>
                 <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneClick:"/>
             </relationships>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="bookmarkClick:"/>
+                <relationship kind="action" name="infoClick:"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
