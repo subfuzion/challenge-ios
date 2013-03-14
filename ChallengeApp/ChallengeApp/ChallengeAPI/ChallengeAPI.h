@@ -24,8 +24,7 @@ extern NSString * const kChallengeBookmarksPath;
 - (void)cancelFetchBookmarks;
 
 // This will execute the block on the UI thread and pass the requested image.
-- (void)fetchImage:(NSString *)imageURL withBlock:(void (^)(UIImage *))block;
-- (void)cancelFetchImage;
++ (NSOperation *)fetchImage:(NSString *)imageURL operationQueue:(NSOperationQueue *)operationQueue withBlock:(void (^)(UIImage *))block;
 
 
 @end

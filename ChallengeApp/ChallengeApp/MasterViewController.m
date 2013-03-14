@@ -17,7 +17,7 @@
 @interface MasterViewController () {
 	NSOperationQueue *_backgroundOperationQueue;
 	ChallengeAPI *_challengeAPI;
-    NSMutableArray *_challenges;
+    NSArray *_challenges;
 }
 @end
 
@@ -47,17 +47,6 @@
 {
     [super didReceiveMemoryWarning];
 	[_challengeAPI cancelFetchChallenges];
-}
-
-- (void)insertNewObject:(id)sender
-{
-    if (!_challenges) {
-        _challenges = [[NSMutableArray alloc] init];
-    }
-
-	[_challenges addObject:[[Challenge alloc] init]];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_challenges count] inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table View

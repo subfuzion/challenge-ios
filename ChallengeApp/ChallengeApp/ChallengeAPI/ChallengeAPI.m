@@ -20,16 +20,6 @@ NSString * const kChallengeBookmarksPath = @"http://challengeapi-7312.onmodulus.
 @implementation ChallengeAPI {
 	NSOperationQueue *_fetchChallengesOperationQueue;
 	NSOperationQueue *_fetchBookmarksOperationQueue;
-	NSOperationQueue *_imageOperationQueue;
-}
-
-- (id)init {
-	if (self = [super init]) {
-		_imageOperationQueue = [[NSOperationQueue alloc] init];
-		_imageOperationQueue.name = @"Image Download Operation Queue";
-	}
-
-	return self;
 }
 
 - (void)fetchChallenges:(void (^)(NSArray *))block {
@@ -91,12 +81,26 @@ NSString * const kChallengeBookmarksPath = @"http://challengeapi-7312.onmodulus.
 	}
 }
 
-- (void)fetchImage:(NSString *)imageURL withBlock:(void (^)(UIImage *))block {
-	// todo
-}
++ (NSOperation *)fetchImage:(NSString *)imageURL operationQueue:(NSOperationQueue *)operationQueue withBlock:(void (^)(UIImage *))block {
+	if (!imageURL) return nil;
+	if (!operationQueue) return nil;
 
-- (void)cancelFetchImage {
-	// todo
+	NSBlockOperation *fetchImageOperation = [[NSBlockOperation alloc] init];
+	__weak NSBlockOperation *weakOp = fetchImageOperation;
+	[fetchImageOperation addExecutionBlock:^(void) {
+		NSURL *url = [[NSURL alloc] initWithString:imageURL];
+		UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+			if (!weakOp.isCancelled) {
+				block(image);
+			}
+		}];
+	}];
+
+	// queue the operation
+	[operationQueue addOperation:fetchImageOperation];
+
+	return fetchImageOperation;
 }
 
 - (NSArray *)parseFeedResponseData:(NSData *)responseData {
