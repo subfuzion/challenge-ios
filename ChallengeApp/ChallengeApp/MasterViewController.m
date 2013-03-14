@@ -98,28 +98,29 @@
 }
 
 - (void)fetchChallenges {
-//	[_challengeAPI fetchChallenges:^(NSArray *challenges) {
-//		_challenges = challenges;
-//		[self.tableView reloadData];
-//	}];
+	[_challengeAPI fetchChallenges:^(NSArray *challenges) {
+		_challenges = challenges;
+		[self.tableView reloadData];
+	}];
 
-
-<<<<<<< HEAD
+/*
 	// test bookmark support
 	NSMutableArray *ids = [[NSMutableArray alloc] initWithObjects:
 			@"513b2256a9d2fb325b000002",
 			@"513b2256a9d2fb325b000003",
 			@"513b2256a9d2fb325b000004",
 			nil];
-=======
+
 	NSArray *challenges = [json objectForKey:@"challenges"];
-	//NSLog(@"challenges: %@", challenges);
->>>>>>> Format main table view
+
 
 	[_challengeAPI fetchBookmarks:ids withBlock:^(NSArray *challenges) {
 		_challenges = challenges;
 		[self.tableView reloadData];
 	}];
+ 
+ */
+    
 }
 
 - (IBAction)infoClick:(id)sender {
