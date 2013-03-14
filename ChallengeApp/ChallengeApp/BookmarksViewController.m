@@ -39,11 +39,6 @@ ChallengeAPI *_challengeAPI;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    
-    NSMutableArray *testArray= [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
-    
-    NSLog(@"Favorites ids: %@", testArray);
-    
     [self fetchBookmarks];
     
 }
@@ -57,17 +52,14 @@ ChallengeAPI *_challengeAPI;
 
 - (void)fetchBookmarks {
 
-     // test bookmark support
-     NSMutableArray *ids = [[NSMutableArray alloc] initWithObjects:
-     @"513b2256a9d2fb325b000001",
-     @"513b2256a9d2fb325b000003",
-     @"513b2256a9d2fb325b000004",
-     nil];
-     
-    // NSArray *challenges = [json objectForKey:@"challenges"];
+    //read favids from NSUserDefaults
+    NSMutableArray *favids= [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
     
-     
-     [_challengeAPI fetchBookmarks:ids withBlock:^(NSArray *challenges) {
+    NSLog(@"Fav ids: %@", favids);
+    
+
+    //this isn't returning data??
+     [_challengeAPI fetchBookmarks:favids withBlock:^(NSArray *challenges) {
      _challenges = challenges;
      //[self.tableView reloadData];
          NSLog(@"%@", challenges);

@@ -77,17 +77,18 @@
 
 - (IBAction)bookmarkAdd:(UIButton *)sender {
     
+    //add id to NSUserDefaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSMutableArray *testArray= [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
+    NSMutableArray *favArray= [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
     
-    //see if already added before
-    if(![testArray containsObject:_detailItem])
+    //see if id already added before, don't store it if already there
+    if(![favArray containsObject:_detailItem])
     {
-        [testArray addObject:_detailItem];
+        [favArray addObject:_detailItem];
     }
     
-    [defaults setObject:testArray forKey:@"favoriteArray"];
+    [defaults setObject:favArray forKey:@"favoriteArray"];
     
     [defaults synchronize];
 
