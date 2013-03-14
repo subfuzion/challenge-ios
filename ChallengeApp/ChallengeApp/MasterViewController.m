@@ -95,7 +95,7 @@
         
         NSString *title;
         
-        title = [[_challenges objectAtIndex:indexPath.row] valueForKey:@"title"];
+        title = [[_challenges objectAtIndex:indexPath.row] valueForKey:@"ID"];
         
         [[segue destinationViewController] setDetailItem:title];
         

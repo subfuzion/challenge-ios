@@ -39,6 +39,11 @@ ChallengeAPI *_challengeAPI;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
+    NSMutableArray *testArray= [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
+    
+    NSLog(@"Favorites ids: %@", testArray);
+    
     [self fetchBookmarks];
     
 }
@@ -66,7 +71,6 @@ ChallengeAPI *_challengeAPI;
      _challenges = challenges;
      //[self.tableView reloadData];
          NSLog(@"%@", challenges);
-         
      }];
 }
 

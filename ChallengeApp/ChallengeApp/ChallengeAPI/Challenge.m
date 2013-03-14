@@ -29,7 +29,8 @@
 		self.submissionPeriodStartDate = [data objectForKey:@"submission_period_start_date"];
 		self.submissionPeriodEndDate = [data objectForKey:@"submission_period_end_date"];
 		self.winnersAnnouncedDate = [data objectForKey:@"winners_announced_date"];
-
+        self.ID = [data objectForKey:@"_id"];
+        
 		// TODO
 		//self.categories = [data objectForKey:@"categories"];
 

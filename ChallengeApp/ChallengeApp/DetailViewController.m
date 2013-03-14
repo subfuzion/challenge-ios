@@ -12,6 +12,8 @@
 
 - (IBAction)actionClick:(id)sender;
 
+- (IBAction)bookmarkAdd:(UIButton *)sender;
+
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 - (void)configureView;
@@ -72,4 +74,24 @@
     [self presentViewController:activityVC animated:YES completion:nil];
     
 }
+
+- (IBAction)bookmarkAdd:(UIButton *)sender {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSMutableArray *testArray= [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
+    
+    //see if already added before
+    if(![testArray containsObject:_detailItem])
+    {
+        [testArray addObject:_detailItem];
+    }
+    
+    [defaults setObject:testArray forKey:@"favoriteArray"];
+    
+    [defaults synchronize];
+
+    
+}
+
 @end
