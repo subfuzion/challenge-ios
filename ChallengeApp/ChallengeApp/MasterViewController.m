@@ -15,13 +15,13 @@
 
 
 @interface MasterViewController () {
+	NSOperationQueue *_backgroundOperationQueue;
+	ChallengeAPI *_challengeAPI;
     NSMutableArray *_challenges;
 }
 @end
 
-@implementation MasterViewController {
-	NSOperationQueue *_backgroundOperationQueue;
-}
+@implementation MasterViewController
 
 - (void)awakeFromNib
 {
@@ -34,16 +34,19 @@
 
 	if (!_backgroundOperationQueue) {
 		_backgroundOperationQueue = [[NSOperationQueue alloc] init];
-		_backgroundOperationQueue.name = @"Fetch Image Operation Queue";
 	}
 
-	[self getChallengesAsync];
+	if (!_challengeAPI) {
+		_challengeAPI = [[ChallengeAPI alloc] init];
+	}
+
+	[self fetchChallenges];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-	[_backgroundOperationQueue cancelAllOperations];
+	[_challengeAPI cancelFetchChallenges];
 }
 
 - (void)insertNewObject:(id)sender
@@ -102,34 +105,24 @@
     }
 }
 
-- (void)getChallengesAsync {
-	if (!_challenges) {
-		_challenges = [[NSMutableArray alloc] init];
-	}
+- (void)fetchChallenges {
+//	[_challengeAPI fetchChallenges:^(NSArray *challenges) {
+//		_challenges = challenges;
+//		[self.tableView reloadData];
+//	}];
 
-	[_backgroundOperationQueue addOperationWithBlock:^(void) {
-		NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://challengeapi-7312.onmodulus.net/feed"]];
-		[self parseResponseData:data];
-		[[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
-			[self.tableView reloadData];
-		}];
+
+	// test bookmark support
+	NSMutableArray *ids = [[NSMutableArray alloc] initWithObjects:
+			@"513b2256a9d2fb325b000002",
+			@"513b2256a9d2fb325b000003",
+			@"513b2256a9d2fb325b000004",
+			nil];
+
+	[_challengeAPI fetchBookmarks:ids withBlock:^(NSArray *challenges) {
+		_challenges = challenges;
+		[self.tableView reloadData];
 	}];
-}
-
-- (void)parseResponseData:(NSData *)responseData {
-	NSError *error;
-	NSDictionary* json = [NSJSONSerialization
-			JSONObjectWithData:responseData
-					   options:(NSJSONReadingOptions)kNilOptions
-						 error:&error];
-
-	NSArray *challenges = [json objectForKey:@"challenges"];
-	NSLog(@"challenges: %@", challenges);
-
-	for (NSDictionary *item in challenges) {
-		Challenge *challenge = [Challenge challengeWithData:item];
-		[_challenges addObject:challenge];
-	}
 }
 
 @end

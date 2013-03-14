@@ -25,6 +25,7 @@
 }
 
 - (void)fetchImage:(NSString *)imageURLPath useOperationQueue:(NSOperationQueue *)operationQueue {
+	// todo: move to ChallengeAPI
 	if (!imageURLPath) return;
 	if (!operationQueue) return;
     
@@ -51,6 +52,7 @@
 }
 
 - (void)cancelUpdate {
+	// todo: move to ChallengeAPI
 	if (_fetchImageOperation) {
 		[_fetchImageOperation cancel];
 	}
