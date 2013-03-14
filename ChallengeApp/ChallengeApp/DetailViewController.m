@@ -56,10 +56,10 @@
 
 - (IBAction)actionClick:(id)sender {
     
-    NSString *message = @"I want to share this challenge.gov posting with you";
+   // NSString *message = @"I want to share this challenge.gov posting with you";
 
     
-    NSArray *postItems = @[message];
+    NSArray *postItems = @[_detailItem];
     
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]
