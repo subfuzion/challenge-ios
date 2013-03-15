@@ -38,9 +38,15 @@ ChallengeAPI *_challengeAPI;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    [self fetchBookmarks];
-    
+
+	if (!_challengeAPI) {
+		_challengeAPI = [[ChallengeAPI alloc] init];
+	}
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	// Refresh the bookmarks each time view appears
+	[self fetchBookmarks];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,12 +61,12 @@ ChallengeAPI *_challengeAPI;
     //read favids from NSUserDefaults
     NSMutableArray *favids= [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
     NSLog(@"ids: %@", favids);
-    
-     [_challengeAPI fetchBookmarks:favids withBlock:^(NSArray *challenges) {
-         _challenges = challenges;
-         // [self.tableView reloadData];
-         NSLog(@"%@", challenges);
-     }];
+
+	[_challengeAPI fetchBookmarks:favids withBlock:^(NSArray *challenges) {
+		_challenges = challenges;
+///		[self.tableView reloadData];
+		NSLog(@"%@", challenges);
+	}];
 }
 
 

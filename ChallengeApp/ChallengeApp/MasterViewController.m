@@ -103,23 +103,10 @@
 }
 
 - (void)fetchChallenges {
-//	[_challengeAPI fetchChallenges:^(NSArray *challenges) {
-//		_challenges = challenges;
-//		[self.tableView reloadData];
-//	}];
-
-	// test bookmark support
-	NSMutableArray *ids = [[NSMutableArray alloc] initWithObjects:
-			@"513b2256a9d2fb325b000002",
-			@"513b2256a9d2fb325b000003",
-			@"513b2256a9d2fb325b000004",
-			nil];
-
-	[_challengeAPI fetchBookmarks:ids withBlock:^(NSArray *challenges) {
+	[_challengeAPI fetchChallenges:^(NSArray *challenges) {
 		_challenges = challenges;
 		[self.tableView reloadData];
 	}];
-
 }
 
 - (IBAction)infoClick:(id)sender {
