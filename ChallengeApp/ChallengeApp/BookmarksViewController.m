@@ -54,14 +54,11 @@ ChallengeAPI *_challengeAPI;
 
     //read favids from NSUserDefaults
     NSMutableArray *favids= [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
+    NSLog(@"ids: %@", favids);
     
-    NSLog(@"Fav ids: %@", favids);
-    
-
-    //this isn't returning data??
      [_challengeAPI fetchBookmarks:favids withBlock:^(NSArray *challenges) {
          _challenges = challenges;
-         //[self.tableView reloadData];
+         // [self.tableView reloadData];
          NSLog(@"%@", challenges);
      }];
 }
