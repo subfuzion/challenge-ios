@@ -247,7 +247,6 @@
         <class className="BookmarksViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BookmarksViewController.h"/>
             <relationships>
-                <relationship kind="action" name="doneClick:"/>
                 <relationship kind="action" name="doneTap:" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
