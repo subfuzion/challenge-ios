@@ -72,6 +72,18 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+
+    Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
+    viewController.title = challenge.ID;
+    NSLog(@"-> %@", challenge.title);
+
+    [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     ChallengeTableCell *challengeCell = (ChallengeTableCell *) cell;
     [challengeCell cancelUpdate];
@@ -81,15 +93,6 @@
     return NO;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSString *title;
-        title = [[_challenges objectAtIndex:indexPath.row] valueForKey:@"ID"];
-        [[segue destinationViewController] setDetailItem:title];
-    }
-}
-
 #pragma mark - Implementation
 
 - (void)fetchChallenges {
@@ -97,23 +100,6 @@
         _challenges = challenges;
         [self.tableView reloadData];
     }];
-}
-
-- (IBAction)infoClick:(id)sender {
-    //call InfoViewController
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
-    [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-    [self presentViewController:viewController animated:YES completion:NULL];
-}
-
-- (IBAction)bookmarkClick:(id)sender {
-    //call BookmarksViewController
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-///    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"BookmarksViewController"];
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"FavoritesViewController"];
-    [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-    [self presentViewController:viewController animated:YES completion:NULL];
 }
 
 @end
