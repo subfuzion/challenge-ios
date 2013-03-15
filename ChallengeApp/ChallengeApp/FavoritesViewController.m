@@ -33,8 +33,8 @@
         _challengeAPI = [[ChallengeAPI alloc] init];
     }
 
-    UINib *tableCell = [UINib nibWithNibName:@"ChallengeCell" bundle:nil];
-    [self.tableView registerNib:tableCell forCellReuseIdentifier:@"ChallengeCell"];
+    UINib *tableCell = [UINib nibWithNibName:@"ChallengeTableCell" bundle:nil];
+    [self.tableView registerNib:tableCell forCellReuseIdentifier:@"ChallengeTableCell"];
 }
 
 	
@@ -69,7 +69,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ChallengeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChallengeCell" forIndexPath:indexPath];
+    ChallengeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChallengeTableCell" forIndexPath:indexPath];
 
     // if no data, just return empty cell
     if (_challenges == nil || [_challenges count] == 0) return cell;

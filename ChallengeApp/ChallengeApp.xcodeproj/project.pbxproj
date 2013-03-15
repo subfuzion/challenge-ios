@@ -30,7 +30,7 @@
 		EA41B36416ED386F00CD6520 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41B36316ED386F00CD6520 /* MasterViewController.m */; };
 		EA41B36716ED386F00CD6520 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41B36616ED386F00CD6520 /* DetailViewController.m */; };
 		EA649B2C16F2BA9400886897 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA649B2B16F2BA9400886897 /* FavoritesViewController.m */; };
-		EAEFE8A016F310000092A52C /* ChallengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAEFE89F16F310000092A52C /* ChallengeCell.xib */; };
+		EAEFE8A016F310000092A52C /* ChallengeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAEFE89F16F310000092A52C /* ChallengeTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +69,7 @@
 		EA41B36616ED386F00CD6520 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		EA649B2A16F2BA9400886897 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		EA649B2B16F2BA9400886897 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
-		EAEFE89F16F310000092A52C /* ChallengeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengeCell.xib; sourceTree = "<group>"; };
+		EAEFE89F16F310000092A52C /* ChallengeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengeTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 				EA41B36316ED386F00CD6520 /* MasterViewController.m */,
 				EA649B2A16F2BA9400886897 /* FavoritesViewController.h */,
 				EA649B2B16F2BA9400886897 /* FavoritesViewController.m */,
-				EAEFE89F16F310000092A52C /* ChallengeCell.xib */,
+				EAEFE89F16F310000092A52C /* ChallengeTableCell.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 				A0CBAE4B16F26B4D002F4E2A /* Border.png in Resources */,
 				A0CBAE4F16F27B97002F4E2A /* ribbon.jpg in Resources */,
 				A0CBAE5116F29209002F4E2A /* favorites_add_48.png in Resources */,
-				EAEFE8A016F310000092A52C /* ChallengeCell.xib in Resources */,
+				EAEFE8A016F310000092A52C /* ChallengeTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

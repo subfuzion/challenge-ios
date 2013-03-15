@@ -23,11 +23,12 @@
     NSOperation *_fetchImageOperation;
 }
 
+
 - (void)updateCellData:(Challenge *)challenge useOperationQueue:(NSOperationQueue *)operationQueue {
     if (challenge == nil) return;
 
     self.titleLabel.text = challenge.title;
-    //[self.titleLabel sizeToFit];
+    //[self.titleLabel sizeToFit];  << tony: handled in NIB settings
 
     self.submitDateLabel.text = [NSString stringWithFormat:@"Submit by: %@", [challenge.submissionPeriodEndDate substringToIndex:12]];
 
