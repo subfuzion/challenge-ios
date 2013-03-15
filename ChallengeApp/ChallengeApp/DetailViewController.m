@@ -14,8 +14,8 @@
 
 - (IBAction)bookmarkAdd:(UIButton *)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bookmarkLabel;
+@property(weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property(weak, nonatomic) IBOutlet UILabel *bookmarkLabel;
 
 - (void)configureView;
 
@@ -25,18 +25,16 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
-{
+- (void)setDetailItem:(id)newDetailItem {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
+
         // Update the view.
         [self configureView];
     }
 }
 
-- (void)configureView
-{
+- (void)configureView {
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
@@ -44,73 +42,69 @@
     }
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
+    // Do any additional setup after loading the view, typically from a nib.
+
     _bookmarkLabel.hidden = YES;
-    
+
     [self configureView];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)actionClick:(id)sender {
-    
-   // NSString *message = @"I want to share this challenge.gov posting with you";
 
-    
+    // NSString *message = @"I want to share this challenge.gov posting with you";
+
+
     NSArray *postItems = @[_detailItem];
-    
-    
+
+
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]
-                                            initWithActivityItems:postItems
-                                            applicationActivities:nil];
-    
+            initWithActivityItems:postItems
+            applicationActivities:nil];
+
     activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact];
-    
-    
+
+
     [self presentViewController:activityVC animated:YES completion:nil];
-    
+
 }
 
 - (IBAction)bookmarkAdd:(UIButton *)sender {
-    
+
     //add id to NSUserDefaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSMutableArray *favArray= [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
-    
+
+    NSMutableArray *favArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
+
     //see if id already added before, don't store it if already there
-    if(![favArray containsObject:_detailItem])
-    {
+    if (![favArray containsObject:_detailItem]) {
         [favArray addObject:_detailItem];
     }
-    
+
     [defaults setObject:favArray forKey:@"favoriteArray"];
-    
+
     [defaults synchronize];
 
-    
+
     //fade in and out label that says "bookmarked"
     _bookmarkLabel.alpha = 0;
     _bookmarkLabel.hidden = NO;
-    
+
     [UIView animateWithDuration:0.3 animations:^{
         _bookmarkLabel.alpha = 1;
-    } completion: ^(BOOL finished) {
+    }                completion:^(BOOL finished) {
         [UIView animateWithDuration:0.3 animations:^{
             _bookmarkLabel.alpha = 0;
         }];
     }];
-    
-    
-    
+
+
 }
 
 @end
