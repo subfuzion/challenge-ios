@@ -7,12 +7,15 @@
 //
 
 #import "DetailViewController.h"
+#import "ChallengeAPI.h"
 
 @interface DetailViewController ()
 
 - (IBAction)onSendAction:(id)sender;
 - (IBAction)onBookmarkAction:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property(weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property(weak, nonatomic) IBOutlet UILabel *bookmarkLabel;
 
@@ -20,14 +23,23 @@
 
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController {
+    NSOperationQueue *_backgroundOperationQueue;
+    NSOperation *_fetchImageOperation;
+    ChallengeAPI *_challengeAPI;
+}
 
 #pragma mark - Managing the detail item
 
 - (void)configureView {
     // Update the user interface for the challenge, which is passed by MasterViewController
-    if (self.challenge) {
-        self.detailDescriptionLabel.text = self.challenge.description;
+    Challenge *item = self.challenge;
+    if (item) {
+        self.titleLabel.text = item.title;
+        self.detailDescriptionLabel.text = item.description;
+  
+        // load image asynchronously
+        [self fetchImage:item.imageURL useOperationQueue:_backgroundOperationQueue];
     }
 }
 
@@ -36,6 +48,15 @@
     // Do any additional setup after loading the view, typically from a nib.
 
     _bookmarkLabel.hidden = YES;
+
+    if (!_backgroundOperationQueue) {
+        _backgroundOperationQueue = [[NSOperationQueue alloc] init];
+    }
+    
+    if (!_challengeAPI) {
+        _challengeAPI = [[ChallengeAPI alloc] init];
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -97,4 +118,19 @@
     }];
 }
 
+- (void)fetchImage:(NSString *)imageURL useOperationQueue:(NSOperationQueue *)operationQueue {
+    // remove any previous images (from cell reuse) while image is downloading
+    self.logoImageView.image = nil;
+    
+    _fetchImageOperation = [ChallengeAPI fetchImage:imageURL operationQueue:operationQueue withBlock:^(UIImage *image) {
+        self.logoImageView.image = image;
+    }];
+}
+
+- (void)cancelUpdate {
+    if (_fetchImageOperation) {
+        [_fetchImageOperation cancel];
+    }
+    self.logoImageView.image = nil;
+}
 @end

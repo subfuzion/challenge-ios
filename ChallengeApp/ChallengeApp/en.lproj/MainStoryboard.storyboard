@@ -94,6 +94,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="0t9-AH-ELC">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="Ydc-ht-TrR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <color key="textColor" red="0.67032523779999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="27">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -130,16 +138,27 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sm4-rb-4rQ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="BSh-Mw-5I6"/>
+                                    <constraint firstAttribute="width" constant="120" id="kys-ml-Hmz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eRN-Ko-7D5" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="30" id="GAT-p8-zjC"/>
-                            <constraint firstItem="eRN-Ko-7D5" firstAttribute="top" secondItem="22" secondAttribute="top" constant="321" type="user" id="HPf-I9-XL0"/>
-                            <constraint firstItem="ltr-N5-va5" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="139" id="Ibh-dU-h2g"/>
-                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R0m-z7-TWk"/>
-                            <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="22" secondAttribute="top" constant="341" type="user" id="kyA-PL-FQm"/>
-                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pRe-qY-58T"/>
-                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="118" id="u8k-CE-wiH"/>
+                            <constraint firstAttribute="trailing" secondItem="0t9-AH-ELC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0yh-MG-yJh"/>
+                            <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="22" secondAttribute="top" constant="20" symbolic="YES" type="default" id="EaE-RY-Nde"/>
+                            <constraint firstAttribute="bottom" secondItem="eRN-Ko-7D5" secondAttribute="bottom" constant="46" id="KQD-9V-1Ek"/>
+                            <constraint firstItem="0t9-AH-ELC" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Rs9-gi-lAo"/>
+                            <constraint firstAttribute="bottom" secondItem="ltr-N5-va5" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="SLM-oo-LHV"/>
+                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZLw-A9-am1"/>
+                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="92" id="brr-Wg-jPE"/>
+                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dEK-j3-bNW"/>
+                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="0t9-AH-ELC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mFh-OX-h68"/>
+                            <constraint firstItem="27" firstAttribute="centerX" secondItem="ltr-N5-va5" secondAttribute="centerX" type="default" id="oYL-dg-vea"/>
+                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="236" id="uEo-Kj-YxH"/>
+                            <constraint firstItem="eRN-Ko-7D5" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="35" id="vhO-Vh-Nr1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">
@@ -153,6 +172,8 @@
                     <connections>
                         <outlet property="bookmarkLabel" destination="eRN-Ko-7D5" id="NTA-ji-4BJ"/>
                         <outlet property="detailDescriptionLabel" destination="27" id="28"/>
+                        <outlet property="logoImageView" destination="sm4-rb-4rQ" id="qcH-m0-wxF"/>
+                        <outlet property="titleLabel" destination="0t9-AH-ELC" id="LXR-rw-uLa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
@@ -237,6 +258,8 @@
                 <relationship kind="action" name="onSendAction:"/>
                 <relationship kind="outlet" name="bookmarkLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="InfoViewController" superclassName="UIViewController">
