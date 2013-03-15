@@ -13,11 +13,13 @@
 
 - (IBAction)onSendAction:(id)sender;
 - (IBAction)onBookmarkAction:(UIButton *)sender;
+- (IBAction)GoToURLButton:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property(weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property(weak, nonatomic) IBOutlet UILabel *bookmarkLabel;
+
 
 - (void)configureView;
 
@@ -27,13 +29,17 @@
     NSOperationQueue *_backgroundOperationQueue;
     NSOperation *_fetchImageOperation;
     ChallengeAPI *_challengeAPI;
+    Challenge *item;
+    
 }
 
 #pragma mark - Managing the detail item
 
+
+
 - (void)configureView {
     // Update the user interface for the challenge, which is passed by MasterViewController
-    Challenge *item = self.challenge;
+    item = self.challenge;
     if (item) {
         self.titleLabel.text = item.title;
         self.detailDescriptionLabel.text = item.description;
@@ -57,6 +63,7 @@
         _challengeAPI = [[ChallengeAPI alloc] init];
     }
     
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -72,7 +79,7 @@
 
     NSString *message = @"I want to share this challenge.gov posting with you.";
 
-    Challenge *item = self.challenge;
+    item = self.challenge;
     
     NSArray *postItems = @[message,item.url];
     
@@ -125,6 +132,17 @@
         self.logoImageView.image = image;
     }];
 }
+
+- (IBAction)GoToURLButton:(UIButton *)sender {
+    
+    NSString *urlString = item.url;
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    [[UIApplication sharedApplication] openURL:url];
+    
+}
+
 
 - (void)cancelUpdate {
     if (_fetchImageOperation) {

@@ -96,10 +96,10 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="0t9-AH-ELC">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="Ydc-ht-TrR"/>
+                                    <constraint firstAttribute="height" constant="60" id="9LE-kI-o93"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <color key="textColor" red="0.67032523779999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="27">
@@ -144,21 +144,36 @@
                                     <constraint firstAttribute="width" constant="120" id="kys-ml-Hmz"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kh1-N5-07e">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Go to website">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="GoToURLButton:" destination="21" eventType="touchUpInside" id="Znp-Gu-3j8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0t9-AH-ELC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0yh-MG-yJh"/>
-                            <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="22" secondAttribute="top" constant="20" symbolic="YES" type="default" id="EaE-RY-Nde"/>
+                            <constraint firstAttribute="bottom" secondItem="Kh1-N5-07e" secondAttribute="bottom" constant="167" id="Byw-Bu-C4G"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="centerX" secondItem="ltr-N5-va5" secondAttribute="centerX" type="default" id="EuL-2L-R97"/>
                             <constraint firstAttribute="bottom" secondItem="eRN-Ko-7D5" secondAttribute="bottom" constant="46" id="KQD-9V-1Ek"/>
                             <constraint firstItem="0t9-AH-ELC" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Rs9-gi-lAo"/>
                             <constraint firstAttribute="bottom" secondItem="ltr-N5-va5" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="SLM-oo-LHV"/>
+                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="22" secondAttribute="top" constant="94" id="Wiw-Vq-mLr"/>
                             <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZLw-A9-am1"/>
-                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="92" id="brr-Wg-jPE"/>
                             <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dEK-j3-bNW"/>
-                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="0t9-AH-ELC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mFh-OX-h68"/>
-                            <constraint firstItem="27" firstAttribute="centerX" secondItem="ltr-N5-va5" secondAttribute="centerX" type="default" id="oYL-dg-vea"/>
+                            <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="22" secondAttribute="top" type="default" id="fG9-Bp-LY4"/>
+                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="centerX" secondItem="0t9-AH-ELC" secondAttribute="centerX" type="default" id="iBK-re-3mI"/>
                             <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="236" id="uEo-Kj-YxH"/>
                             <constraint firstItem="eRN-Ko-7D5" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="35" id="vhO-Vh-Nr1"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="centerX" secondItem="27" secondAttribute="centerX" type="default" id="yUe-vO-bE6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">
