@@ -17,7 +17,38 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="16"/>
+            <point key="canvasLocation" x="-798" y="-324"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="clh-hi-GxP">
+            <objects>
+                <tableViewController storyboardIdentifier="FavoritesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F2Z-L6-Na2" customClass="FavoritesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="110" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Qu-oh-FPt">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="FI9-XQ-76r" customClass="ChallengeTableCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="110"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="F2Z-L6-Na2" id="pAa-Ef-NrQ"/>
+                            <outlet property="delegate" destination="F2Z-L6-Na2" id="YKx-l7-Y9n"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="KHg-Ik-obv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63W-LD-iCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-798" y="527"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="18">
@@ -27,81 +58,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="110" id="lJ0-d7-vTF" customClass="ChallengeTableCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="110"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="225" translatesAutoresizingMaskIntoConstraints="NO" id="ETr-8Q-5oZ">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="225" id="4cy-hN-yrO"/>
-                                                <constraint firstAttribute="height" constant="66" id="x8h-kX-VIi"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Border.png" translatesAutoresizingMaskIntoConstraints="NO" id="vcG-Sk-7sW"/>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHL-BA-SDj">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="70" id="idE-uH-ypH"/>
-                                                <constraint firstAttribute="height" constant="70" id="m0w-Qa-Rr5"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SubmitDate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oB-NV-RFi">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="155" id="JTv-i0-kkn"/>
-                                                <constraint firstAttribute="height" constant="21" id="oE5-Ig-QJE"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Prize Money" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiJ-e3-Uot">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="GRE-lu-8hS"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ribbon.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pil-WJ-91d">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="21G-PG-N1k"/>
-                                                <constraint firstAttribute="height" constant="35" id="T42-Fy-JfD"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="centerY" secondItem="vcG-Sk-7sW" secondAttribute="centerY" type="default" id="1bo-Z4-3fg"/>
-                                    <constraint firstItem="vcG-Sk-7sW" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="2" id="5t9-nk-n8n"/>
-                                    <constraint firstItem="ETr-8Q-5oZ" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="87" id="CBK-ul-jXr"/>
-                                    <constraint firstAttribute="trailing" secondItem="pil-WJ-91d" secondAttribute="trailing" constant="9" id="CL4-gf-DrU"/>
-                                    <constraint firstItem="vcG-Sk-7sW" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="3" id="DMw-ME-6M8"/>
-                                    <constraint firstAttribute="trailing" secondItem="YiJ-e3-Uot" secondAttribute="trailing" constant="44" id="R53-KW-JwZ"/>
-                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="leading" secondItem="5oB-NV-RFi" secondAttribute="leading" type="default" id="TbJ-qe-lu1"/>
-                                    <constraint firstItem="YiJ-e3-Uot" firstAttribute="top" secondItem="5oB-NV-RFi" secondAttribute="top" type="default" id="Xad-dY-5ll"/>
-                                    <constraint firstAttribute="bottom" secondItem="5oB-NV-RFi" secondAttribute="bottom" constant="7" id="rjW-JA-aJv"/>
-                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="centerX" secondItem="vcG-Sk-7sW" secondAttribute="centerX" type="default" id="uPT-T6-MRO"/>
-                                    <constraint firstItem="YiJ-e3-Uot" firstAttribute="baseline" secondItem="5oB-NV-RFi" secondAttribute="baseline" type="default" id="xdS-wN-BfN"/>
-                                    <constraint firstAttribute="bottom" secondItem="pil-WJ-91d" secondAttribute="bottom" constant="3" id="xjI-Rd-0CX"/>
-                                    <constraint firstItem="fHL-BA-SDj" firstAttribute="top" secondItem="ETr-8Q-5oZ" secondAttribute="top" type="default" id="zr1-jX-Esg"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="logoImageView" destination="fHL-BA-SDj" id="M4Y-Le-QDn"/>
-                                    <outlet property="posterLabel" destination="5oB-NV-RFi" id="UQv-1K-NQU"/>
-                                    <outlet property="prizeLabel" destination="YiJ-e3-Uot" id="oZe-0N-kqz"/>
-                                    <outlet property="titleLabel" destination="ETr-8Q-5oZ" id="zss-I7-2Kr"/>
-                                    <segue destination="21" kind="push" identifier="showDetail" id="jZb-fq-zAk"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="12" id="16"/>
@@ -126,21 +82,21 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="mbe-kP-m9t">
                             <connections>
-                                <action selector="bookmarkClick:" destination="12" id="rkF-IG-Nr0"/>
+                                <action selector="bookmarkClick:" destination="12" id="LGb-bO-KkL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="560" y="338"/>
+            <point key="canvasLocation" x="-198" y="-324"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
             <objects>
                 <viewController storyboardIdentifier="" title="Detail" id="21" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="27">
@@ -205,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040" y="120"/>
+            <point key="canvasLocation" x="386" y="-324"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="cG7-h2-EyO">
@@ -248,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z50-mN-LVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244" y="-133"/>
+            <point key="canvasLocation" x="386" y="521"/>
         </scene>
         <!--Bookmarks View Controller-->
         <scene sceneID="hRh-4r-QkF">
@@ -320,17 +276,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huB-kx-pQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="560" y="-356"/>
+            <point key="canvasLocation" x="-192" y="527"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Border.png" width="76" height="76"/>
         <image name="favorites_add_48.png" width="48" height="48"/>
         <image name="info.png" width="24" height="24"/>
-        <image name="ribbon.jpg" width="60" height="60"/>
     </resources>
     <classes>
-        <class className="BookmarksViewController" superclassName="UITableViewController">
+        <class className="BookmarksViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BookmarksViewController.h"/>
             <relationships>
                 <relationship kind="action" name="doneClick:"/>
@@ -340,8 +294,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChallengeTableCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="posterLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="prizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="submitDateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -353,6 +307,9 @@
                 <relationship kind="outlet" name="bookmarkLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="FavoritesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
         </class>
         <class className="InfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>

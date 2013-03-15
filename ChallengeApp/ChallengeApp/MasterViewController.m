@@ -26,10 +26,6 @@
     NSArray *_challenges;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -40,6 +36,10 @@
     if (!_challengeAPI) {
         _challengeAPI = [[ChallengeAPI alloc] init];
     }
+
+
+    UINib *tableCell = [UINib nibWithNibName:@"ChallengeCell" bundle:nil];
+    [self.tableView registerNib:tableCell forCellReuseIdentifier:@"ChallengeCell"];
 
     [self fetchChallenges];
 }
@@ -60,7 +60,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ChallengeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ChallengeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChallengeCell" forIndexPath:indexPath];
 
     // if no data, just return empty cell
     if (_challenges == nil || [_challenges count] == 0) return cell;
@@ -90,6 +90,8 @@
     }
 }
 
+#pragma mark - Implementation
+
 - (void)fetchChallenges {
     [_challengeAPI fetchChallenges:^(NSArray *challenges) {
         _challenges = challenges;
@@ -108,8 +110,10 @@
 - (IBAction)bookmarkClick:(id)sender {
     //call BookmarksViewController
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"BookmarksViewController"];
+///    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"BookmarksViewController"];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"FavoritesViewController"];
     [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentViewController:viewController animated:YES completion:NULL];
 }
+
 @end

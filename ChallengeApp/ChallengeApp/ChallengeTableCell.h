@@ -16,13 +16,4 @@
 
 - (void)cancelUpdate;
 
-@property(weak, nonatomic) IBOutlet UILabel *titleLabel;
-
-@property(weak, nonatomic) IBOutlet UIImageView *logoImageView;
-
-@property(weak, nonatomic) IBOutlet UILabel *posterLabel;
-
-@property(weak, nonatomic) IBOutlet UILabel *prizeLabel;
-
-
 @end
