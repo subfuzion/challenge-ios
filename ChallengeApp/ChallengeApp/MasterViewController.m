@@ -14,10 +14,6 @@
 
 @interface MasterViewController ()
 
-- (IBAction)infoClick:(id)sender;
-
-- (IBAction)bookmarkClick:(id)sender;
-
 @end
 
 @implementation MasterViewController {
@@ -36,7 +32,6 @@
     if (!_challengeAPI) {
         _challengeAPI = [[ChallengeAPI alloc] init];
     }
-
 
     UINib *tableCell = [UINib nibWithNibName:@"ChallengeTableCell" bundle:nil];
     [self.tableView registerNib:tableCell forCellReuseIdentifier:@"ChallengeTableCell"];
@@ -74,14 +69,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    DetailViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
 
     Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
     viewController.title = challenge.ID;
-    NSLog(@"-> %@", challenge.title);
-
-    [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-    [self presentViewController:viewController animated:YES completion:nil];
+    viewController.challenge = challenge;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

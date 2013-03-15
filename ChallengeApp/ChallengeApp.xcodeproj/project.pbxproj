@@ -11,7 +11,6 @@
 		36698811D3067DFD65B64B15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698E71E4B55CD5A340048F /* AppDelegate.m */; };
 		366988EB8EEC300EDD1A4586 /* ChallengeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 366982559C131F514BFA0431 /* ChallengeAPI.m */; };
 		36698CDDB4875924E4E73F0F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698560C47BB86BE5F56F93 /* Challenge.m */; };
-		A063064A16F025940035F037 /* BookmarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A063064916F025940035F037 /* BookmarksViewController.m */; };
 		A063064C16F029ED0035F037 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A063064B16F029ED0035F037 /* info@2x.png */; };
 		A063064E16F02A020035F037 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = A063064D16F02A020035F037 /* info.png */; };
 		A063065416F02B070035F037 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A063065316F02B070035F037 /* InfoViewController.m */; };
@@ -29,7 +28,7 @@
 		EA41B36116ED386F00CD6520 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35F16ED386F00CD6520 /* MainStoryboard.storyboard */; };
 		EA41B36416ED386F00CD6520 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41B36316ED386F00CD6520 /* MasterViewController.m */; };
 		EA41B36716ED386F00CD6520 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41B36616ED386F00CD6520 /* DetailViewController.m */; };
-		EA649B2C16F2BA9400886897 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA649B2B16F2BA9400886897 /* FavoritesViewController.m */; };
+		EA649B2C16F2BA9400886897 /* BookmarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA649B2B16F2BA9400886897 /* BookmarksViewController.m */; };
 		EAEFE8A016F310000092A52C /* ChallengeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAEFE89F16F310000092A52C /* ChallengeTableCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +41,6 @@
 		36698CCBC5997693B1333012 /* ChallengeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTableCell.m; sourceTree = "<group>"; };
 		36698E71E4B55CD5A340048F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		36698EC05425AE23D9A79233 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
-		A063064816F025940035F037 /* BookmarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarksViewController.h; sourceTree = "<group>"; };
-		A063064916F025940035F037 /* BookmarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarksViewController.m; sourceTree = "<group>"; };
 		A063064B16F029ED0035F037 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 		A063064D16F02A020035F037 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		A063065216F02B070035F037 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
@@ -67,8 +64,8 @@
 		EA41B36316ED386F00CD6520 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		EA41B36516ED386F00CD6520 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		EA41B36616ED386F00CD6520 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		EA649B2A16F2BA9400886897 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
-		EA649B2B16F2BA9400886897 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		EA649B2A16F2BA9400886897 /* BookmarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarksViewController.h; sourceTree = "<group>"; };
+		EA649B2B16F2BA9400886897 /* BookmarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarksViewController.m; sourceTree = "<group>"; };
 		EAEFE89F16F310000092A52C /* ChallengeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengeTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,16 +109,14 @@
 				A063065216F02B070035F037 /* InfoViewController.h */,
 				A063065316F02B070035F037 /* InfoViewController.m */,
 				EA41B35F16ED386F00CD6520 /* MainStoryboard.storyboard */,
-				A063064816F025940035F037 /* BookmarksViewController.h */,
-				A063064916F025940035F037 /* BookmarksViewController.m */,
 				366983FF6FA09D394510E721 /* ChallengeTableCell.h */,
 				36698CCBC5997693B1333012 /* ChallengeTableCell.m */,
 				EA41B36516ED386F00CD6520 /* DetailViewController.h */,
 				EA41B36616ED386F00CD6520 /* DetailViewController.m */,
 				EA41B36216ED386F00CD6520 /* MasterViewController.h */,
 				EA41B36316ED386F00CD6520 /* MasterViewController.m */,
-				EA649B2A16F2BA9400886897 /* FavoritesViewController.h */,
-				EA649B2B16F2BA9400886897 /* FavoritesViewController.m */,
+				EA649B2A16F2BA9400886897 /* BookmarksViewController.h */,
+				EA649B2B16F2BA9400886897 /* BookmarksViewController.m */,
 				EAEFE89F16F310000092A52C /* ChallengeTableCell.xib */,
 			);
 			name = UI;
@@ -263,9 +258,8 @@
 				366988EB8EEC300EDD1A4586 /* ChallengeAPI.m in Sources */,
 				36698CDDB4875924E4E73F0F /* Challenge.m in Sources */,
 				36698811D3067DFD65B64B15 /* AppDelegate.m in Sources */,
-				A063064A16F025940035F037 /* BookmarksViewController.m in Sources */,
 				A063065416F02B070035F037 /* InfoViewController.m in Sources */,
-				EA649B2C16F2BA9400886897 /* FavoritesViewController.m in Sources */,
+				EA649B2C16F2BA9400886897 /* BookmarksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

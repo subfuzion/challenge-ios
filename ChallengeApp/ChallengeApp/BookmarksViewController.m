@@ -1,21 +1,23 @@
 //
-//  FavoritesViewController.m
+//  BookmarksViewController.m
 //  ChallengeApp
 //
 //  Created by Tony on 3/14/13.
 //  Copyright (c) 2013 Subfuzion. All rights reserved.
 //
 
-#import "FavoritesViewController.h"
+#import "BookmarksViewController.h"
 #import "ChallengeTableCell.h"
 #import "ChallengeAPI.h"
 
 
-@interface FavoritesViewController ()
+@interface BookmarksViewController ()
+
+- (IBAction)doneTap:(UIBarButtonItem *)sender;
 
 @end
 
-@implementation FavoritesViewController {
+@implementation BookmarksViewController {
     NSOperationQueue *_backgroundOperationQueue;
     ChallengeAPI *_challengeAPI;
     NSArray *_challenges;
@@ -50,10 +52,10 @@
 
 - (void)fetchBookmarks {
     // Get saved bookmarks from NSUserDefaults
-    NSMutableArray *favids = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteArray"]];
-    NSLog(@"ids: %@", favids);
+    NSMutableArray *bookmarks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
+    NSLog(@"ids: %@", bookmarks);
 
-    [_challengeAPI fetchBookmarks:favids withBlock:^(NSArray *challenges) {
+    [_challengeAPI fetchBookmarks:bookmarks withBlock:^(NSArray *challenges) {
         _challenges = challenges;
         [self.tableView reloadData];
         NSLog(@"%@", challenges);
@@ -86,5 +88,8 @@
     [challengeCell cancelUpdate];
 }
 
+- (IBAction)doneTap:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
