@@ -72,7 +72,7 @@
     DetailViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
 
     Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
-    viewController.title = challenge.ID;
+    viewController.title = @"Challenge Info"; //challenge.ID;
     viewController.challenge = challenge;
     [self.navigationController pushViewController:viewController animated:YES];
 }

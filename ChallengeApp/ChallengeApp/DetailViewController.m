@@ -70,20 +70,19 @@
 
 - (IBAction)onSendAction:(id)sender {
 
-    // NSString *message = @"I want to share this challenge.gov posting with you";
+    NSString *message = @"I want to share this challenge.gov posting with you.";
 
+    Challenge *item = self.challenge;
+    
+    NSArray *postItems = @[message,item.url];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+          initWithActivityItems:postItems
+            applicationActivities:nil];
 
-    // TODO
-//    NSArray *postItems = @[detailItem];
+    activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact];
 
-//    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
-//            initWithActivityItems:postItems
-//            applicationActivities:nil];
-
-//    activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact];
-
-
-//    [self presentViewController:activityVC animated:YES completion:nil];
+    [self presentViewController:activityVC animated:YES completion:nil];
 
 }
 
