@@ -13,13 +13,16 @@
 
 @interface BookmarksViewController ()
 
-
 - (IBAction)doneClick:(id)sender;
+
 @end
 
-@implementation BookmarksViewController
-NSArray *_challenges;
-ChallengeAPI *_challengeAPI;
+
+@implementation BookmarksViewController {
+    NSOperationQueue *_backgroundOperationQueue;
+    ChallengeAPI *_challengeAPI;
+    NSArray *_challenges;
+}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -40,10 +43,12 @@ ChallengeAPI *_challengeAPI;
     }
 }
 
+
 - (void)viewDidAppear:(BOOL)animated {
     // Refresh the bookmarks each time view appears
     [self fetchBookmarks];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -59,7 +64,7 @@ ChallengeAPI *_challengeAPI;
 
     [_challengeAPI fetchBookmarks:favids withBlock:^(NSArray *challenges) {
         _challenges = challenges;
-///		[self.tableView reloadData];
+		//[self.tableView reloadData];
         NSLog(@"%@", challenges);
     }];
 }
@@ -70,14 +75,27 @@ ChallengeAPI *_challengeAPI;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return _challenges ? _challenges.count : 0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChallengeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
+    // if no data, just return empty cell
+    if (_challenges == nil || [_challenges count] == 0) return cell;
+
+    // get the challenge for the row and update the cell asynchronously
+    Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
+    [cell updateCellData:challenge useOperationQueue:_backgroundOperationQueue];
+
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    ChallengeTableCell *challengeCell = (ChallengeTableCell *) cell;
+    [challengeCell cancelUpdate];
 }
 
 

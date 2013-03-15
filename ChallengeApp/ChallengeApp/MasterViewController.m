@@ -12,17 +12,19 @@
 #import "ChallengeAPI.h"
 
 
-@interface MasterViewController () {
+@interface MasterViewController ()
+
+- (IBAction)infoClick:(id)sender;
+
+- (IBAction)bookmarkClick:(id)sender;
+
+@end
+
+@implementation MasterViewController {
     NSOperationQueue *_backgroundOperationQueue;
     ChallengeAPI *_challengeAPI;
     NSArray *_challenges;
 }
-- (IBAction)infoClick:(id)sender;
-
-- (IBAction)bookmarkClick:(id)sender;
-@end
-
-@implementation MasterViewController
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -54,7 +56,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _challenges.count;
+    return _challenges ? _challenges.count : 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
