@@ -14,6 +14,7 @@
 - (IBAction)onSendAction:(id)sender;
 - (IBAction)onBookmarkAction:(UIButton *)sender;
 - (IBAction)GoToURLButton:(UIButton *)sender;
+- (IBAction)bookMarkedAction:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *websiteButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFavButton;
@@ -30,6 +31,8 @@
     ChallengeAPI *_challengeAPI;
     Challenge *item;
     NSMutableArray *_bookmarksArray;
+    NSUserDefaults *defaults;
+    NSString *oid;
     
 }
 
@@ -41,13 +44,8 @@
     // Update the user interface for the challenge, which is passed by MasterViewController
     item = self.challenge;
     if (item) {
-        //self.titleLabel.text = item.title;
-        //self.detailDescriptionLabel.text = item.summary;
-        //self.posterLabel.text = [NSString stringWithFormat:@"By %@", item.poster];
-        
-  
         // load image asynchronously
-        [self fetchImage:item.imageURL useOperationQueue:_backgroundOperationQueue];
+        //[self fetchImage:item.imageURL useOperationQueue:_backgroundOperationQueue];
     }
 }
 
@@ -57,6 +55,7 @@
     
     _bookmarksArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
     
+    defaults = [NSUserDefaults standardUserDefaults];
     
     
     UIImage *buttonImage = [[UIImage imageNamed:@"blueButton.png"]
@@ -82,9 +81,9 @@
     }
     
     //see if id already in bookmark, if so disable bookmark button and show Bookmarked button (greyed out)
-    NSString *id = self.challenge.ID;
+    oid = self.challenge.ID;
     
-    if ([_bookmarksArray containsObject:id]) {
+    if ([_bookmarksArray containsObject:oid]) {
         _bookMarkedButton.hidden = NO;
         _addFavButton.hidden = YES;
 
@@ -95,9 +94,8 @@
         _addFavButton.hidden = NO;
     }
     
-       
     
-    
+    //TODO swap with api call
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"detailWebView.html" ofType:nil]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [_detailWebView loadRequest:request];
@@ -132,17 +130,13 @@
 
 }
 
+
+//add to bookmark
 - (IBAction)onBookmarkAction:(UIButton *)sender {
 
-    //add id to NSUserDefaults
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-    //NSMutableArray *bookmarks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
-
     //see if id already added before, don't store it if already there
-    NSString *id = self.challenge.ID;
-    if (![_bookmarksArray containsObject:id]) {
-        [_bookmarksArray addObject:id];
+    if (![_bookmarksArray containsObject:oid]) {
+        [_bookmarksArray addObject:oid];
     }
 
     [defaults setObject:_bookmarksArray forKey:@"bookmarkArray"];
@@ -151,7 +145,6 @@
     
     _bookMarkedButton.hidden = NO;
     _addFavButton.hidden = YES;
-
 
 }
 
@@ -171,6 +164,21 @@
     NSURL *url = [NSURL URLWithString:urlString];
     
     [[UIApplication sharedApplication] openURL:url];
+    
+}
+
+//remove from bookmark
+- (IBAction)bookMarkedAction:(UIButton *)sender {
+    
+    //see if id already added before, don't store it if already there   
+    [_bookmarksArray removeObject:oid];
+    
+    [defaults setObject:_bookmarksArray forKey:@"bookmarkArray"];
+    
+    [defaults synchronize];
+    
+    _bookMarkedButton.hidden = YES;
+    _addFavButton.hidden = NO;
     
 }
 
