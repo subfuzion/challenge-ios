@@ -11,6 +11,7 @@
 @interface InfoViewController ()
 - (IBAction)doneClick:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIWebView *infowebView;
 @end
 
 @implementation InfoViewController
@@ -26,6 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"infoView.html" ofType:nil]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [_infowebView loadRequest:request];
+    
 }
 
 - (void)didReceiveMemoryWarning {
