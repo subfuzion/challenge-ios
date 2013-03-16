@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2288" y="-526"/>
+            <point key="canvasLocation" x="-2409" y="-519"/>
         </scene>
         <!--Bookmarks View Controller - Bookmarks-->
         <scene sceneID="clh-hi-GxP">
@@ -74,6 +74,9 @@
                                 <segment title="Time Left"/>
                                 <segment title="Prize"/>
                             </segments>
+                            <connections>
+                                <action selector="sortSegmentedControlTap:" destination="12" eventType="valueChanged" id="SiG-T0-glB"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="mbe-kP-m9t">
                             <connections>
@@ -84,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1792" y="-526"/>
+            <point key="canvasLocation" x="-2037" y="-504"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
@@ -102,10 +105,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="27">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="147" id="vvq-v1-vlG"/>
+                                    <constraint firstAttribute="width" constant="275" id="5gg-m3-p7q"/>
+                                    <constraint firstAttribute="height" constant="46" id="PlN-fb-9qB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -141,13 +145,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sm4-rb-4rQ">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="BSh-Mw-5I6"/>
-                                    <constraint firstAttribute="width" constant="120" id="kys-ml-Hmz"/>
+                                    <constraint firstAttribute="width" constant="120" id="KPt-wf-aF9"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kh1-N5-07e">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" type="user" id="FUe-ge-NMm"/>
+                                    <constraint firstAttribute="width" constant="156" id="VP7-3m-AwQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Go to website">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -161,19 +169,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0t9-AH-ELC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0yh-MG-yJh"/>
-                            <constraint firstAttribute="bottom" secondItem="Kh1-N5-07e" secondAttribute="bottom" constant="167" id="Byw-Bu-C4G"/>
-                            <constraint firstItem="Kh1-N5-07e" firstAttribute="centerX" secondItem="ltr-N5-va5" secondAttribute="centerX" type="default" id="EuL-2L-R97"/>
+                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="0t9-AH-ELC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0zd-OM-5QI"/>
+                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="201" id="6nu-dN-Vx2"/>
                             <constraint firstAttribute="bottom" secondItem="eRN-Ko-7D5" secondAttribute="bottom" constant="46" id="KQD-9V-1Ek"/>
                             <constraint firstItem="0t9-AH-ELC" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Rs9-gi-lAo"/>
                             <constraint firstAttribute="bottom" secondItem="ltr-N5-va5" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="SLM-oo-LHV"/>
-                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="22" secondAttribute="top" constant="94" id="Wiw-Vq-mLr"/>
                             <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZLw-A9-am1"/>
-                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dEK-j3-bNW"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="centerX" secondItem="ltr-N5-va5" secondAttribute="centerX" type="default" id="dIP-4Q-1NB"/>
                             <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="22" secondAttribute="top" type="default" id="fG9-Bp-LY4"/>
                             <constraint firstItem="sm4-rb-4rQ" firstAttribute="centerX" secondItem="0t9-AH-ELC" secondAttribute="centerX" type="default" id="iBK-re-3mI"/>
-                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="236" id="uEo-Kj-YxH"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="centerX" secondItem="sm4-rb-4rQ" secondAttribute="centerX" type="default" id="uhp-wJ-bRh"/>
                             <constraint firstItem="eRN-Ko-7D5" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="35" id="vhO-Vh-Nr1"/>
-                            <constraint firstItem="Kh1-N5-07e" firstAttribute="centerX" secondItem="27" secondAttribute="centerX" type="default" id="yUe-vO-bE6"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="22" secondAttribute="top" constant="282" type="user" id="zE7-nt-VJd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">
@@ -189,6 +196,7 @@
                         <outlet property="detailDescriptionLabel" destination="27" id="28"/>
                         <outlet property="logoImageView" destination="sm4-rb-4rQ" id="qcH-m0-wxF"/>
                         <outlet property="titleLabel" destination="0t9-AH-ELC" id="LXR-rw-uLa"/>
+                        <outlet property="websiteButton" destination="Kh1-N5-07e" id="QDN-W1-sev"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>

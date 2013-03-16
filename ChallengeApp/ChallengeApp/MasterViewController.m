@@ -14,6 +14,8 @@
 
 @interface MasterViewController ()
 
+- (IBAction)sortSegmentedControlTap:(UISegmentedControl *)sender;
+
 @end
 
 @implementation MasterViewController {
@@ -95,4 +97,21 @@
     }];
 }
 
+- (IBAction)sortSegmentedControlTap:(UISegmentedControl *)sender {
+    
+    if([sender selectedSegmentIndex] == 0){
+
+        NSLog(@"Sort by Newest");
+    }
+    else if ([sender selectedSegmentIndex] == 1){
+    
+        NSLog(@"Sort by Time Left");
+        
+    }
+    else if ([sender selectedSegmentIndex] == 2){
+        NSLog(@"Sort by Prize");
+        
+    }
+    
+}
 @end

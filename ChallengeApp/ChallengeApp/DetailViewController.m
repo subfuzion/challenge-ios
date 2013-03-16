@@ -20,6 +20,7 @@
 @property(weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property(weak, nonatomic) IBOutlet UILabel *bookmarkLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *websiteButton;
 
 - (void)configureView;
 
@@ -55,6 +56,12 @@
 
     _bookmarkLabel.hidden = YES;
 
+    UIImage *buttonImage = [[UIImage imageNamed:@"blueButton.png"]
+                            stretchableImageWithLeftCapWidth:20 topCapHeight:0];
+    
+    [_websiteButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    
+    
     if (!_backgroundOperationQueue) {
         _backgroundOperationQueue = [[NSOperationQueue alloc] init];
     }
