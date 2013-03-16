@@ -22,6 +22,8 @@
     NSOperationQueue *_backgroundOperationQueue;
     ChallengeAPI *_challengeAPI;
     NSArray *_challenges;
+    NSMutableArray *bookmarks;
+    
 }
 
 - (void)viewDidLoad {
@@ -36,6 +38,10 @@
         _challengeAPI = [[ChallengeAPI alloc] init];
     }
 
+    bookmarks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
+    
+    NSLog(@"%@", bookmarks);
+    
     UINib *tableCell = [UINib nibWithNibName:@"ChallengeTableCell" bundle:nil];
     [self.tableView registerNib:tableCell forCellReuseIdentifier:@"ChallengeTableCell"];
 }
@@ -52,10 +58,8 @@
 }
 
 - (void)fetchBookmarks {
+    
     // Get saved bookmarks from NSUserDefaults
-    NSMutableArray *bookmarks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
-    NSLog(@"ids: %@", bookmarks);
-
     [_challengeAPI fetchBookmarks:bookmarks withBlock:^(NSArray *challenges) {
         _challenges = challenges;
         [self.tableView reloadData];
@@ -93,6 +97,27 @@
     viewController.challenge = challenge;
     [self.navigationController pushViewController:viewController animated:YES];
 }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
+    
+    NSString *oid = challenge.ID;
+    
+    
+    [bookmarks removeObject:oid];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:bookmarks forKey:@"bookmarkArray"];
+    
+    [defaults synchronize];
+    
+    [self fetchBookmarks];
+    
+}
+
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     ChallengeTableCell *challengeCell = (ChallengeTableCell *) cell;
