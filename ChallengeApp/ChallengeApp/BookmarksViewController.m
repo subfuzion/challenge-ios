@@ -9,6 +9,7 @@
 #import "BookmarksViewController.h"
 #import "ChallengeTableCell.h"
 #import "ChallengeAPI.h"
+#import "DetailViewController.h"
 
 
 @interface BookmarksViewController ()
@@ -81,6 +82,16 @@
     [cell updateCellData:challenge useOperationQueue:_backgroundOperationQueue];
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    DetailViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    
+    Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
+    viewController.title = @"Challenge Info"; //challenge.ID;
+    viewController.challenge = challenge;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
