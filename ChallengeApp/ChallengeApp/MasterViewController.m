@@ -22,7 +22,7 @@
     NSOperationQueue *_backgroundOperationQueue;
     ChallengeAPI *_challengeAPI;
     NSArray *_challenges;
-    ChallengeSort _sort;
+    ChallengeSort _challengeSortOrder;
 }
 
 - (void)viewDidLoad {
@@ -92,7 +92,7 @@
 #pragma mark - Implementation
 
 - (void)fetchChallenges {
-    [_challengeAPI fetchChallenges:^(NSArray *challenges) {
+    [_challengeAPI fetchChallengesSorted:_challengeSortOrder withBlock:^(NSArray *challenges) {
         _challenges = challenges;
         [self.tableView reloadData];
     }];
@@ -102,16 +102,18 @@
     
     if([sender selectedSegmentIndex] == 0) {
         NSLog(@"Sort by Newest");
-        _sort = SortByNewest;
+        _challengeSortOrder = SortByNewest;
     }
     else if ([sender selectedSegmentIndex] == 1){
         NSLog(@"Sort by Time Left");
-        _sort = SortByTimeLeft;
+        _challengeSortOrder = SortByTimeLeft;
     }
     else if ([sender selectedSegmentIndex] == 2){
         NSLog(@"Sort by Prize");
-        _sort = SortByPrize;
+        _challengeSortOrder = SortByPrize;
     }
     
+    [self fetchChallenges];
 }
+
 @end

@@ -33,7 +33,9 @@ NSString *const kChallengeBookmarksPath = @"http://challengeapi-7312.onmodulus.n
     }
     
     [_fetchChallengesOperationQueue addOperationWithBlock:^(void) {
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:kChallengeFeedPath]];
+        NSString *urlpath = [NSString stringWithFormat:@"%@?sort=%d", kChallengeFeedPath, sortBy];
+        NSLog(@"URL: %@",urlpath);
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlpath]];
         NSArray *challenges = [self parseFeedResponseData:data];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
             block(challenges);
