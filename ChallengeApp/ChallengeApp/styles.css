@@ -55,7 +55,7 @@ table {
 /*begin our styles*/
 
 body {
-	font: 16px/1.4em 'Helvetica', sans-serif;;
+	font: 14px/1.4em 'Helvetica', sans-serif;;
 	color: #1c1c1c;
 }
 
@@ -79,9 +79,27 @@ h1 {
 
 h2 {
 	font-family: 'Helvetica', sans-serif;
-	font-size: 32px;
+	font-size: 22px;
 	line-height: 1.4em;
 	margin: 0 0 .4em;
+	font-weight: bold;
+}
+
+h3 {
+	font-family: 'Helvetica', sans-serif;
+	font-size: 16px;
+	line-height: 1.4em;
+	margin: 0 0 .4em;
+	font-weight: bold;
+    color:#8A0C2C;
+}
+
+h4 {
+	font-family: 'Helvetica', sans-serif;
+	font-size: 14px;
+	line-height: 1.4em;
+	margin: 0, 0 0 .4em;
+	padding-top: 8px;
 	font-weight: bold;
 }
 

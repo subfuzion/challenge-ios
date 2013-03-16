@@ -97,121 +97,56 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srY-qO-kqB">
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="0t9-AH-ELC">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="Bwy-03-mI7"/>
-                                            <constraint firstAttribute="height" constant="60" id="wjU-RL-AQe"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" type="user" id="xGS-8f-Uy3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <color key="textColor" red="0.40000000000000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="sm4-rb-4rQ">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" type="user" id="BSh-Mw-5I6"/>
-                                            <constraint firstAttribute="width" constant="220" id="hxI-Dm-Cl3"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="275" id="5gg-m3-p7q"/>
-                                            <constraint firstAttribute="height" constant="73" type="user" id="FH7-kI-Yly"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltr-N5-va5">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="OdM-i3-Bfr"/>
-                                            <constraint firstAttribute="height" constant="40" id="xzu-32-ah7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button" image="favorites_add_48.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onBookmarkAction:" destination="21" eventType="touchUpInside" id="pTl-2c-vip"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kh1-N5-07e">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="33" type="user" id="FUe-ge-NMm"/>
-                                            <constraint firstAttribute="width" constant="156" id="VP7-3m-AwQ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Go to website">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="GoToURLButton:" destination="21" eventType="touchUpInside" id="Znp-Gu-3j8"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bookmarked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRN-Ko-7D5">
-                                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="Fkw-wp-hzP"/>
-                                            <constraint firstAttribute="height" constant="27" id="RTS-04-UNv"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="scroll me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNx-jU-h5C">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="306" translatesAutoresizingMaskIntoConstraints="NO" id="T3m-Hi-ViH" userLabel="Label - Poster">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="39" type="user" id="NHT-Fo-oSv"/>
-                                            <constraint firstAttribute="width" constant="306" id="g1J-cs-Kjg"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kh1-N5-07e">
                                 <constraints>
-                                    <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="11" type="user" id="3qW-T6-iPw"/>
-                                    <constraint firstItem="T3m-Hi-ViH" firstAttribute="leading" secondItem="0t9-AH-ELC" secondAttribute="leading" type="user" id="5HK-6q-iM2"/>
-                                    <constraint firstItem="eRN-Ko-7D5" firstAttribute="leading" secondItem="srY-qO-kqB" secondAttribute="leading" constant="169" id="9fm-2u-mVO"/>
-                                    <constraint firstItem="27" firstAttribute="leading" secondItem="sm4-rb-4rQ" secondAttribute="leading" type="default" id="BvM-aH-HFN"/>
-                                    <constraint firstItem="T3m-Hi-ViH" firstAttribute="top" secondItem="0t9-AH-ELC" secondAttribute="bottom" constant="14" type="user" id="Dyr-sG-XLi"/>
-                                    <constraint firstItem="bNx-jU-h5C" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="480" id="H0u-3S-zlf"/>
-                                    <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="T3m-Hi-ViH" secondAttribute="bottom" constant="6" type="user" id="Iiu-H6-dZ2"/>
-                                    <constraint firstItem="Kh1-N5-07e" firstAttribute="leading" secondItem="27" secondAttribute="leading" type="default" id="IqD-2p-Xq9"/>
-                                    <constraint firstItem="bNx-jU-h5C" firstAttribute="centerX" secondItem="srY-qO-kqB" secondAttribute="centerX" type="default" id="KC7-dB-MNZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="bNx-jU-h5C" secondAttribute="bottom" constant="108" id="SQd-dQ-DLB"/>
-                                    <constraint firstItem="T3m-Hi-ViH" firstAttribute="leading" secondItem="sm4-rb-4rQ" secondAttribute="leading" type="default" id="Tjt-jk-o1V"/>
-                                    <constraint firstItem="27" firstAttribute="top" secondItem="sm4-rb-4rQ" secondAttribute="bottom" constant="13" type="user" id="c4E-3d-pED"/>
-                                    <constraint firstItem="0t9-AH-ELC" firstAttribute="leading" secondItem="srY-qO-kqB" secondAttribute="leading" constant="6" id="cbe-7H-spu"/>
-                                    <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="27" secondAttribute="bottom" constant="17" type="user" id="ela-og-UUP"/>
-                                    <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="eRN-Ko-7D5" secondAttribute="top" type="default" id="fUL-dk-UsZ"/>
-                                    <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="431" id="hs2-tc-4UE"/>
-                                    <constraint firstItem="ltr-N5-va5" firstAttribute="leading" secondItem="srY-qO-kqB" secondAttribute="leading" constant="260" id="ikG-Sa-8lH"/>
-                                    <constraint firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oco-pQ-w6w"/>
+                                    <constraint firstAttribute="width" constant="140" id="9uZ-1T-udI"/>
+                                    <constraint firstAttribute="height" constant="31" id="mj5-U8-Isa"/>
                                 </constraints>
-                            </scrollView>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Go to Website">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="GoToURLButton:" destination="21" eventType="touchUpInside" id="Znp-Gu-3j8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltr-N5-va5" userLabel="Button - AddFav">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="wbd-dR-3a4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Bookmark">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBookmarkAction:" destination="21" eventType="touchUpInside" id="pTl-2c-vip"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fna-0v-0i3">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="R9z-3d-0Wh"/>
+                                    <constraint firstAttribute="height" constant="453" type="user" id="iu9-jj-uzA"/>
+                                </constraints>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="srY-qO-kqB" firstAttribute="leading" secondItem="22" secondAttribute="leading" type="default" id="7pc-J7-g4B"/>
-                            <constraint firstItem="srY-qO-kqB" firstAttribute="top" secondItem="22" secondAttribute="top" type="default" id="DvE-QK-hiG"/>
-                            <constraint firstItem="srY-qO-kqB" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="JSF-k4-TYQ"/>
-                            <constraint firstAttribute="bottom" secondItem="srY-qO-kqB" secondAttribute="bottom" constant="-105" id="ZrK-pa-v4A"/>
+                            <constraint firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" constant="16" id="0s0-0O-OmQ"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="bottom" secondItem="Kh1-N5-07e" secondAttribute="bottom" type="default" id="JPn-ll-5jv"/>
+                            <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="22" secondAttribute="top" constant="51" type="user" id="P1U-xD-msl"/>
+                            <constraint firstItem="fna-0v-0i3" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="Sdu-Wv-A23"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="11" id="VFn-gC-BSl"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="top" type="default" id="ebp-cB-Sdp"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="22" secondAttribute="top" constant="13" id="i4l-ai-2Ow"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">
@@ -223,18 +158,14 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="bookmarkLabel" destination="eRN-Ko-7D5" id="NTA-ji-4BJ"/>
-                        <outlet property="detailDescriptionLabel" destination="27" id="28"/>
-                        <outlet property="logoImageView" destination="sm4-rb-4rQ" id="qcH-m0-wxF"/>
-                        <outlet property="posterLabel" destination="T3m-Hi-ViH" id="Acw-uN-4WB"/>
-                        <outlet property="scrollView" destination="srY-qO-kqB" id="few-b4-J8x"/>
-                        <outlet property="titleLabel" destination="0t9-AH-ELC" id="LXR-rw-uLa"/>
+                        <outlet property="addFavButton" destination="ltr-N5-va5" id="WfD-dM-SVc"/>
+                        <outlet property="detailWebView" destination="fna-0v-0i3" id="yvQ-kO-8NU"/>
                         <outlet property="websiteButton" destination="Kh1-N5-07e" id="QDN-W1-sev"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1949" y="265"/>
+            <point key="canvasLocation" x="-2206" y="286"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="cG7-h2-EyO">
@@ -295,9 +226,43 @@
         </scene>
     </scenes>
     <resources>
-        <image name="favorites_add_48.png" width="48" height="48"/>
         <image name="info.png" width="24" height="24"/>
     </resources>
+    <classes>
+        <class className="BookmarksViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookmarksViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneTap:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="GoToURLButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="onBookmarkAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="onSendAction:"/>
+                <relationship kind="outlet" name="addFavButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="detailWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="websiteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneClick:"/>
+                <relationship kind="outlet" name="infowebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sortSegmentedControlTap:" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

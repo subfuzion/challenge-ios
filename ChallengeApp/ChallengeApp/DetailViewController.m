@@ -15,14 +15,9 @@
 - (IBAction)onBookmarkAction:(UIButton *)sender;
 - (IBAction)GoToURLButton:(UIButton *)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
-@property(weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-@property(weak, nonatomic) IBOutlet UILabel *bookmarkLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *websiteButton;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UILabel *posterLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addFavButton;
+@property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
 
 - (void)configureView;
 
@@ -44,9 +39,9 @@
     // Update the user interface for the challenge, which is passed by MasterViewController
     item = self.challenge;
     if (item) {
-        self.titleLabel.text = item.title;
-        self.detailDescriptionLabel.text = item.summary;
-        self.posterLabel.text = [NSString stringWithFormat:@"By %@", item.poster];
+        //self.titleLabel.text = item.title;
+        //self.detailDescriptionLabel.text = item.summary;
+        //self.posterLabel.text = [NSString stringWithFormat:@"By %@", item.poster];
         
   
         // load image asynchronously
@@ -58,13 +53,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.    
     
-    _bookmarkLabel.hidden = YES;
-
     UIImage *buttonImage = [[UIImage imageNamed:@"blueButton.png"]
                             stretchableImageWithLeftCapWidth:20 topCapHeight:0];
     
     [_websiteButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    
+    [_addFavButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
     
     if (!_backgroundOperationQueue) {
         _backgroundOperationQueue = [[NSOperationQueue alloc] init];
@@ -75,13 +68,15 @@
     }
     
     
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"detailWebView.html" ofType:nil]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [_detailWebView loadRequest:request];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self configureView];
-    
 
-    self.scrollView.contentSize = CGSizeMake(320, 800);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,27 +119,15 @@
 
     [defaults synchronize];
 
-
-    //fade in and out label that says "bookmarked"
-    _bookmarkLabel.alpha = 0;
-    _bookmarkLabel.hidden = NO;
-
-    [UIView animateWithDuration:0.3 animations:^{
-        _bookmarkLabel.alpha = 1;
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.3 animations:^{
-            _bookmarkLabel.alpha = 0;
-        }];
-    }];
 }
 
 - (void)fetchImage:(NSString *)imageURL useOperationQueue:(NSOperationQueue *)operationQueue {
     // remove any previous images (from cell reuse) while image is downloading
-    self.logoImageView.image = nil;
+    //self.logoImageView.image = nil;
     
-    _fetchImageOperation = [ChallengeAPI fetchImage:imageURL operationQueue:operationQueue withBlock:^(UIImage *image) {
-        self.logoImageView.image = image;
-    }];
+    //_fetchImageOperation = [ChallengeAPI fetchImage:imageURL operationQueue:operationQueue withBlock:^(UIImage *image) {
+      //  self.logoImageView.image = image;
+    //}];
 }
 
 - (IBAction)GoToURLButton:(UIButton *)sender {
@@ -162,6 +145,6 @@
     if (_fetchImageOperation) {
         [_fetchImageOperation cancel];
     }
-    self.logoImageView.image = nil;
+    //self.logoImageView.image = nil;
 }
 @end
