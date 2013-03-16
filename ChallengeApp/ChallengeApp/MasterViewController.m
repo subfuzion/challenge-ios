@@ -22,6 +22,7 @@
     NSOperationQueue *_backgroundOperationQueue;
     ChallengeAPI *_challengeAPI;
     NSArray *_challenges;
+    int _sort;
 }
 
 - (void)viewDidLoad {

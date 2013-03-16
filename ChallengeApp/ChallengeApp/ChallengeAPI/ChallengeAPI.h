@@ -12,6 +12,14 @@ extern NSString *const kChallengeFeedPath;
 extern NSString *const kChallengeBookmarksPath;
 
 
+typedef NS_ENUM(NSUInteger, ChallengeSort) {
+    
+    Newest,
+    TimeLeft,
+    Prize,
+};
+
+
 @interface ChallengeAPI : NSObject
 
 
