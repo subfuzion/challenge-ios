@@ -43,7 +43,7 @@
     item = self.challenge;
     if (item) {
         self.titleLabel.text = item.title;
-        self.detailDescriptionLabel.text = item.description;
+        self.detailDescriptionLabel.text = item.summary;
   
         // load image asynchronously
         [self fetchImage:item.imageURL useOperationQueue:_backgroundOperationQueue];

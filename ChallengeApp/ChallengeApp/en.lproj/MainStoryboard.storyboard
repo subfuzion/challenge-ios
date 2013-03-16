@@ -97,7 +97,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="0t9-AH-ELC">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="0t9-AH-ELC">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="9LE-kI-o93"/>
                                 </constraints>
@@ -105,11 +105,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="27">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="5gg-m3-p7q"/>
-                                    <constraint firstAttribute="height" constant="46" id="PlN-fb-9qB"/>
+                                    <constraint firstAttribute="height" constant="73" id="FH7-kI-Yly"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -142,7 +142,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sm4-rb-4rQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="sm4-rb-4rQ">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="BSh-Mw-5I6"/>
                                     <constraint firstAttribute="width" constant="120" id="KPt-wf-aF9"/>
@@ -169,18 +169,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0t9-AH-ELC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0yh-MG-yJh"/>
-                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="0t9-AH-ELC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0zd-OM-5QI"/>
-                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="201" id="6nu-dN-Vx2"/>
-                            <constraint firstAttribute="bottom" secondItem="eRN-Ko-7D5" secondAttribute="bottom" constant="46" id="KQD-9V-1Ek"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="22" secondAttribute="top" constant="287" type="user" id="Czc-fQ-arM"/>
+                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="194" id="Kk1-zr-pBN"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="QUj-pv-E3Y"/>
                             <constraint firstItem="0t9-AH-ELC" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Rs9-gi-lAo"/>
                             <constraint firstAttribute="bottom" secondItem="ltr-N5-va5" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="SLM-oo-LHV"/>
+                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Sab-Pr-wNZ"/>
                             <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZLw-A9-am1"/>
-                            <constraint firstItem="Kh1-N5-07e" firstAttribute="centerX" secondItem="ltr-N5-va5" secondAttribute="centerX" type="default" id="dIP-4Q-1NB"/>
+                            <constraint firstAttribute="trailing" secondItem="eRN-Ko-7D5" secondAttribute="trailing" constant="66" id="ZQ9-hn-h3K"/>
                             <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="22" secondAttribute="top" type="default" id="fG9-Bp-LY4"/>
-                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="centerX" secondItem="0t9-AH-ELC" secondAttribute="centerX" type="default" id="iBK-re-3mI"/>
-                            <constraint firstItem="Kh1-N5-07e" firstAttribute="centerX" secondItem="sm4-rb-4rQ" secondAttribute="centerX" type="default" id="uhp-wJ-bRh"/>
-                            <constraint firstItem="eRN-Ko-7D5" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="35" id="vhO-Vh-Nr1"/>
-                            <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="22" secondAttribute="top" constant="282" type="user" id="zE7-nt-VJd"/>
+                            <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="22" secondAttribute="top" constant="78" id="fGg-mf-e4A"/>
+                            <constraint firstAttribute="bottom" secondItem="eRN-Ko-7D5" secondAttribute="bottom" constant="53" id="nhd-A6-Za0"/>
+                            <constraint firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" constant="11" id="shW-Xc-xgm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">
@@ -266,6 +266,42 @@
         <image name="favorites_add_48.png" width="48" height="48"/>
         <image name="info.png" width="24" height="24"/>
     </resources>
+    <classes>
+        <class className="BookmarksViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookmarksViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneTap:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="GoToURLButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="onBookmarkAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="onSendAction:"/>
+                <relationship kind="outlet" name="bookmarkLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="websiteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneClick:"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sortSegmentedControlTap:" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
