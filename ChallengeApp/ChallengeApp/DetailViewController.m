@@ -21,6 +21,8 @@
 @property(weak, nonatomic) IBOutlet UILabel *bookmarkLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *websiteButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UILabel *posterLabel;
 
 - (void)configureView;
 
@@ -44,6 +46,8 @@
     if (item) {
         self.titleLabel.text = item.title;
         self.detailDescriptionLabel.text = item.summary;
+        self.posterLabel.text = [NSString stringWithFormat:@"By %@", item.poster];
+        
   
         // load image asynchronously
         [self fetchImage:item.imageURL useOperationQueue:_backgroundOperationQueue];
@@ -52,8 +56,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-
+    // Do any additional setup after loading the view, typically from a nib.    
+    
     _bookmarkLabel.hidden = YES;
 
     UIImage *buttonImage = [[UIImage imageNamed:@"blueButton.png"]
@@ -75,6 +79,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self configureView];
+    
+
+    self.scrollView.contentSize = CGSizeMake(320, 800);
 }
 
 - (void)didReceiveMemoryWarning {
