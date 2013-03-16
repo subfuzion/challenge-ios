@@ -144,23 +144,26 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325" id="R9z-3d-0Wh"/>
-                                    <constraint firstAttribute="height" constant="453" type="user" id="iu9-jj-uzA"/>
+                                    <constraint firstAttribute="height" constant="433" type="user" id="czH-9S-K2r"/>
                                 </constraints>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="yYH-SK-Q1i" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0Ue-mS-suN"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="centerY" secondItem="ltr-N5-va5" secondAttribute="centerY" type="default" id="2Gk-e9-bEf"/>
+                            <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="22" secondAttribute="top" constant="71" type="user" id="7QE-Vo-aM7"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="baseline" secondItem="Kh1-N5-07e" secondAttribute="baseline" type="user" id="8KW-z1-TDi"/>
+                            <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="22" secondAttribute="top" constant="13" id="Eyx-jd-yex"/>
                             <constraint firstAttribute="trailing" secondItem="yYH-SK-Q1i" secondAttribute="trailing" constant="16" id="Fuf-Nt-rxn"/>
                             <constraint firstItem="ltr-N5-va5" firstAttribute="bottom" secondItem="Kh1-N5-07e" secondAttribute="bottom" type="default" id="JPn-ll-5jv"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="top" type="default" id="LA5-yl-H6R"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" type="default" id="Nsw-No-raB"/>
-                            <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="22" secondAttribute="top" constant="51" type="user" id="P1U-xD-msl"/>
                             <constraint firstItem="fna-0v-0i3" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="Sdu-Wv-A23"/>
                             <constraint firstItem="Kh1-N5-07e" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="11" id="VFn-gC-BSl"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="baseline" secondItem="ltr-N5-va5" secondAttribute="baseline" type="user" id="cgX-mV-lfA"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="ltr-N5-va5" secondAttribute="top" type="default" id="psy-Sv-jcl"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="leading" secondItem="ltr-N5-va5" secondAttribute="leading" type="default" id="qKS-sb-JPZ"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="baseline" secondItem="Kh1-N5-07e" secondAttribute="baseline" type="user" id="vsp-nT-C2a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">
