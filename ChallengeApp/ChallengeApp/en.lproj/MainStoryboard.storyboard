@@ -100,7 +100,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kh1-N5-07e">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="9uZ-1T-udI"/>
-                                    <constraint firstAttribute="height" constant="31" id="mj5-U8-Isa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Go to Website">
@@ -114,10 +113,7 @@
                                     <action selector="GoToURLButton:" destination="21" eventType="touchUpInside" id="Znp-Gu-3j8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltr-N5-va5" userLabel="Button - AddFav">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="wbd-dR-3a4"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltr-N5-va5" userLabel="Button - Add Bookmark">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Bookmark">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,6 +126,20 @@
                                     <action selector="onBookmarkAction:" destination="21" eventType="touchUpInside" id="pTl-2c-vip"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYH-SK-Q1i" userLabel="Button - Bookmarked">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="0vM-1j-M9T"/>
+                                    <constraint firstAttribute="height" constant="30" id="BfB-S5-2Vb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Bookmarked">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fna-0v-0i3">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -140,13 +150,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" constant="16" id="0s0-0O-OmQ"/>
+                            <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="yYH-SK-Q1i" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0Ue-mS-suN"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="centerY" secondItem="ltr-N5-va5" secondAttribute="centerY" type="default" id="2Gk-e9-bEf"/>
+                            <constraint firstAttribute="trailing" secondItem="yYH-SK-Q1i" secondAttribute="trailing" constant="16" id="Fuf-Nt-rxn"/>
                             <constraint firstItem="ltr-N5-va5" firstAttribute="bottom" secondItem="Kh1-N5-07e" secondAttribute="bottom" type="default" id="JPn-ll-5jv"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="top" type="default" id="LA5-yl-H6R"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" type="default" id="Nsw-No-raB"/>
                             <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="22" secondAttribute="top" constant="51" type="user" id="P1U-xD-msl"/>
                             <constraint firstItem="fna-0v-0i3" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="Sdu-Wv-A23"/>
                             <constraint firstItem="Kh1-N5-07e" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="11" id="VFn-gC-BSl"/>
-                            <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="top" type="default" id="ebp-cB-Sdp"/>
-                            <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="22" secondAttribute="top" constant="13" id="i4l-ai-2Ow"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="ltr-N5-va5" secondAttribute="top" type="default" id="psy-Sv-jcl"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="leading" secondItem="ltr-N5-va5" secondAttribute="leading" type="default" id="qKS-sb-JPZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">
@@ -159,13 +173,14 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="addFavButton" destination="ltr-N5-va5" id="WfD-dM-SVc"/>
+                        <outlet property="bookMarkedButton" destination="yYH-SK-Q1i" id="tGP-0S-Nt2"/>
                         <outlet property="detailWebView" destination="fna-0v-0i3" id="yvQ-kO-8NU"/>
                         <outlet property="websiteButton" destination="Kh1-N5-07e" id="QDN-W1-sev"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2206" y="286"/>
+            <point key="canvasLocation" x="-2106" y="295"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="cG7-h2-EyO">
@@ -242,6 +257,7 @@
                 <relationship kind="action" name="onBookmarkAction:" candidateClass="UIButton"/>
                 <relationship kind="action" name="onSendAction:"/>
                 <relationship kind="outlet" name="addFavButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bookMarkedButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="detailWebView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="websiteButton" candidateClass="UIButton"/>
             </relationships>

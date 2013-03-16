@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *websiteButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFavButton;
 @property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
+@property (weak, nonatomic) IBOutlet UIButton *bookMarkedButton;
 
 - (void)configureView;
 
@@ -28,6 +29,7 @@
     NSOperation *_fetchImageOperation;
     ChallengeAPI *_challengeAPI;
     Challenge *item;
+    NSMutableArray *_bookmarksArray;
     
 }
 
@@ -53,11 +55,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.    
     
+    _bookmarksArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
+    
+    
+    
     UIImage *buttonImage = [[UIImage imageNamed:@"blueButton.png"]
                             stretchableImageWithLeftCapWidth:20 topCapHeight:0];
     
+
     [_websiteButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [_addFavButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    
+
+    UIImage *bookMarkedButtonImage = [[UIImage imageNamed:@"greyButton.png"]
+                            stretchableImageWithLeftCapWidth:20 topCapHeight:0];
+    
+    
+    [_bookMarkedButton setBackgroundImage:bookMarkedButtonImage forState:UIControlStateNormal];
     
     if (!_backgroundOperationQueue) {
         _backgroundOperationQueue = [[NSOperationQueue alloc] init];
@@ -66,6 +80,22 @@
     if (!_challengeAPI) {
         _challengeAPI = [[ChallengeAPI alloc] init];
     }
+    
+    //see if id already in bookmark, if so disable bookmark button and show Bookmarked button (greyed out)
+    NSString *id = self.challenge.ID;
+    
+    if ([_bookmarksArray containsObject:id]) {
+        _bookMarkedButton.hidden = NO;
+        _addFavButton.hidden = YES;
+
+    }
+    else
+    {
+        _bookMarkedButton.hidden = YES;
+        _addFavButton.hidden = NO;
+    }
+    
+       
     
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"detailWebView.html" ofType:nil]];
@@ -107,17 +137,21 @@
     //add id to NSUserDefaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    NSMutableArray *bookmarks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
+    //NSMutableArray *bookmarks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
 
     //see if id already added before, don't store it if already there
     NSString *id = self.challenge.ID;
-    if (![bookmarks containsObject:id]) {
-        [bookmarks addObject:id];
+    if (![_bookmarksArray containsObject:id]) {
+        [_bookmarksArray addObject:id];
     }
 
-    [defaults setObject:bookmarks forKey:@"bookmarkArray"];
+    [defaults setObject:_bookmarksArray forKey:@"bookmarkArray"];
 
     [defaults synchronize];
+    
+    _bookMarkedButton.hidden = NO;
+    _addFavButton.hidden = YES;
+
 
 }
 
@@ -145,6 +179,5 @@
     if (_fetchImageOperation) {
         [_fetchImageOperation cancel];
     }
-    //self.logoImageView.image = nil;
 }
 @end
