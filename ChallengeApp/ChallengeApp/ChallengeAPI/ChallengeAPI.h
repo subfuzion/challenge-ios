@@ -14,9 +14,9 @@ extern NSString *const kChallengeBookmarksPath;
 
 typedef NS_ENUM(NSUInteger, ChallengeSort) {
     
-    Newest,
-    TimeLeft,
-    Prize,
+    SortByNewest,
+    SortByTimeLeft,
+    SortByPrize,
 };
 
 
@@ -25,6 +25,7 @@ typedef NS_ENUM(NSUInteger, ChallengeSort) {
 
 // This will execute the block on the UI thread and pass an array of Challenge objects.
 - (void)fetchChallenges:(void (^)(NSArray *))block;
+- (void)fetchChallengesSorted:(ChallengeSort)sortBy withBlock:(void (^)(NSArray *))block;
 
 - (void)cancelFetchChallenges;
 

@@ -23,11 +23,15 @@ NSString *const kChallengeBookmarksPath = @"http://challengeapi-7312.onmodulus.n
 }
 
 - (void)fetchChallenges:(void (^)(NSArray *))block {
+    [self fetchChallengesSorted:SortByNewest withBlock:block];
+}
+
+- (void)fetchChallengesSorted:(ChallengeSort)sortBy withBlock:(void (^)(NSArray *))block {
     if (!_fetchChallengesOperationQueue) {
         _fetchChallengesOperationQueue = [[NSOperationQueue alloc] init];
         _fetchChallengesOperationQueue.name = @"Challenge Feed Operation Queue";
     }
-
+    
     [_fetchChallengesOperationQueue addOperationWithBlock:^(void) {
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:kChallengeFeedPath]];
         NSArray *challenges = [self parseFeedResponseData:data];

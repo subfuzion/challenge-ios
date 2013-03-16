@@ -22,7 +22,7 @@
     NSOperationQueue *_backgroundOperationQueue;
     ChallengeAPI *_challengeAPI;
     NSArray *_challenges;
-    int _sort;
+    ChallengeSort _sort;
 }
 
 - (void)viewDidLoad {
@@ -100,18 +100,17 @@
 
 - (IBAction)sortSegmentedControlTap:(UISegmentedControl *)sender {
     
-    if([sender selectedSegmentIndex] == 0){
-
+    if([sender selectedSegmentIndex] == 0) {
         NSLog(@"Sort by Newest");
+        _sort = SortByNewest;
     }
     else if ([sender selectedSegmentIndex] == 1){
-    
         NSLog(@"Sort by Time Left");
-        
+        _sort = SortByTimeLeft;
     }
     else if ([sender selectedSegmentIndex] == 2){
         NSLog(@"Sort by Prize");
-        
+        _sort = SortByPrize;
     }
     
 }
