@@ -101,8 +101,9 @@
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="0t9-AH-ELC">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="9LE-kI-o93"/>
                                             <constraint firstAttribute="width" constant="280" id="Bwy-03-mI7"/>
+                                            <constraint firstAttribute="height" constant="60" id="wjU-RL-AQe"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" type="user" id="xGS-8f-Uy3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,7 +111,7 @@
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="sm4-rb-4rQ">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="BSh-Mw-5I6"/>
+                                            <constraint firstAttribute="height" constant="120" type="user" id="BSh-Mw-5I6"/>
                                             <constraint firstAttribute="width" constant="220" id="hxI-Dm-Cl3"/>
                                         </constraints>
                                     </imageView>
@@ -118,7 +119,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="275" id="5gg-m3-p7q"/>
-                                            <constraint firstAttribute="height" constant="73" id="FH7-kI-Yly"/>
+                                            <constraint firstAttribute="height" constant="73" type="user" id="FH7-kI-Yly"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -168,14 +169,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNx-jU-h5C">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="scroll me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNx-jU-h5C">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3m-Hi-ViH">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="306" translatesAutoresizingMaskIntoConstraints="NO" id="T3m-Hi-ViH" userLabel="Label - Poster">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="23" id="Zpd-CH-kz3"/>
+                                            <constraint firstAttribute="height" constant="39" type="user" id="NHT-Fo-oSv"/>
                                             <constraint firstAttribute="width" constant="306" id="g1J-cs-Kjg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
@@ -184,24 +185,24 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="T3m-Hi-ViH" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0Ks-mH-cJA"/>
-                                    <constraint firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" constant="8" id="45b-LU-las"/>
-                                    <constraint firstItem="T3m-Hi-ViH" firstAttribute="leading" secondItem="0t9-AH-ELC" secondAttribute="leading" type="default" id="5HK-6q-iM2"/>
+                                    <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="11" type="user" id="3qW-T6-iPw"/>
+                                    <constraint firstItem="T3m-Hi-ViH" firstAttribute="leading" secondItem="0t9-AH-ELC" secondAttribute="leading" type="user" id="5HK-6q-iM2"/>
                                     <constraint firstItem="eRN-Ko-7D5" firstAttribute="leading" secondItem="srY-qO-kqB" secondAttribute="leading" constant="169" id="9fm-2u-mVO"/>
                                     <constraint firstItem="27" firstAttribute="leading" secondItem="sm4-rb-4rQ" secondAttribute="leading" type="default" id="BvM-aH-HFN"/>
-                                    <constraint firstItem="bNx-jU-h5C" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="480" id="CnU-c6-zC1"/>
-                                    <constraint firstItem="T3m-Hi-ViH" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="88" id="FgG-Gl-gZp"/>
+                                    <constraint firstItem="T3m-Hi-ViH" firstAttribute="top" secondItem="0t9-AH-ELC" secondAttribute="bottom" constant="14" type="user" id="Dyr-sG-XLi"/>
+                                    <constraint firstItem="bNx-jU-h5C" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="480" id="H0u-3S-zlf"/>
+                                    <constraint firstItem="sm4-rb-4rQ" firstAttribute="top" secondItem="T3m-Hi-ViH" secondAttribute="bottom" constant="6" type="user" id="Iiu-H6-dZ2"/>
                                     <constraint firstItem="Kh1-N5-07e" firstAttribute="leading" secondItem="27" secondAttribute="leading" type="default" id="IqD-2p-Xq9"/>
-                                    <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="11" id="SJg-9O-dJ5"/>
+                                    <constraint firstItem="bNx-jU-h5C" firstAttribute="centerX" secondItem="srY-qO-kqB" secondAttribute="centerX" type="default" id="KC7-dB-MNZ"/>
                                     <constraint firstAttribute="bottom" secondItem="bNx-jU-h5C" secondAttribute="bottom" constant="108" id="SQd-dQ-DLB"/>
-                                    <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="eRN-Ko-7D5" secondAttribute="top" type="default" id="SQh-8H-Hm0"/>
                                     <constraint firstItem="T3m-Hi-ViH" firstAttribute="leading" secondItem="sm4-rb-4rQ" secondAttribute="leading" type="default" id="Tjt-jk-o1V"/>
-                                    <constraint firstItem="27" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="249" id="VRb-Cv-B09"/>
-                                    <constraint firstItem="ltr-N5-va5" firstAttribute="trailing" secondItem="T3m-Hi-ViH" secondAttribute="trailing" type="default" id="WBv-oy-9iP"/>
-                                    <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="336" id="XZT-Mw-NeC"/>
+                                    <constraint firstItem="27" firstAttribute="top" secondItem="sm4-rb-4rQ" secondAttribute="bottom" constant="13" type="user" id="c4E-3d-pED"/>
+                                    <constraint firstItem="0t9-AH-ELC" firstAttribute="leading" secondItem="srY-qO-kqB" secondAttribute="leading" constant="6" id="cbe-7H-spu"/>
+                                    <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="27" secondAttribute="bottom" constant="17" type="user" id="ela-og-UUP"/>
                                     <constraint firstItem="0t9-AH-ELC" firstAttribute="top" secondItem="eRN-Ko-7D5" secondAttribute="top" type="default" id="fUL-dk-UsZ"/>
-                                    <constraint firstItem="bNx-jU-h5C" firstAttribute="centerX" secondItem="srY-qO-kqB" secondAttribute="centerX" type="default" id="krv-5P-njO"/>
-                                    <constraint firstItem="0t9-AH-ELC" firstAttribute="leading" secondItem="srY-qO-kqB" secondAttribute="leading" constant="6" id="qXi-tK-ixx"/>
+                                    <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="srY-qO-kqB" secondAttribute="top" constant="431" id="hs2-tc-4UE"/>
+                                    <constraint firstItem="ltr-N5-va5" firstAttribute="leading" secondItem="srY-qO-kqB" secondAttribute="leading" constant="260" id="ikG-Sa-8lH"/>
+                                    <constraint firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oco-pQ-w6w"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -233,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1792" y="270"/>
+            <point key="canvasLocation" x="-1949" y="265"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="cG7-h2-EyO">
@@ -298,6 +299,44 @@
         <image name="favorites_add_48.png" width="48" height="48"/>
         <image name="info.png" width="24" height="24"/>
     </resources>
+    <classes>
+        <class className="BookmarksViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookmarksViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneTap:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="GoToURLButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="onBookmarkAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="onSendAction:"/>
+                <relationship kind="outlet" name="bookmarkLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="posterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="websiteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneClick:"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sortSegmentedControlTap:" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
