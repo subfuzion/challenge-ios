@@ -21,8 +21,9 @@
 @implementation BookmarksViewController {
     NSOperationQueue *_backgroundOperationQueue;
     ChallengeAPI *_challengeAPI;
-    NSArray *_challenges;
-    NSMutableArray *bookmarks;
+    NSMutableArray *_challenges;
+    NSMutableArray *_bookmarks;
+
     
 }
 
@@ -38,10 +39,7 @@
         _challengeAPI = [[ChallengeAPI alloc] init];
     }
 
-    bookmarks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
-    
-    NSLog(@"%@", bookmarks);
-    
+
     UINib *tableCell = [UINib nibWithNibName:@"ChallengeTableCell" bundle:nil];
     [self.tableView registerNib:tableCell forCellReuseIdentifier:@"ChallengeTableCell"];
 }
@@ -49,6 +47,11 @@
 	
 - (void)viewDidAppear:(BOOL)animated {
     // Refresh the bookmarks each time view appears
+    
+    _bookmarks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
+    
+    //NSLog(@"%@", bookmarks);
+    
     [self fetchBookmarks];
 }
 
@@ -60,8 +63,8 @@
 - (void)fetchBookmarks {
     
     // Get saved bookmarks from NSUserDefaults
-    [_challengeAPI fetchBookmarks:bookmarks withBlock:^(NSArray *challenges) {
-        _challenges = challenges;
+    [_challengeAPI fetchBookmarks:_bookmarks withBlock:^(NSArray *challenges) {
+        _challenges = [[NSMutableArray alloc] initWithArray:challenges];
         [self.tableView reloadData];
         NSLog(@"%@", challenges);
     }];
@@ -100,21 +103,22 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     Challenge *challenge = [_challenges objectAtIndex:indexPath.row];
+    [_challenges removeObjectAtIndex:indexPath.row];
     
     NSString *oid = challenge.ID;
     
-    
-    [bookmarks removeObject:oid];
+    [_bookmarks removeObject:oid];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setObject:bookmarks forKey:@"bookmarkArray"];
+    [defaults setObject:_bookmarks forKey:@"bookmarkArray"];
     
     [defaults synchronize];
     
-    [self fetchBookmarks];
+    [self.tableView reloadData];
+    
+    //NSLog(@"%@", bookmarks);
     
 }
 
