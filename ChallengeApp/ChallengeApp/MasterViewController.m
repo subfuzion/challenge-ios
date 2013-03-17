@@ -12,7 +12,7 @@
 #import "ChallengeAPI.h"
 
 
-@interface MasterViewController ()
+@interface MasterViewController () <UIAlertViewDelegate>
 
 - (IBAction)sortSegmentedControlTap:(UISegmentedControl *)sender;
 
@@ -23,6 +23,7 @@
     ChallengeAPI *_challengeAPI;
     NSArray *_challenges;
     ChallengeSort _challengeSortOrder;
+    
 }
 
 - (void)viewDidLoad {
@@ -40,6 +41,16 @@
     [self.tableView registerNib:tableCell forCellReuseIdentifier:@"ChallengeTableCell"];
 
     [self fetchChallenges];
+    
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing data"];
+    
+    [refreshControl addTarget:self action:@selector(fetchChallenges)
+             forControlEvents:UIControlEventValueChanged];
+    
+    self.refreshControl = refreshControl;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,9 +103,23 @@
 #pragma mark - Implementation
 
 - (void)fetchChallenges {
-    [_challengeAPI fetchChallengesSorted:_challengeSortOrder withBlock:^(NSArray *challenges) {
+    
+        NSLog(@"fetchchallenges got called");
+    
+        [_challengeAPI fetchChallengesSorted:_challengeSortOrder withBlock:^(NSArray *challenges) {
         _challenges = challenges;
+        
+        if (!_challenges.count)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops...the service is busy" message:@"Please try again later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+            
+        }
+        
         [self.tableView reloadData];
+        
+        [self.refreshControl endRefreshing];
+        
     }];
 }
 
