@@ -7,11 +7,15 @@
 //
 
 #import "InfoViewController.h"
+#import "ChallengeAPI.h"
 
 @interface InfoViewController ()
+
 - (IBAction)doneClick:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIWebView *infowebView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIWebView *infoWebView;
+
 @end
 
 @implementation InfoViewController
@@ -28,10 +32,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"infoView.html" ofType:nil]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [_infowebView loadRequest:request];
-    
+    [self.activityIndicator startAnimating];
+
+    [ChallengeAPI fetchInfoPageExecute:^(NSString * page) {
+        [self.infoWebView loadHTMLString:page baseURL:nil];
+        [self.activityIndicator stopAnimating];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,8 +46,7 @@
 }
 
 - (IBAction)doneClick:(id)sender {
-
     [self dismissViewControllerAnimated:YES completion:nil];
-
 }
+
 @end

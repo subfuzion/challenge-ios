@@ -8,8 +8,11 @@
 #import <Foundation/Foundation.h>
 
 
-extern NSString *const kChallengeFeedPath;
-extern NSString *const kChallengeBookmarksPath;
+extern NSString *const kChallengeApiRoot;
+extern NSString *const kChallengesRoute;
+extern NSString *const kChallengeBookmarksRoute;
+extern NSString *const kChallengeInfoPageRoute;
+extern NSString *const kChallengeDetailPageRoute;
 
 
 typedef NS_ENUM(NSUInteger, ChallengeSort) {
@@ -37,5 +40,12 @@ typedef NS_ENUM(NSUInteger, ChallengeSort) {
 // This will execute the block on the UI thread and pass the requested image.
 + (NSOperation *)fetchImage:(NSString *)imageURL operationQueue:(NSOperationQueue *)operationQueue withBlock:(void (^)(UIImage *))block;
 
++ (NSURL *)urlForInfoPage;
+
++ (NSURL *)urlForDetailPage:(NSString *)challengeID;
+
++ (NSOperation *)fetchInfoPageExecute:(void (^)(NSString *))block;
+
++ (NSOperation *)fetchDetailPage:(NSString *)challengeID execute:(void (^)(NSString *))block;
 
 @end

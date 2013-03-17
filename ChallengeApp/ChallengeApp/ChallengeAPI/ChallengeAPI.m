@@ -8,19 +8,38 @@
 #import "ChallengeAPI.h"
 #import "Challenge.h"
 
-// routes for debugging
-// NSString * const kChallengeFeedPath = @"http://challenge-api.subfuzion.c9.io/feed";
-// NSString * const kChallengeBookmarksPath = @"http://challenge-api.subfuzion.c9.io/bookmarks";
+#define DEBUGAPI = 0
 
-// production routes
-NSString *const kChallengeFeedPath = @"http://challengeapi-7312.onmodulus.net/feed";
-NSString *const kChallengeBookmarksPath = @"http://challengeapi-7312.onmodulus.net/bookmarks";
+#ifdef DEBUGAPI
+NSString *const kChallengeApiRoot = @"http://challenge-api.subfuzion.c9.io";
+#else
+NSString *const kChallengeApiRoot = @"http://challengeapi-7312.onmodulus.net";
+#endif
+
+// API routes
+NSString *const kChallengesRoute = @"/challenges";
+NSString *const kChallengeBookmarksRoute = @"/bookmarks";
+NSString *const kChallengeInfoPageRoute = @"/info";
 
 
 @implementation ChallengeAPI {
     NSOperationQueue *_fetchChallengesOperationQueue;
     NSOperationQueue *_fetchBookmarksOperationQueue;
+
 }
+
++ (NSURL *)challengeUrlForRoute:(NSString *)route {
+    NSURL *rootUrl = [NSURL URLWithString:kChallengeApiRoot];
+    return [NSURL URLWithString:route relativeToURL:rootUrl];
+}
+
++ (NSURL *)challengeUrlForQueryParameter:(NSString *)route queryParameterKey:(NSString *)key queryParameterValue:(NSString *)value {
+    NSURL *rootUrl = [NSURL URLWithString:kChallengeApiRoot];
+    NSString *routeWithQuery = [NSString stringWithFormat:@"%@?=%@", key, value];
+    NSLog(@"CHALLENGE URL: %@", routeWithQuery);
+    return [NSURL URLWithString:routeWithQuery relativeToURL:rootUrl];
+}
+
 
 - (void)fetchChallenges:(void (^)(NSArray *))block {
     [self fetchChallengesSorted:SortByNewest withBlock:block];
@@ -33,10 +52,14 @@ NSString *const kChallengeBookmarksPath = @"http://challengeapi-7312.onmodulus.n
     }
     
     [_fetchChallengesOperationQueue addOperationWithBlock:^(void) {
-        NSString *urlpath = [NSString stringWithFormat:@"%@?sort=%d", kChallengeFeedPath, sortBy];
-        NSLog(@"URL: %@",urlpath);
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlpath]];
-        NSArray *challenges = [self parseFeedResponseData:data];
+        NSString *route = [NSString stringWithFormat:@"%@?sort=%d", kChallengesRoute, sortBy];
+        NSURL *url = [ChallengeAPI challengeUrlForRoute:route];
+
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        NSArray *challenges = data
+            ? [self parseFeedResponseData:data]
+            : [[NSArray alloc] init];
+
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
             block(challenges);
         }];
@@ -67,8 +90,9 @@ NSString *const kChallengeBookmarksPath = @"http://challengeapi-7312.onmodulus.n
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:map options:0 error:&error];
     // todo: handle error
 
+    NSURL *url = [ChallengeAPI challengeUrlForRoute:kChallengeBookmarksRoute];
 
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:kChallengeBookmarksPath]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"PUT"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:bodyData];
@@ -109,6 +133,60 @@ NSString *const kChallengeBookmarksPath = @"http://challengeapi-7312.onmodulus.n
     return fetchImageOperation;
 }
 
++ (NSURL *)urlForInfoPage {
+    return [ChallengeAPI challengeUrlForRoute:kChallengeInfoPageRoute];
+}
+
++ (NSURL *)urlForDetailPage:(NSString *)challengeID {
+    NSURL *url = [NSURL URLWithString:kChallengeApiRoot];
+    url = [NSURL URLWithString:kChallengesRoute relativeToURL:url];
+    url = [url URLByAppendingPathComponent:challengeID];
+    NSLog(@"DETAIL URL: %@", url.absoluteURL);
+    return url;
+}
+
++ (NSOperation *)fetchInfoPageExecute:(void (^)(NSString *))block {
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSBlockOperation *fetchOp = [[NSBlockOperation alloc] init];
+    __weak NSBlockOperation *weakOp = fetchOp;
+
+    [fetchOp addExecutionBlock:^{
+        NSURL *url = [ChallengeAPI urlForInfoPage];
+        NSString *page = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+            if (!weakOp.isCancelled) {
+                block(page);
+            }
+        }];
+    }];
+
+    [queue addOperation:fetchOp];
+    return fetchOp;
+}
+
++ (NSOperation *)fetchDetailPage:(NSString *)challengeID execute:(void (^)(NSString *))block {
+    if (!challengeID) return nil;
+
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSBlockOperation *fetchOp = [[NSBlockOperation alloc] init];
+    __weak NSBlockOperation *weakOp = fetchOp;
+    
+    [fetchOp addExecutionBlock:^{
+        NSURL *url = [ChallengeAPI urlForDetailPage:challengeID];
+        NSString *page = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+            if (!weakOp.isCancelled) {
+                block(page);
+            }
+        }];
+    }];
+    
+    [queue addOperation:fetchOp];
+    return fetchOp;
+}
+
 - (NSArray *)parseFeedResponseData:(NSData *)responseData {
     NSMutableArray *challenges = [[NSMutableArray alloc] init];
     NSError *error;
@@ -126,6 +204,5 @@ NSString *const kChallengeBookmarksPath = @"http://challengeapi-7312.onmodulus.n
 
     return challenges;
 }
-
 
 @end

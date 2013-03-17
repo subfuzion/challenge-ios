@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -151,6 +151,7 @@
                                     <constraint firstAttribute="height" constant="433" type="user" id="czH-9S-K2r"/>
                                 </constraints>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ogb-GO-vaZ"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -178,6 +179,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Ogb-GO-vaZ" id="iAk-S7-FTk"/>
                         <outlet property="addFavButton" destination="ltr-N5-va5" id="WfD-dM-SVc"/>
                         <outlet property="bookMarkedButton" destination="yYH-SK-Q1i" id="tGP-0S-Nt2"/>
                         <outlet property="detailWebView" destination="fna-0v-0i3" id="yvQ-kO-8NU"/>
@@ -210,6 +212,7 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xf-o5-S5l">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Wd0-3p-lNP"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -217,13 +220,16 @@
                             <constraint firstItem="uM8-Ma-Nwb" firstAttribute="top" secondItem="h7o-XG-Acq" secondAttribute="top" type="default" id="Fbs-Lw-BJW"/>
                             <constraint firstItem="6xf-o5-S5l" firstAttribute="leading" secondItem="h7o-XG-Acq" secondAttribute="leading" type="default" id="Huo-E5-BDk"/>
                             <constraint firstItem="uM8-Ma-Nwb" firstAttribute="leading" secondItem="h7o-XG-Acq" secondAttribute="leading" type="default" id="Vo9-iM-ljF"/>
+                            <constraint firstItem="Wd0-3p-lNP" firstAttribute="centerY" secondItem="h7o-XG-Acq" secondAttribute="centerY" type="default" id="cq7-hP-EPZ"/>
+                            <constraint firstItem="Wd0-3p-lNP" firstAttribute="centerX" secondItem="uM8-Ma-Nwb" secondAttribute="centerX" type="default" id="haJ-iu-0sJ"/>
                             <constraint firstItem="6xf-o5-S5l" firstAttribute="bottom" secondItem="h7o-XG-Acq" secondAttribute="bottom" type="default" id="p9z-vY-wJ0"/>
                             <constraint firstItem="6xf-o5-S5l" firstAttribute="top" secondItem="uM8-Ma-Nwb" secondAttribute="bottom" type="default" id="qcV-Qs-yZ1"/>
                             <constraint firstItem="6xf-o5-S5l" firstAttribute="trailing" secondItem="h7o-XG-Acq" secondAttribute="trailing" type="default" id="z7s-ix-abA"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="infowebView" destination="6xf-o5-S5l" id="th8-pm-nyC"/>
+                        <outlet property="activityIndicator" destination="Wd0-3p-lNP" id="Y54-92-WnW"/>
+                        <outlet property="infoWebView" destination="6xf-o5-S5l" id="JM5-vI-EKq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z50-mN-LVc" userLabel="First Responder" sceneMemberID="firstResponder"/>

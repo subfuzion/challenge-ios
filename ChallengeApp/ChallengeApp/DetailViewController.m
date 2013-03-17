@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addFavButton;
 @property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
 @property (weak, nonatomic) IBOutlet UIButton *bookMarkedButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 - (void)configureView;
 
@@ -29,7 +30,6 @@
     NSOperationQueue *_backgroundOperationQueue;
     NSOperation *_fetchImageOperation;
     ChallengeAPI *_challengeAPI;
-    Challenge *item;
     NSMutableArray *_bookmarksArray;
     NSUserDefaults *defaults;
     NSString *oid;
@@ -42,10 +42,22 @@
 
 - (void)configureView {
     // Update the user interface for the challenge, which is passed by MasterViewController
-    item = self.challenge;
+    Challenge *item = self.challenge;
     if (item) {
+        //self.titleLabel.text = item.title;
+        //self.detailDescriptionLabel.text = item.summary;
+        //self.posterLabel.text = [NSString stringWithFormat:@"By %@", item.poster];
+
         // load image asynchronously
         //[self fetchImage:item.imageURL useOperationQueue:_backgroundOperationQueue];
+
+
+        [self.activityIndicator startAnimating];
+
+        [ChallengeAPI fetchDetailPage:self.challenge.ID execute:^(NSString * page) {
+            [self.detailWebView loadHTMLString:page baseURL:nil];
+            [self.activityIndicator stopAnimating];
+        }];
     }
 }
 
@@ -95,16 +107,14 @@
     }
     
     
-    //TODO swap with api call
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"detailWebView.html" ofType:nil]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [_detailWebView loadRequest:request];
-    
+//    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"detailWebView.html" ofType:nil]];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    [_detailWebView loadRequest:request];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self configureView];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,9 +126,7 @@
 
     NSString *message = @"I want to share this challenge.gov posting with you.";
 
-    item = self.challenge;
-    
-    NSArray *postItems = @[message,item.url];
+    NSArray *postItems = @[message,self.challenge.url];
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]
           initWithActivityItems:postItems
@@ -159,7 +167,7 @@
 
 - (IBAction)GoToURLButton:(UIButton *)sender {
     
-    NSString *urlString = item.url;
+    NSString *urlString = self.challenge.url;
     
     NSURL *url = [NSURL URLWithString:urlString];
     
