@@ -56,8 +56,6 @@
 		A03460E516F519C70021D488 /* greyButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButton@2x.png"; sourceTree = "<group>"; };
 		A03460F416F651DF0021D488 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		A03460F616F651FC0021D488 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		A03460F816F6559A0021D488 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		A03460F916F655A10021D488 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		A063064B16F029ED0035F037 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 		A063064D16F02A020035F037 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		A063065216F02B070035F037 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
@@ -145,8 +143,6 @@
 		EA41B33B16ED386F00CD6520 = {
 			isa = PBXGroup;
 			children = (
-				A03460F816F6559A0021D488 /* iTunesArtwork */,
-				A03460F916F655A10021D488 /* iTunesArtwork@2x */,
 				A03460F616F651FC0021D488 /* Icon@2x.png */,
 				A03460F416F651DF0021D488 /* Icon.png */,
 				EA41B34D16ED386F00CD6520 /* ChallengeApp */,
