@@ -392,12 +392,12 @@
 		EA41B36B16ED386F00CD6520 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Subfuzion, Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChallengeApp/ChallengeApp-Prefix.pch";
 				INFOPLIST_FILE = "ChallengeApp/ChallengeApp-Info.plist";
 				PRODUCT_NAME = Challenge.gov;
-				PROVISIONING_PROFILE = "77E82707-8159-4064-A392-898D9EB092CA";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
