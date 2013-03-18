@@ -11,9 +11,6 @@
 		36698811D3067DFD65B64B15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698E71E4B55CD5A340048F /* AppDelegate.m */; };
 		366988EB8EEC300EDD1A4586 /* ChallengeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 366982559C131F514BFA0431 /* ChallengeAPI.m */; };
 		36698CDDB4875924E4E73F0F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698560C47BB86BE5F56F93 /* Challenge.m */; };
-		A024C5B916F6DF4900545E40 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A024C5B816F6DF4900545E40 /* Default@2x.png */; };
-		A024C5BB16F6DF4D00545E40 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A024C5BA16F6DF4D00545E40 /* Default.png */; };
-		A024C5BD16F6DF5800545E40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A024C5BC16F6DF5800545E40 /* Default-568h@2x.png */; };
 		A03460E116F50E2B0021D488 /* detailWebView.html in Resources */ = {isa = PBXBuildFile; fileRef = A03460E016F50E2B0021D488 /* detailWebView.html */; };
 		A03460E316F50E310021D488 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = A03460E216F50E310021D488 /* styles.css */; };
 		A03460E616F519C70021D488 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A03460E416F519C70021D488 /* greyButton.png */; };
@@ -34,13 +31,13 @@
 		EA41B34C16ED386F00CD6520 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41B34B16ED386F00CD6520 /* CoreGraphics.framework */; };
 		EA41B35216ED386F00CD6520 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35016ED386F00CD6520 /* InfoPlist.strings */; };
 		EA41B35416ED386F00CD6520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41B35316ED386F00CD6520 /* main.m */; };
-		EA41B35A16ED386F00CD6520 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35916ED386F00CD6520 /* Default.png */; };
-		EA41B35C16ED386F00CD6520 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35B16ED386F00CD6520 /* Default@2x.png */; };
-		EA41B35E16ED386F00CD6520 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35D16ED386F00CD6520 /* Default-568h@2x.png */; };
 		EA41B36116ED386F00CD6520 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA41B35F16ED386F00CD6520 /* MainStoryboard.storyboard */; };
 		EA41B36416ED386F00CD6520 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41B36316ED386F00CD6520 /* MasterViewController.m */; };
 		EA41B36716ED386F00CD6520 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41B36616ED386F00CD6520 /* DetailViewController.m */; };
 		EA649B2C16F2BA9400886897 /* BookmarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA649B2B16F2BA9400886897 /* BookmarksViewController.m */; };
+		EA87A86E16F7DA66001DA825 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA87A86B16F7DA66001DA825 /* Default-568h@2x.png */; };
+		EA87A86F16F7DA66001DA825 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA87A86C16F7DA66001DA825 /* Default.png */; };
+		EA87A87016F7DA66001DA825 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA87A86D16F7DA66001DA825 /* Default@2x.png */; };
 		EAEFE8A016F310000092A52C /* ChallengeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAEFE89F16F310000092A52C /* ChallengeTableCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -53,9 +50,6 @@
 		36698CCBC5997693B1333012 /* ChallengeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTableCell.m; sourceTree = "<group>"; };
 		36698E71E4B55CD5A340048F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		36698EC05425AE23D9A79233 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
-		A024C5B816F6DF4900545E40 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		A024C5BA16F6DF4D00545E40 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		A024C5BC16F6DF5800545E40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A03460E016F50E2B0021D488 /* detailWebView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = detailWebView.html; sourceTree = "<group>"; };
 		A03460E216F50E310021D488 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
 		A03460E416F519C70021D488 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
@@ -80,9 +74,6 @@
 		EA41B35116ED386F00CD6520 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA41B35316ED386F00CD6520 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EA41B35516ED386F00CD6520 /* ChallengeApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChallengeApp-Prefix.pch"; sourceTree = "<group>"; };
-		EA41B35916ED386F00CD6520 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		EA41B35B16ED386F00CD6520 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		EA41B35D16ED386F00CD6520 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EA41B36016ED386F00CD6520 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		EA41B36216ED386F00CD6520 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		EA41B36316ED386F00CD6520 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
@@ -90,6 +81,9 @@
 		EA41B36616ED386F00CD6520 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		EA649B2A16F2BA9400886897 /* BookmarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarksViewController.h; sourceTree = "<group>"; };
 		EA649B2B16F2BA9400886897 /* BookmarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarksViewController.m; sourceTree = "<group>"; };
+		EA87A86B16F7DA66001DA825 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EA87A86C16F7DA66001DA825 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EA87A86D16F7DA66001DA825 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EAEFE89F16F310000092A52C /* ChallengeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengeTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,9 +143,6 @@
 		EA41B33B16ED386F00CD6520 = {
 			isa = PBXGroup;
 			children = (
-				A024C5BC16F6DF5800545E40 /* Default-568h@2x.png */,
-				A024C5BA16F6DF4D00545E40 /* Default.png */,
-				A024C5B816F6DF4900545E40 /* Default@2x.png */,
 				A04EADF816F6C405000E6916 /* Icon@2x.png */,
 				A03460F416F651DF0021D488 /* Icon.png */,
 				EA41B34D16ED386F00CD6520 /* ChallengeApp */,
@@ -192,13 +183,13 @@
 		EA41B34E16ED386F00CD6520 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA87A86B16F7DA66001DA825 /* Default-568h@2x.png */,
+				EA87A86C16F7DA66001DA825 /* Default.png */,
+				EA87A86D16F7DA66001DA825 /* Default@2x.png */,
 				EA41B34F16ED386F00CD6520 /* ChallengeApp-Info.plist */,
 				EA41B35016ED386F00CD6520 /* InfoPlist.strings */,
 				EA41B35316ED386F00CD6520 /* main.m */,
 				EA41B35516ED386F00CD6520 /* ChallengeApp-Prefix.pch */,
-				EA41B35916ED386F00CD6520 /* Default.png */,
-				EA41B35B16ED386F00CD6520 /* Default@2x.png */,
-				EA41B35D16ED386F00CD6520 /* Default-568h@2x.png */,
 				A063064B16F029ED0035F037 /* info@2x.png */,
 				A063064D16F02A020035F037 /* info.png */,
 				A0CBAE4A16F26B4D002F4E2A /* Border.png */,
@@ -267,9 +258,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA41B35216ED386F00CD6520 /* InfoPlist.strings in Resources */,
-				EA41B35A16ED386F00CD6520 /* Default.png in Resources */,
-				EA41B35C16ED386F00CD6520 /* Default@2x.png in Resources */,
-				EA41B35E16ED386F00CD6520 /* Default-568h@2x.png in Resources */,
 				EA41B36116ED386F00CD6520 /* MainStoryboard.storyboard in Resources */,
 				A063064C16F029ED0035F037 /* info@2x.png in Resources */,
 				A063064E16F02A020035F037 /* info.png in Resources */,
@@ -286,9 +274,9 @@
 				A03460E716F519C70021D488 /* greyButton@2x.png in Resources */,
 				A03460F516F651DF0021D488 /* Icon.png in Resources */,
 				A04EADF916F6C405000E6916 /* Icon@2x.png in Resources */,
-				A024C5B916F6DF4900545E40 /* Default@2x.png in Resources */,
-				A024C5BB16F6DF4D00545E40 /* Default.png in Resources */,
-				A024C5BD16F6DF5800545E40 /* Default-568h@2x.png in Resources */,
+				EA87A86E16F7DA66001DA825 /* Default-568h@2x.png in Resources */,
+				EA87A86F16F7DA66001DA825 /* Default.png in Resources */,
+				EA87A87016F7DA66001DA825 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
