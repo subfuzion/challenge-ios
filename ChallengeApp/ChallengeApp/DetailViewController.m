@@ -9,7 +9,7 @@
 #import "DetailViewController.h"
 #import "ChallengeAPI.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () <UIWebViewDelegate>
 
 - (IBAction)onSendAction:(id)sender;
 - (IBAction)onBookmarkAction:(UIButton *)sender;
@@ -70,6 +70,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.    
     
+    self.detailWebView.delegate = self;
+    
     _bookmarksArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"]];
     
     defaults = [NSUserDefaults standardUserDefaults];
@@ -110,7 +112,6 @@
         _bookMarkedButton.hidden = YES;
         _addFavButton.hidden = NO;
     }
-    
     
 //    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"detailWebView.html" ofType:nil]];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -201,4 +202,13 @@
         [_fetchImageOperation cancel];
     }
 }
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [self.activityIndicator startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.activityIndicator stopAnimating];
+}
+
 @end

@@ -9,7 +9,7 @@
 #import "InfoViewController.h"
 #import "ChallengeAPI.h"
 
-@interface InfoViewController ()
+@interface InfoViewController () <UIWebViewDelegate>
 
 - (IBAction)doneClick:(id)sender;
 
@@ -32,6 +32,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.infoWebView.delegate = self;
+    
 //    [self.activityIndicator startAnimating];
 //
 //    [ChallengeAPI fetchInfoPageExecute:^(NSString * page) {
@@ -53,5 +55,14 @@
 - (IBAction)doneClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [self.activityIndicator startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.activityIndicator stopAnimating];
+}
+
 
 @end

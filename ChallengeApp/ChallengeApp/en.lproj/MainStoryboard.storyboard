@@ -147,7 +147,6 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fna-0v-0i3">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="325" id="R9z-3d-0Wh"/>
                                     <constraint firstAttribute="height" constant="433" type="user" id="czH-9S-K2r"/>
                                 </constraints>
                             </webView>
@@ -158,16 +157,19 @@
                             <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="22" secondAttribute="top" constant="71" type="user" id="7QE-Vo-aM7"/>
                             <constraint firstItem="ltr-N5-va5" firstAttribute="baseline" secondItem="Kh1-N5-07e" secondAttribute="baseline" type="user" id="8KW-z1-TDi"/>
                             <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="22" secondAttribute="top" constant="13" id="Eyx-jd-yex"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="top" type="default" id="Flh-Zh-5Ds"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" type="default" id="Nsw-No-raB"/>
                             <constraint firstItem="fna-0v-0i3" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="Sdu-Wv-A23"/>
                             <constraint firstItem="Kh1-N5-07e" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="11" id="VFn-gC-BSl"/>
-                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="bottom" secondItem="Kh1-N5-07e" secondAttribute="bottom" type="default" id="Wxw-1n-DOW"/>
+                            <constraint firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" constant="16" id="ZB8-tA-NPP"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="baseline" secondItem="ltr-N5-va5" secondAttribute="baseline" type="user" id="cgX-mV-lfA"/>
-                            <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="ltr-N5-va5" secondAttribute="top" type="default" id="igv-He-07D"/>
+                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="centerX" secondItem="fna-0v-0i3" secondAttribute="centerX" type="default" id="di1-Gl-zz6"/>
+                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oKF-O8-qev"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="ltr-N5-va5" secondAttribute="top" type="default" id="psy-Sv-jcl"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="leading" secondItem="ltr-N5-va5" secondAttribute="leading" type="default" id="qKS-sb-JPZ"/>
+                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="147" id="qNS-hO-b1N"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="baseline" secondItem="Kh1-N5-07e" secondAttribute="baseline" type="user" id="vsp-nT-C2a"/>
-                            <constraint firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" constant="16" id="xfi-j6-bv0"/>
+                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="top" secondItem="yYH-SK-Q1i" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wA0-ZZ-fBm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">
@@ -269,6 +271,7 @@
                 <relationship kind="action" name="bookMarkedAction:" candidateClass="UIButton"/>
                 <relationship kind="action" name="onBookmarkAction:" candidateClass="UIButton"/>
                 <relationship kind="action" name="onSendAction:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="addFavButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bookMarkedButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="detailWebView" candidateClass="UIWebView"/>
@@ -279,7 +282,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
             <relationships>
                 <relationship kind="action" name="doneClick:"/>
-                <relationship kind="outlet" name="infowebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="infoWebView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
