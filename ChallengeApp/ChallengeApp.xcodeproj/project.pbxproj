@@ -405,12 +405,12 @@
 		EA41B36C16ED386F00CD6520 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Subfuzion, Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChallengeApp/ChallengeApp-Prefix.pch";
 				INFOPLIST_FILE = "ChallengeApp/ChallengeApp-Info.plist";
 				PRODUCT_NAME = Challenge.gov;
-				PROVISIONING_PROFILE = "C855C2F2-9FEC-4BAE-833E-7DC2B83E4654";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
