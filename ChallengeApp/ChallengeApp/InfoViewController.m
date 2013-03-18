@@ -32,12 +32,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.activityIndicator startAnimating];
+//    [self.activityIndicator startAnimating];
+//
+//    [ChallengeAPI fetchInfoPageExecute:^(NSString * page) {
+//        [self.infoWebView loadHTMLString:page baseURL:nil];
+//        [self.activityIndicator stopAnimating];
+//    }];
 
-    [ChallengeAPI fetchInfoPageExecute:^(NSString * page) {
-        [self.infoWebView loadHTMLString:page baseURL:nil];
-        [self.activityIndicator stopAnimating];
-    }];
+
+    NSURL *url = [ChallengeAPI urlForInfoPage];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.infoWebView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {

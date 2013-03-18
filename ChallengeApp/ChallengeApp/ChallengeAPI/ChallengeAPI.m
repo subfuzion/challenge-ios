@@ -8,9 +8,11 @@
 #import "ChallengeAPI.h"
 #import "Challenge.h"
 
-#define DEBUGAPI 0
+#define API 0
 
-#if DEBUGAPI
+#if API == 1
+NSString *const kChallengeApiRoot = @"http://localhost:8080";
+#elif API == 2
 NSString *const kChallengeApiRoot = @"http://challenge-api.subfuzion.c9.io";
 #else
 NSString *const kChallengeApiRoot = @"http://challengeapi-7312.onmodulus.net";
@@ -19,7 +21,7 @@ NSString *const kChallengeApiRoot = @"http://challengeapi-7312.onmodulus.net";
 // API routes
 NSString *const kChallengesRoute = @"/challenges";
 NSString *const kChallengeBookmarksRoute = @"/bookmarks";
-NSString *const kChallengeInfoPageRoute = @"/info";
+NSString *const kChallengeInfoPageRoute = @"/about";
 
 
 @implementation ChallengeAPI {
@@ -142,6 +144,7 @@ NSString *const kChallengeInfoPageRoute = @"/info";
     NSURL *url = [NSURL URLWithString:kChallengeApiRoot];
     url = [NSURL URLWithString:kChallengesRoute relativeToURL:url];
     url = [url URLByAppendingPathComponent:challengeID];
+    url = [url URLByAppendingPathComponent:@"page"];
     NSLog(@"DETAIL URL: %@", url.absoluteURL);
     return url;
 }

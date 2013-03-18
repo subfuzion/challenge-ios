@@ -52,12 +52,17 @@
         //[self fetchImage:item.imageURL useOperationQueue:_backgroundOperationQueue];
 
 
-        [self.activityIndicator startAnimating];
+//        [self.activityIndicator startAnimating];
+//
+//        [ChallengeAPI fetchDetailPage:self.challenge.ID execute:^(NSString * page) {
+//            [self.detailWebView loadHTMLString:page baseURL:nil];
+//            [self.activityIndicator stopAnimating];
+//        }];
 
-        [ChallengeAPI fetchDetailPage:self.challenge.ID execute:^(NSString * page) {
-            [self.detailWebView loadHTMLString:page baseURL:nil];
-            [self.activityIndicator stopAnimating];
-        }];
+
+        NSURL *url = [ChallengeAPI urlForDetailPage:item.ID];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.detailWebView loadRequest:request];
     }
 }
 
