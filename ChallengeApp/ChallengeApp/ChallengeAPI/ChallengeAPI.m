@@ -81,8 +81,8 @@ static int _networkOperationCount = 0;
             ? [self parseFeedResponseData:data]
             : [[NSArray alloc] init];
 
+        [ChallengeAPI finishNetworkOperation];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
-            [ChallengeAPI finishNetworkOperation];
             block(challenges);
         }];
     }];
@@ -122,8 +122,9 @@ static int _networkOperationCount = 0;
     [ChallengeAPI startNetworkOperation];
     [NSURLConnection sendAsynchronousRequest:request queue:_fetchBookmarksOperationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         NSArray *challenges = [self parseFeedResponseData:data];
+
+        [ChallengeAPI finishNetworkOperation];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
-            [ChallengeAPI finishNetworkOperation];
             block(challenges);
         }];
     }];
@@ -144,9 +145,10 @@ static int _networkOperationCount = 0;
     [fetchImageOperation addExecutionBlock:^(void) {
         NSURL *url = [[NSURL alloc] initWithString:imageURL];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+
+        [ChallengeAPI finishNetworkOperation];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
             if (!weakOp.isCancelled) {
-                [ChallengeAPI finishNetworkOperation];
                 block(image);
             }
         }];
@@ -182,8 +184,8 @@ static int _networkOperationCount = 0;
         NSString *page = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
 
         [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+        [ChallengeAPI finishNetworkOperation];
             if (!weakOp.isCancelled) {
-                [ChallengeAPI finishNetworkOperation];
                 block(page);
             }
         }];
@@ -204,10 +206,10 @@ static int _networkOperationCount = 0;
     [fetchOp addExecutionBlock:^{
         NSURL *url = [ChallengeAPI urlForDetailPage:challengeID];
         NSString *page = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-        
+
+        [ChallengeAPI finishNetworkOperation];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
             if (!weakOp.isCancelled) {
-                [ChallengeAPI finishNetworkOperation];
                 block(page);
             }
         }];
@@ -219,11 +221,18 @@ static int _networkOperationCount = 0;
 
 - (NSArray *)parseFeedResponseData:(NSData *)responseData {
     NSMutableArray *challenges = [[NSMutableArray alloc] init];
+
+    if (!responseData)
+        return challenges;
+
     NSError *error;
     NSDictionary *json = [NSJSONSerialization
             JSONObjectWithData:responseData
                        options:(NSJSONReadingOptions) kNilOptions
                          error:&error];
+
+    if (error)
+        return challenges;
 
     NSArray *items = [json objectForKey:@"challenges"];
 

@@ -123,6 +123,12 @@
     [self configureView];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (_backgroundOperationQueue)
+        [_backgroundOperationQueue cancelAllOperations];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

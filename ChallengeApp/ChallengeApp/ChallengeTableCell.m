@@ -23,7 +23,6 @@
     NSOperation *_fetchImageOperation;
 }
 
-
 - (void)updateCellData:(Challenge *)challenge useOperationQueue:(NSOperationQueue *)operationQueue {
     if (challenge == nil) return;
 

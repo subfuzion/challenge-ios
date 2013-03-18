@@ -39,7 +39,6 @@
         _challengeAPI = [[ChallengeAPI alloc] init];
     }
 
-
     UINib *tableCell = [UINib nibWithNibName:@"ChallengeTableCell" bundle:nil];
     [self.tableView registerNib:tableCell forCellReuseIdentifier:@"ChallengeTableCell"];
 }
@@ -53,6 +52,12 @@
     //NSLog(@"%@", bookmarks);
     
     [self fetchBookmarks];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (_backgroundOperationQueue)
+        [_backgroundOperationQueue cancelAllOperations];
 }
 
 - (void)didReceiveMemoryWarning {
