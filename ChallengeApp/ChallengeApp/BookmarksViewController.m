@@ -66,7 +66,7 @@
     [_challengeAPI fetchBookmarks:_bookmarks withBlock:^(NSArray *challenges) {
         _challenges = [[NSMutableArray alloc] initWithArray:challenges];
         [self.tableView reloadData];
-        NSLog(@"%@", challenges);
+        // NSLog(@"%@", challenges);
     }];
 }
 
@@ -118,7 +118,7 @@
     
     [self.tableView reloadData];
     
-    //NSLog(@"%@", bookmarks);
+    // NSLog(@"%@", bookmarks);
     
 }
 

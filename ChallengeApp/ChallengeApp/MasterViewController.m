@@ -105,7 +105,7 @@
 
 - (void)fetchChallenges {
     
-        NSLog(@"fetchchallenges got called");
+        // NSLog(@"fetchchallenges got called");
     
         [_challengeAPI fetchChallengesSorted:_challengeSortOrder withBlock:^(NSArray *challenges) {
         _challenges = challenges;
@@ -127,15 +127,15 @@
 - (IBAction)sortSegmentedControlTap:(UISegmentedControl *)sender {
     
     if([sender selectedSegmentIndex] == 0) {
-        NSLog(@"Sort by Newest");
+        // NSLog(@"Sort by Newest");
         _challengeSortOrder = SortByNewest;
     }
     else if ([sender selectedSegmentIndex] == 1){
-        NSLog(@"Sort by Time Left");
+        // NSLog(@"Sort by Time Left");
         _challengeSortOrder = SortByTimeLeft;
     }
     else if ([sender selectedSegmentIndex] == 2){
-        NSLog(@"Sort by Prize");
+        // NSLog(@"Sort by Prize");
         _challengeSortOrder = SortByPrize;
     }
     

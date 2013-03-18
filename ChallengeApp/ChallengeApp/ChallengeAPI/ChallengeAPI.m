@@ -49,14 +49,14 @@ static int _networkOperationCount = 0;
 
 + (NSURL *)challengeUrlForRoute:(NSString *)route {
     NSURL *rootUrl = [NSURL URLWithString:kChallengeApiRoot];
-    NSLog(@"CHALLENGE URL: %@", [NSURL URLWithString:route relativeToURL:rootUrl]);
+    // NSLog(@"CHALLENGE URL: %@", [NSURL URLWithString:route relativeToURL:rootUrl]);
     return [NSURL URLWithString:route relativeToURL:rootUrl];
 }
 
 + (NSURL *)challengeUrlForQueryParameter:(NSString *)route queryParameterKey:(NSString *)key queryParameterValue:(NSString *)value {
     NSURL *rootUrl = [NSURL URLWithString:kChallengeApiRoot];
     NSString *routeWithQuery = [NSString stringWithFormat:@"%@?=%@", key, value];
-    NSLog(@"CHALLENGE URL: %@", routeWithQuery);
+    // NSLog(@"CHALLENGE URL: %@", routeWithQuery);
     return [NSURL URLWithString:routeWithQuery relativeToURL:rootUrl];
 }
 
@@ -167,7 +167,7 @@ static int _networkOperationCount = 0;
     url = [NSURL URLWithString:kChallengesRoute relativeToURL:url];
     url = [url URLByAppendingPathComponent:challengeID];
     url = [url URLByAppendingPathComponent:@"page"];
-    NSLog(@"DETAIL URL: %@", url.absoluteURL);
+    // NSLog(@"DETAIL URL: %@", url.absoluteURL);
     return url;
 }
 
