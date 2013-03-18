@@ -56,6 +56,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     [_challengeAPI cancelFetchChallenges];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 #pragma mark - Table View

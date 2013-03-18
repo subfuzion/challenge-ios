@@ -57,10 +57,12 @@
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
+    [ChallengeAPI startNetworkOperation];
     [self.activityIndicator startAnimating];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [ChallengeAPI finishNetworkOperation];
     [self.activityIndicator stopAnimating];
 }
 

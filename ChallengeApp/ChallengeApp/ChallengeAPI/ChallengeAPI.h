@@ -48,4 +48,8 @@ typedef NS_ENUM(NSUInteger, ChallengeSort) {
 
 + (NSOperation *)fetchDetailPage:(NSString *)challengeID execute:(void (^)(NSString *))block;
 
+
++ (void)startNetworkOperation;
++ (void)finishNetworkOperation;
+
 @end

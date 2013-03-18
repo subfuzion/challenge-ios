@@ -23,11 +23,28 @@ NSString *const kChallengesRoute = @"/challenges";
 NSString *const kChallengeBookmarksRoute = @"/bookmarks";
 NSString *const kChallengeInfoPageRoute = @"/about";
 
+static int _networkOperationCount = 0;
 
 @implementation ChallengeAPI {
     NSOperationQueue *_fetchChallengesOperationQueue;
     NSOperationQueue *_fetchBookmarksOperationQueue;
+}
 
++ (void)startNetworkOperation {
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        _networkOperationCount++;
+    }];
+}
+
++ (void)finishNetworkOperation {
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+        _networkOperationCount--;
+        if (_networkOperationCount <= 0) {
+            _networkOperationCount = 0;
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        }
+    }];
 }
 
 + (NSURL *)challengeUrlForRoute:(NSString *)route {
@@ -53,7 +70,8 @@ NSString *const kChallengeInfoPageRoute = @"/about";
         _fetchChallengesOperationQueue = [[NSOperationQueue alloc] init];
         _fetchChallengesOperationQueue.name = @"Challenge Feed Operation Queue";
     }
-    
+
+    [ChallengeAPI startNetworkOperation];
     [_fetchChallengesOperationQueue addOperationWithBlock:^(void) {
         NSString *route = [NSString stringWithFormat:@"%@?sort=%d", kChallengesRoute, sortBy];
         NSURL *url = [ChallengeAPI challengeUrlForRoute:route];
@@ -64,6 +82,7 @@ NSString *const kChallengeInfoPageRoute = @"/about";
             : [[NSArray alloc] init];
 
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+            [ChallengeAPI finishNetworkOperation];
             block(challenges);
         }];
     }];
@@ -100,9 +119,11 @@ NSString *const kChallengeInfoPageRoute = @"/about";
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:bodyData];
 
+    [ChallengeAPI startNetworkOperation];
     [NSURLConnection sendAsynchronousRequest:request queue:_fetchBookmarksOperationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         NSArray *challenges = [self parseFeedResponseData:data];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+            [ChallengeAPI finishNetworkOperation];
             block(challenges);
         }];
     }];
@@ -125,6 +146,7 @@ NSString *const kChallengeInfoPageRoute = @"/about";
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
             if (!weakOp.isCancelled) {
+                [ChallengeAPI finishNetworkOperation];
                 block(image);
             }
         }];
@@ -154,12 +176,14 @@ NSString *const kChallengeInfoPageRoute = @"/about";
     NSBlockOperation *fetchOp = [[NSBlockOperation alloc] init];
     __weak NSBlockOperation *weakOp = fetchOp;
 
+    [ChallengeAPI startNetworkOperation];
     [fetchOp addExecutionBlock:^{
         NSURL *url = [ChallengeAPI urlForInfoPage];
         NSString *page = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
 
         [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
             if (!weakOp.isCancelled) {
+                [ChallengeAPI finishNetworkOperation];
                 block(page);
             }
         }];
@@ -175,13 +199,15 @@ NSString *const kChallengeInfoPageRoute = @"/about";
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     NSBlockOperation *fetchOp = [[NSBlockOperation alloc] init];
     __weak NSBlockOperation *weakOp = fetchOp;
-    
+
+    [ChallengeAPI startNetworkOperation];
     [fetchOp addExecutionBlock:^{
         NSURL *url = [ChallengeAPI urlForDetailPage:challengeID];
         NSString *page = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
             if (!weakOp.isCancelled) {
+                [ChallengeAPI finishNetworkOperation];
                 block(page);
             }
         }];
