@@ -11,6 +11,9 @@
 		36698811D3067DFD65B64B15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698E71E4B55CD5A340048F /* AppDelegate.m */; };
 		366988EB8EEC300EDD1A4586 /* ChallengeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 366982559C131F514BFA0431 /* ChallengeAPI.m */; };
 		36698CDDB4875924E4E73F0F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 36698560C47BB86BE5F56F93 /* Challenge.m */; };
+		A024C5B916F6DF4900545E40 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A024C5B816F6DF4900545E40 /* Default@2x.png */; };
+		A024C5BB16F6DF4D00545E40 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A024C5BA16F6DF4D00545E40 /* Default.png */; };
+		A024C5BD16F6DF5800545E40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A024C5BC16F6DF5800545E40 /* Default-568h@2x.png */; };
 		A03460E116F50E2B0021D488 /* detailWebView.html in Resources */ = {isa = PBXBuildFile; fileRef = A03460E016F50E2B0021D488 /* detailWebView.html */; };
 		A03460E316F50E310021D488 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = A03460E216F50E310021D488 /* styles.css */; };
 		A03460E616F519C70021D488 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A03460E416F519C70021D488 /* greyButton.png */; };
@@ -50,6 +53,9 @@
 		36698CCBC5997693B1333012 /* ChallengeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTableCell.m; sourceTree = "<group>"; };
 		36698E71E4B55CD5A340048F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		36698EC05425AE23D9A79233 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
+		A024C5B816F6DF4900545E40 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A024C5BA16F6DF4D00545E40 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A024C5BC16F6DF5800545E40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A03460E016F50E2B0021D488 /* detailWebView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = detailWebView.html; sourceTree = "<group>"; };
 		A03460E216F50E310021D488 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
 		A03460E416F519C70021D488 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
@@ -143,6 +149,9 @@
 		EA41B33B16ED386F00CD6520 = {
 			isa = PBXGroup;
 			children = (
+				A024C5BC16F6DF5800545E40 /* Default-568h@2x.png */,
+				A024C5BA16F6DF4D00545E40 /* Default.png */,
+				A024C5B816F6DF4900545E40 /* Default@2x.png */,
 				A04EADF816F6C405000E6916 /* Icon@2x.png */,
 				A03460F416F651DF0021D488 /* Icon.png */,
 				EA41B34D16ED386F00CD6520 /* ChallengeApp */,
@@ -277,6 +286,9 @@
 				A03460E716F519C70021D488 /* greyButton@2x.png in Resources */,
 				A03460F516F651DF0021D488 /* Icon.png in Resources */,
 				A04EADF916F6C405000E6916 /* Icon@2x.png in Resources */,
+				A024C5B916F6DF4900545E40 /* Default@2x.png in Resources */,
+				A024C5BB16F6DF4D00545E40 /* Default.png in Resources */,
+				A024C5BD16F6DF5800545E40 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,10 +392,12 @@
 		EA41B36B16ED386F00CD6520 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Subfuzion, Inc.";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChallengeApp/ChallengeApp-Prefix.pch";
 				INFOPLIST_FILE = "ChallengeApp/ChallengeApp-Info.plist";
 				PRODUCT_NAME = Challenge.gov;
+				PROVISIONING_PROFILE = "77E82707-8159-4064-A392-898D9EB092CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -391,10 +405,12 @@
 		EA41B36C16ED386F00CD6520 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Subfuzion, Inc.";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChallengeApp/ChallengeApp-Prefix.pch";
 				INFOPLIST_FILE = "ChallengeApp/ChallengeApp-Info.plist";
 				PRODUCT_NAME = Challenge.gov;
+				PROVISIONING_PROFILE = "C855C2F2-9FEC-4BAE-833E-7DC2B83E4654";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
