@@ -95,6 +95,14 @@ static int _networkOperationCount = 0;
 }
 
 - (void)fetchBookmarks:(NSArray *)ids withBlock:(void (^)(NSArray *))block {
+    if (!block) return;
+    
+    if (!ids || ids.count == 0) {
+        NSArray *challenges = [[NSArray alloc] init];
+        block(challenges);
+        return;
+    }
+    
     if (!_fetchBookmarksOperationQueue) {
         _fetchBookmarksOperationQueue = [[NSOperationQueue alloc] init];
         _fetchBookmarksOperationQueue.name = @"Challenge Bookmarks Operation Queue";
