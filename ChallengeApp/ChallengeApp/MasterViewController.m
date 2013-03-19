@@ -16,6 +16,8 @@
 
 - (IBAction)sortSegmentedControlTap:(UISegmentedControl *)sender;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *bookmarksButton;
+
 @end
 
 @implementation MasterViewController {
@@ -51,6 +53,11 @@
              forControlEvents:UIControlEventValueChanged];
     
     self.refreshControl = refreshControl;
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    NSArray *bookmarks = [[NSUserDefaults standardUserDefaults] objectForKey:@"bookmarkArray"];
+    self.bookmarksButton.enabled = (bookmarks && bookmarks.count > 0);
 }
 
 - (void)didReceiveMemoryWarning {

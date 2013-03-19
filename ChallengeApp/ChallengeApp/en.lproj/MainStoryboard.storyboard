@@ -84,6 +84,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookmarksButton" destination="mbe-kP-m9t" id="t0f-BT-Vwx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -257,45 +260,6 @@
     <resources>
         <image name="info.png" width="24" height="24"/>
     </resources>
-    <classes>
-        <class className="BookmarksViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookmarksViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doneTap:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="GoToURLButton:" candidateClass="UIButton"/>
-                <relationship kind="action" name="bookMarkedAction:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onBookmarkAction:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onSendAction:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="addFavButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bookMarkedButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="detailWebView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="websiteButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="InfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doneClick:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="infoWebView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sortSegmentedControlTap:" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
