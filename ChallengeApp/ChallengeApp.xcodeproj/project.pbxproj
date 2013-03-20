@@ -384,6 +384,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChallengeApp/ChallengeApp-Prefix.pch";
 				INFOPLIST_FILE = "ChallengeApp/ChallengeApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = Challenge.gov;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -397,6 +398,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChallengeApp/ChallengeApp-Prefix.pch";
 				INFOPLIST_FILE = "ChallengeApp/ChallengeApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = Challenge.gov;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
