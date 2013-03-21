@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -103,7 +103,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kh1-N5-07e">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="9uZ-1T-udI"/>
-                                    <constraint firstAttribute="height" constant="33" id="hDI-3C-dx0"/>
+                                    <constraint firstAttribute="height" constant="33" id="GyA-Aw-7gB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Go to Website">
@@ -120,7 +120,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltr-N5-va5" userLabel="Button - Add Bookmark">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="bv0-LO-JIX"/>
-                                    <constraint firstAttribute="height" constant="31" id="pKp-b4-wBl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Bookmark">
@@ -157,15 +156,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="top" type="default" id="52p-TB-nXP"/>
                             <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="22" secondAttribute="top" constant="71" type="user" id="7QE-Vo-aM7"/>
                             <constraint firstItem="ltr-N5-va5" firstAttribute="baseline" secondItem="Kh1-N5-07e" secondAttribute="baseline" type="user" id="8KW-z1-TDi"/>
                             <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="22" secondAttribute="top" constant="13" id="Eyx-jd-yex"/>
-                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="top" type="default" id="Flh-Zh-5Ds"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" type="default" id="Nsw-No-raB"/>
                             <constraint firstItem="fna-0v-0i3" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="Sdu-Wv-A23"/>
+                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="top" secondItem="ltr-N5-va5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="V9C-As-1Gr"/>
                             <constraint firstItem="Kh1-N5-07e" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="11" id="VFn-gC-BSl"/>
-                            <constraint firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" constant="16" id="ZB8-tA-NPP"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="baseline" secondItem="ltr-N5-va5" secondAttribute="baseline" type="user" id="cgX-mV-lfA"/>
+                            <constraint firstAttribute="trailing" secondItem="yYH-SK-Q1i" secondAttribute="trailing" constant="16" id="cxv-yU-AyI"/>
                             <constraint firstItem="Ogb-GO-vaZ" firstAttribute="centerX" secondItem="fna-0v-0i3" secondAttribute="centerX" type="default" id="di1-Gl-zz6"/>
                             <constraint firstItem="Ogb-GO-vaZ" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oKF-O8-qev"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="ltr-N5-va5" secondAttribute="top" type="default" id="psy-Sv-jcl"/>
@@ -216,30 +216,73 @@
                             </navigationBar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xf-o5-S5l">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="451" id="RAM-2I-MXo"/>
+                                </constraints>
                             </webView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Wd0-3p-lNP"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9X-Tb-yJa">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="ZR6-vV-cGA"/>
+                                    <constraint firstAttribute="width" constant="140" id="qdK-jC-alV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Share this App">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareClick:" destination="QQJ-Fa-hO3" eventType="touchUpInside" id="9PU-mj-zhD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LO-8B-I4E">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="zVN-hs-kMH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Rate this App">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rateClick:" destination="QQJ-Fa-hO3" eventType="touchUpInside" id="Ts0-WO-gJH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uM8-Ma-Nwb" firstAttribute="trailing" secondItem="h7o-XG-Acq" secondAttribute="trailing" type="default" id="50J-E3-DzG"/>
+                            <constraint firstItem="w9X-Tb-yJa" firstAttribute="top" secondItem="7LO-8B-I4E" secondAttribute="top" type="default" id="8Nc-s5-VLO"/>
+                            <constraint firstItem="6xf-o5-S5l" firstAttribute="bottom" secondItem="h7o-XG-Acq" secondAttribute="bottom" type="default" id="EEO-jU-Uqc"/>
                             <constraint firstItem="uM8-Ma-Nwb" firstAttribute="top" secondItem="h7o-XG-Acq" secondAttribute="top" type="default" id="Fbs-Lw-BJW"/>
-                            <constraint firstItem="6xf-o5-S5l" firstAttribute="leading" secondItem="h7o-XG-Acq" secondAttribute="leading" type="default" id="Huo-E5-BDk"/>
+                            <constraint firstItem="w9X-Tb-yJa" firstAttribute="baseline" secondItem="7LO-8B-I4E" secondAttribute="baseline" type="default" id="M8T-zR-HxL"/>
+                            <constraint firstItem="6xf-o5-S5l" firstAttribute="leading" secondItem="h7o-XG-Acq" secondAttribute="leading" type="default" id="MuF-p1-P0a"/>
                             <constraint firstItem="uM8-Ma-Nwb" firstAttribute="leading" secondItem="h7o-XG-Acq" secondAttribute="leading" type="default" id="Vo9-iM-ljF"/>
+                            <constraint firstAttribute="trailing" secondItem="7LO-8B-I4E" secondAttribute="trailing" constant="15" id="VyM-hQ-6NS"/>
+                            <constraint firstItem="w9X-Tb-yJa" firstAttribute="bottom" secondItem="7LO-8B-I4E" secondAttribute="bottom" type="default" id="bk7-QR-ZnA"/>
                             <constraint firstItem="Wd0-3p-lNP" firstAttribute="centerY" secondItem="h7o-XG-Acq" secondAttribute="centerY" type="default" id="cq7-hP-EPZ"/>
+                            <constraint firstItem="w9X-Tb-yJa" firstAttribute="leading" secondItem="h7o-XG-Acq" secondAttribute="leading" constant="15" id="gvi-6v-DZ0"/>
                             <constraint firstItem="Wd0-3p-lNP" firstAttribute="centerX" secondItem="uM8-Ma-Nwb" secondAttribute="centerX" type="default" id="haJ-iu-0sJ"/>
-                            <constraint firstItem="6xf-o5-S5l" firstAttribute="bottom" secondItem="h7o-XG-Acq" secondAttribute="bottom" type="default" id="p9z-vY-wJ0"/>
-                            <constraint firstItem="6xf-o5-S5l" firstAttribute="top" secondItem="uM8-Ma-Nwb" secondAttribute="bottom" type="default" id="qcV-Qs-yZ1"/>
-                            <constraint firstItem="6xf-o5-S5l" firstAttribute="trailing" secondItem="h7o-XG-Acq" secondAttribute="trailing" type="default" id="z7s-ix-abA"/>
+                            <constraint firstItem="6xf-o5-S5l" firstAttribute="trailing" secondItem="h7o-XG-Acq" secondAttribute="trailing" type="default" id="pRF-La-d5h"/>
+                            <constraint firstItem="w9X-Tb-yJa" firstAttribute="top" secondItem="h7o-XG-Acq" secondAttribute="top" constant="54" id="xuh-34-g50"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Wd0-3p-lNP" id="Y54-92-WnW"/>
                         <outlet property="infoWebView" destination="6xf-o5-S5l" id="JM5-vI-EKq"/>
+                        <outlet property="rateAppButton" destination="7LO-8B-I4E" id="QZH-ek-LjS"/>
+                        <outlet property="shareAppButton" destination="w9X-Tb-yJa" id="dnZ-NT-s0E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z50-mN-LVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1246" y="277"/>
+            <point key="canvasLocation" x="-1021" y="267"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fXn-lQ-U8s">

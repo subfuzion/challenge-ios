@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *const kAppId;
+
+
 @interface InfoViewController : UIViewController
 
 @end
