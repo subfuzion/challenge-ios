@@ -102,8 +102,8 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kh1-N5-07e">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="9uZ-1T-udI"/>
-                                    <constraint firstAttribute="height" constant="33" id="GyA-Aw-7gB"/>
+                                    <constraint firstAttribute="width" constant="51" id="9Oh-4m-61l"/>
+                                    <constraint firstAttribute="height" constant="49" id="RWe-3b-5Th"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Go to Website">
@@ -118,9 +118,6 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltr-N5-va5" userLabel="Button - Add Bookmark">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="bv0-LO-JIX"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Bookmark">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -134,6 +131,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYH-SK-Q1i" userLabel="Button - Bookmarked">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="fPH-WQ-k1P"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Bookmarked">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,30 +149,47 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fna-0v-0i3">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="326" id="TSf-Sb-3gF"/>
                                     <constraint firstAttribute="height" constant="433" type="user" id="czH-9S-K2r"/>
                                 </constraints>
                             </webView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ogb-GO-vaZ"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ynn-dn-JRW">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="+Reminder">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addReminder:" destination="21" eventType="touchUpInside" id="sTE-4d-3eT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="top" type="default" id="52p-TB-nXP"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="baseline" secondItem="Ynn-dn-JRW" secondAttribute="baseline" type="default" id="0nR-8G-Xcg"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="centerY" secondItem="yYH-SK-Q1i" secondAttribute="centerY" type="default" id="4Sy-Ws-HBM"/>
                             <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="22" secondAttribute="top" constant="71" type="user" id="7QE-Vo-aM7"/>
                             <constraint firstItem="ltr-N5-va5" firstAttribute="baseline" secondItem="Kh1-N5-07e" secondAttribute="baseline" type="user" id="8KW-z1-TDi"/>
-                            <constraint firstItem="Kh1-N5-07e" firstAttribute="top" secondItem="22" secondAttribute="top" constant="13" id="Eyx-jd-yex"/>
-                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="trailing" secondItem="ltr-N5-va5" secondAttribute="trailing" type="default" id="Nsw-No-raB"/>
+                            <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Dt4-18-7z0"/>
+                            <constraint firstAttribute="trailing" secondItem="Ynn-dn-JRW" secondAttribute="trailing" constant="5" id="G9J-aK-z1J"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="top" type="default" id="Kye-Mh-8UD"/>
                             <constraint firstItem="fna-0v-0i3" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="Sdu-Wv-A23"/>
-                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="top" secondItem="ltr-N5-va5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="V9C-As-1Gr"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="bottom" secondItem="Ynn-dn-JRW" secondAttribute="bottom" type="default" id="T9F-KW-ll6"/>
                             <constraint firstItem="Kh1-N5-07e" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="11" id="VFn-gC-BSl"/>
+                            <constraint firstItem="fna-0v-0i3" firstAttribute="top" secondItem="yYH-SK-Q1i" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="W2W-eH-Xii"/>
+                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="66" id="YHA-gK-Dez"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="yYH-SK-Q1i" secondAttribute="top" type="default" id="aOo-lS-MMQ"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="baseline" secondItem="ltr-N5-va5" secondAttribute="baseline" type="user" id="cgX-mV-lfA"/>
-                            <constraint firstAttribute="trailing" secondItem="yYH-SK-Q1i" secondAttribute="trailing" constant="16" id="cxv-yU-AyI"/>
                             <constraint firstItem="Ogb-GO-vaZ" firstAttribute="centerX" secondItem="fna-0v-0i3" secondAttribute="centerX" type="default" id="di1-Gl-zz6"/>
-                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="top" secondItem="Kh1-N5-07e" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oKF-O8-qev"/>
-                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="top" secondItem="ltr-N5-va5" secondAttribute="top" type="default" id="psy-Sv-jcl"/>
-                            <constraint firstItem="yYH-SK-Q1i" firstAttribute="leading" secondItem="ltr-N5-va5" secondAttribute="leading" type="default" id="qKS-sb-JPZ"/>
-                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="147" id="qNS-hO-b1N"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="leading" secondItem="yYH-SK-Q1i" secondAttribute="leading" type="default" id="gYN-87-H9q"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="trailing" secondItem="yYH-SK-Q1i" secondAttribute="trailing" type="default" id="ju1-Fc-fxQ"/>
+                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="top" secondItem="22" secondAttribute="top" constant="54" id="kcM-5F-bpJ"/>
+                            <constraint firstItem="ltr-N5-va5" firstAttribute="top" secondItem="Ynn-dn-JRW" secondAttribute="top" type="default" id="pds-aQ-eb8"/>
                             <constraint firstItem="yYH-SK-Q1i" firstAttribute="baseline" secondItem="Kh1-N5-07e" secondAttribute="baseline" type="user" id="vsp-nT-C2a"/>
-                            <constraint firstItem="Ogb-GO-vaZ" firstAttribute="top" secondItem="yYH-SK-Q1i" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wA0-ZZ-fBm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">

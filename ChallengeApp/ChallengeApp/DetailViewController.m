@@ -8,19 +8,25 @@
 
 #import "DetailViewController.h"
 #import "ChallengeAPI.h"
+#import "EventKitController.h"
+
 
 @interface DetailViewController () <UIWebViewDelegate>
+
+
 
 - (IBAction)onSendAction:(id)sender;
 - (IBAction)onBookmarkAction:(UIButton *)sender;
 - (IBAction)GoToURLButton:(UIButton *)sender;
 - (IBAction)bookMarkedAction:(UIButton *)sender;
+- (IBAction)addReminder:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *websiteButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFavButton;
 @property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
 @property (weak, nonatomic) IBOutlet UIButton *bookMarkedButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 
 - (void)configureView;
 
@@ -31,18 +37,32 @@
     NSOperation *_fetchImageOperation;
     ChallengeAPI *_challengeAPI;
     NSMutableArray *_bookmarksArray;
+    
     NSUserDefaults *defaults;
     NSString *oid;
+    EventKitController *_eventKitController;
     
 }
 
 #pragma mark - Managing the detail item
 
 
+- (id) initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super initWithCoder:aDecoder];
+    
+    if (self) {
+            _eventKitController = [[EventKitController alloc] init];
+    }
+    
+    return self;
+}
+
 
 - (void)configureView {
     // Update the user interface for the challenge, which is passed by MasterViewController
     Challenge *item = self.challenge;
+    
     if (item) {
         //self.titleLabel.text = item.title;
         //self.detailDescriptionLabel.text = item.summary;
@@ -117,6 +137,7 @@
 //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
 //    [_detailWebView loadRequest:request];
 
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -201,6 +222,27 @@
     _addFavButton.hidden = NO;
     
 }
+
+- (IBAction)addReminder:(UIButton *)sender {
+    
+    
+    NSString *enddate = self.challenge.submissionPeriodEndDate;
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    
+    [dateFormat setDateFormat:@"MMM dd, yyyy"];
+    
+    NSDate *submissionduedate = [dateFormat dateFromString:enddate];
+
+    NSString *url = self.challenge.url;
+    
+
+     [_eventKitController addToCalenderWithTitle: self.challenge.title
+                                          dueTime: submissionduedate
+                                            notes: url];
+
+}
+
 
 
 - (void)cancelUpdate {
