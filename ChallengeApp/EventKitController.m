@@ -7,7 +7,7 @@
 //
 
 #import "EventKitController.h"
-#define kRemindersCalendarTitle @"Challenge.gov reminders"
+#define kRemindersCalendarTitle @"Challenges"
 
 
 
@@ -49,9 +49,11 @@
     reminder.title = title;
     
     //3. Set the calendar
-    reminder.calendar = [self calendarForReminders];
+    //reminder.calendar = [self calendarForReminders];
     
-
+    //save to default reminders list
+    reminder.calendar = [self.eventStore defaultCalendarForNewReminders];
+    
         
     //reminder.notes
     reminder.notes = notes;
@@ -111,8 +113,13 @@
     
     NSLog(@"checking calender called");
     
+    //uncomment this if you want to save to a special reminders list, otherwise save to default reminders list
+    
+   // NSPredicate *predicate = [self.eventStore
+     //                         predicateForRemindersInCalendars: @[[self calendarForReminders]]];
+    
     NSPredicate *predicate = [self.eventStore
-                              predicateForRemindersInCalendars: @[[self calendarForReminders]]];
+                              predicateForRemindersInCalendars: @[[self.eventStore defaultCalendarForNewReminders]]];
     
     
     [self.eventStore fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders){
@@ -131,11 +138,12 @@
                             dueTime: dueDate
                               notes: notes];
             
-            NSLog(@"Added");
             
         }
         else {
             NSLog(@"Already exists");
+            
+    
         }
     }];
 

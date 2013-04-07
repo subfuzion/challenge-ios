@@ -240,7 +240,16 @@
      [_eventKitController addToCalenderWithTitle: self.challenge.title
                                           dueTime: submissionduedate
                                             notes: url];
-
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"This event has been added to your Reminders app"
+                                                      message:@"Please go to your Reminders app - Default Reminder List, to manage your alerts."
+                                                     delegate:self
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    [message show];
+    
+    
+    
 }
 
 
